@@ -10,19 +10,9 @@ export default httpClient => {
     const resInterceptor = httpClient.interceptors.response.use( res => res, err => {
         setError(err);
     } );
-    /*const resInterceptor = httpClient.interceptors.response.use((res) => {
-        if(res.status === 200) {
-            setError(null)
-        }
-    },
-    (res) => {
-        setError(res);
-    });*/
-
+    
     useEffect(() => {
         return () => {
-            alert(reqInterceptor);
-            alert(resInterceptor);
             httpClient.interceptors.request.eject( reqInterceptor );
             httpClient.interceptors.response.eject( resInterceptor );
         }
