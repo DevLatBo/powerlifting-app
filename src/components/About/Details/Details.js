@@ -69,6 +69,21 @@ const DetailItem = styled.div`
 `;
 
 const Details = (props) => {
+    let info = null;
+    info = props.movs.map((mov) => {
+      return (
+        <Grid item md={4} key = {mov.title}>
+            <DetailItem>
+                <img src={mov.image} alt=""/>
+                <DownContent>
+                    <h4>{mov.title}</h4>
+                    <span>{mov.body}</span>
+                    <p>{mov.description}</p>
+                </DownContent>
+            </DetailItem>
+        </Grid> 
+      );             
+    })
     return (
         <DetailsContainer>
             <Grid container>
@@ -76,40 +91,7 @@ const Details = (props) => {
                     <h2>Movimientos del <em>Powerlifting</em></h2>
                     <span>Existen 3 movimientos dentro de esta disciplina</span>
                 </SectionHeading>
-                <Grid item md={4}>
-                    <DetailItem>
-                        <img src={SquatImage} alt=""/>
-                        <DownContent>
-                            <h4>Sentadilla</h4>
-                            <span>Piernas</span>
-                            <p>Es un ejercicio, por lo general, dominante de rodilla. 
-                                Esto quiere decir que la ejecución de la misma depende más de una flexión de rodilla que de una flexión de cadera</p>
-                        </DownContent>
-                    </DetailItem>
-                </Grid>
-                <Grid item md={4}>
-                    <DetailItem>
-                        <img src={DeadliftImage} alt=""/>
-                        <DownContent>
-                            <h4>Peso Muerto</h4>
-                            <span>Espalda/Lumbar</span>
-                            <p>Es un gran ejercicio para trabajar las piernas y glúteos al completo además de otros grupos musculares como el abdomen, 
-                                espalda baja e incluso brazos. Se levanta la barra desde el suelo hasta la cintura.</p>
-                        </DownContent>
-                    </DetailItem>
-                </Grid>
-                <Grid item md={4}>
-                    <DetailItem>
-                        <img src={BenchPressImage} alt=""/>
-                        <DownContent>
-                            <h4>Bench Press</h4>
-                            <span>Pectoral</span>
-                            <p>Es un ejercicio compuesto que entrena los pectorales (músculos del pecho), los tríceps y los deltoides frontales (hombros). 
-                            Es un gran potenciador de la masa muscular de la parte superior del cuerpo, e incluso un importante ejercicio para las mujeres 
-                            que quieran entrenar su fuerza de empuje.</p>
-                        </DownContent>
-                    </DetailItem>
-                </Grid>
+                {info}
             </Grid>
         </DetailsContainer>
     );

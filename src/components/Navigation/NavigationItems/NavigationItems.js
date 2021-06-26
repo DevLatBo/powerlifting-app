@@ -1,30 +1,27 @@
 import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
+import styled from 'styled-components';
 import { useTheme, useMediaQuery } from '@material-ui/core';
 
 import Aux from '../../../hoc/Aux/Aux';
 import NavigationItem from './NavigationItem/NavigationItem';
 
-const useStyles = makeStyles({
-    NavigationItems: {
-        listStyleType: 'none',
-        margin: 0,
-        padding: 0,
-        overflow: 'hidden',
-    }
-});
+const NavItems = styled.ul`
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+`;
 const NavigationItems = (props) => {
-    const classes = useStyles();
     const theme = useTheme();
     const showLinks = useMediaQuery(theme.breakpoints.up('sm'));
     
     let nItems = null;
     if(showLinks){
         nItems = (
-            <ul className={classes.NavigationItems}>
+            <NavItems>
                 <NavigationItem exact link="/">Home</NavigationItem>
                 <NavigationItem link="/about">Acerca de</NavigationItem>
-            </ul>
+            </NavItems>
         );
     }
     return (

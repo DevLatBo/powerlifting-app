@@ -1,12 +1,13 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
+import styled from 'styled-components';
 import {NavLink} from 'react-router-dom';
 
+const NavItem = styled.li`
+    margin-left: 20px;
+    float: left;
+`;
 const useStyles = makeStyles({
-    NavigationItem: {
-        marginLeft: '20px',
-        float: 'left'
-    },
     Item: {
         fontSize: '17px',
         display: 'block',
@@ -19,14 +20,14 @@ const useStyles = makeStyles({
 const NavigationItem = (props) => {
     const classes = useStyles();
     return (
-        <li className={classes.NavigationItem}>
+        <NavItem>
             <NavLink 
                 className={classes.Item}
                 to = {props.link}
                 exact = {props.exact}>
                     {props.children}
             </NavLink>
-        </li>
+        </NavItem>
     )
 }
 
