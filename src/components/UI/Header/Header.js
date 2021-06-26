@@ -1,46 +1,55 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import styled from 'styled-components';
 import Grid from '@material-ui/core/Grid';
 
 import pageHeadingImage from '../../../assets/images/page-heading-background.jpg';
 
-const useStyles = makeStyles({
-    Title: {
-        textAlign: 'center',
-        backgroundImage: `url(${pageHeadingImage})`,
-        backgroundPosition: 'center center',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-        padding: '230px 0px 150px 0px',
-        color: '#FFF',
-        margin: '-24px',
-        '& h1': {
-            textTransform: 'capitalize',
-            fontSize: '50px',
-            fontWeight: '700',
-            letterSpacing: '2px',
-            marginBottom: '18px'
-        },
-        '& span': {
-            fontSize: '25px',
-            textTransform: 'uppercase',
-            letterSpacing: '1px',
-            color: '#FFF',
-            display: 'block'
+
+const Title = styled.div`
+    text-align: center;
+    background-image: url(${pageHeadingImage});
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 330px 0px 150px 0px;
+    color: #FFF;
+    margin: -24px;
+
+    & h1 {
+        text-transform: capitalize;
+        font-size: 50px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin-bottom: 18px;
+    }
+
+    & span {
+        font-size: 25px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #FFF;
+        display: block;
+    }
+
+    @media (max-width: 767px) {
+        & h1 { 
+            font-size: 30px;
+        }
+        & span {
+            font-size: 15px;
         }
     }
-})
+`;
 const Header = (props) => {
-    const classes = useStyles();
     return (
-        <div className={classes.Title}>
+        <Title>
             <Grid container>
                 <Grid item xs={12}>
                     <h1>POWERLIFTING APP</h1>
                     <span>Levantamiento de potencia</span>
                 </Grid>
             </Grid>
-        </div>
+        </Title>
     );
 }
 
