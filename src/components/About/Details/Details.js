@@ -2,10 +2,6 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import styled from 'styled-components';
 
-import SquatImage from '../../../assets/images/Squat.jpg';
-import BenchPressImage from '../../../assets/images/BenchPress.jpeg';
-import DeadliftImage from '../../../assets/images/Deadlift.jpg';
-
 const DetailsContainer = styled.div`
     background-color: #F7F7F7;
     margin-top: 140px;
@@ -74,7 +70,7 @@ const Details = (props) => {
       return (
         <Grid item md={4} key = {mov.title}>
             <DetailItem>
-                <img src={mov.image} alt=""/>
+                <img src={`assets/images/${mov.image}`} alt=""/>
                 <DownContent>
                     <h4>{mov.title}</h4>
                     <span>{mov.body}</span>
