@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {makeStyles} from '@material-ui/core/styles';
+import styled from 'styled-components';
 import {connect} from 'react-redux';
 
 import Button from '../../components/UI/Button/Button';
@@ -9,22 +9,19 @@ import {updateObject, checkValidity} from '../../shared/utility';
 import * as actions from '../../store/actions/index';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 
-const useStyles = makeStyles({
-    WeightData: {
-        margin: "20px auto",
-        width: "60%",
-        textAlign: "center",
-        boxShadow: "0 2px 3px #CCC",
-        border: "1px solid #EEE",
-        padding: "10px",
-        boxSizing: "border-box",
-        '& h4': {
-            fontSize: '40px'
-        }
+const FormWeight = styled.div`
+    margin: 20px auto;
+    width: 60%;
+    text-align: center;
+    box-shadow: 0 2px 3px #CCC;
+    border: 1px solid #EEE;
+    padding: 10px;
+    box-sizing: border-box;
+    & h4 {
+        font-size: 40px;
     }
-});
+`;
 const WeightData = (props) => {
-    const classes = useStyles();
     const [weightForm, setWeightForm] = useState({
         weight: {
             elementType: 'input',
@@ -104,10 +101,10 @@ const WeightData = (props) => {
         </form>
     );
     return (
-        <div className={classes.WeightData}>
+        <FormWeight>
             <h4>Peso a Levantar</h4>
             {form}
-        </div>
+        </FormWeight>
     );
 }
 const mapDispatchToProps = dispatch => {

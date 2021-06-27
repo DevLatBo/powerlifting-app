@@ -68,7 +68,7 @@ const Details = (props) => {
     let info = null;
     info = props.movs.map((mov) => {
       return (
-        <Grid item md={4} key = {mov.title}>
+        <Grid item md={4} key = {mov.id}>
             <DetailItem>
                 <img src={`assets/images/${mov.image}`} alt=""/>
                 <DownContent>
