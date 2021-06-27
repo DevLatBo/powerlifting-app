@@ -2,12 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import Grid from '@material-ui/core/Grid';
 
-import pageHeadingImage from '../../../assets/images/page-heading-background.jpg';
-
-
 const Title = styled.div`
     text-align: center;
-    background-image: url(${pageHeadingImage});
+    background-image: url(${props => props.image});
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -42,7 +39,7 @@ const Title = styled.div`
 `;
 const Header = (props) => {
     return (
-        <Title>
+        <Title image = {`assets/images/page-heading-background.jpg`}>
             <Grid container>
                 <Grid item xs={12}>
                     <h1>POWERLIFTING APP</h1>
