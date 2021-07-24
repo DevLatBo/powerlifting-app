@@ -2,6 +2,6 @@ version: "3"
 
 services: 
     powerlifting:
-        image: powerlifting:2.0
+        image: 05k4r1n/powerlifting-react:latest
         ports: 
             - "80:80"
