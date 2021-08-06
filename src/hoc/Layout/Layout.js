@@ -5,7 +5,6 @@ import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
 import CToolbar from '../../components/Navigation/CToolbar/CToolbar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
-const drawerWidth = 200;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    marginLeft: -drawerWidth,
   },
   contentShift: {
     transition: theme.transitions.create('margin', {
