@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import ReceiptIcon from '@material-ui/icons/Receipt';
 import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew';
+import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -30,6 +31,10 @@ const SideDrawer = (props) => {
             <div className={classes.list}>
                 <Divider />
                 <List>
+                    <ListItem button component={Link} to="/about">
+                        <ListItemIcon><FitnessCenterIcon className={classes.drawerIcon}/></ListItemIcon>
+                        <ListItemText primary="Acerca De" />
+                    </ListItem>
                     <ListItem button component={Link} to="/history">
                         <ListItemIcon><ReceiptIcon className={classes.drawerIcon}/></ListItemIcon>
                         <ListItemText primary="Historial" />
