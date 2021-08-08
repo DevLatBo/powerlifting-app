@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 
+import Aux from '../../hoc/Aux/Aux';
 import Header from '../UI/Header/Header';
 import Information from './Information/Information';
 import Details from './Details/Details';
@@ -30,11 +31,11 @@ const INFO_MOVS = [
 const About = (props) => {
   const [movements, setMovements] = useState(INFO_MOVS);
   return(
-      <div>
+      <Aux>
         <Header/>
         <Information/>
         <Details movs = {movements}/>
-      </div>
+      </Aux>
   );
 };
 

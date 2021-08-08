@@ -25,7 +25,7 @@ const WeightData = (props) => {
     const [weightForm, setWeightForm] = useState({
         weight: {
             elementType: 'input',
-            elementClass: 'I    nputNumberLift',
+            elementClass: 'InputNumberLift',
             elementConfig: {
                 variant: "outlined",
                 label: "Peso",
