@@ -1,48 +1,49 @@
 import React from 'react';
+import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import Grid from "@material-ui/core/Grid";
-import {makeStyles} from '@material-ui/core/styles';
 
 import Aux from '../../hoc/Aux/Aux';
 import Header from '../../components/UI/Header/Header';
 
-const useStyles = makeStyles((theme) => ({
-    MovGrid: {
-        display: 'inherit',
-        marginTop: '50px'
-    },
-    Movement: {
-        background: 'linear-gradient(90deg, rgba(70,24,24,1) 0%, rgba(255,6,6,1) 75%)',
-        boxShadow: '0 5px 0 darkred',
-        color: 'white',
-        borderRadius: '35px',
-        padding: '50px 0px',
-        position: 'relative',
-        textDecoration: 'none',
-        textTransform: 'uppercase',
-        cursor:'pointer',
-        fontWeight: 'bold',
-        fontSize:'22px',
-        textAlign: 'center',
-        display:"inline-block",
-        [theme.breakpoints.up('md')]: {
-            marginTop: '150px',
-            width: '50%',
-        },
-        [theme.breakpoints.up('xs')]: {
-            margin: '50px auto',
-            width: '75%',
-        },
-        '&:active':{
-            boxShadow: 'none',
-            top: '5px'
+const HomeOptions = styled(Grid)`
+    display: inherit;
+    margin-top: 50px;
+    & .option {
+        background: linear-gradient(90deg, rgba(70,24,24,1) 0%, rgba(255,6,6,1) 75%);
+        box-shadow: 0 5px 0 darkred;
+        color: white;
+        border-radius: 35px;
+        padding: 50px 0px;
+        position: relative;
+        text-decoration: none;
+        text-transform: uppercase;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 22px;
+        text-align: center;
+        display: inline-block;
+        margin: 0 auto;
+    }
+    @media (min-width: 768px) {
+        & .option {
+            margin-top: 30px;
+            width: 50%;
         }
-        
-    },
-}));
+    }
+    @media (max-width: 768px) {
+        & .option {
+            margin: 30px auto;
+            width: 75%;
+        }
+    }
+    & .option:active {
+        box-shadow: none;
+        top: 5px;
+    }
+`;
 
 const Home = (props) => {
-    const classes = useStyles();
     return (
         <Aux>
             <Header/>
@@ -50,17 +51,15 @@ const Home = (props) => {
                 direction="row"
                 justify="center"
                 alignItems="center">
-                <Grid xs={12} md={4} className={classes.MovGrid} item={true}>
-                    <Link className={classes.Movement} 
-                        to= "/history">
+                <HomeOptions xs={12} md={6} item={true}>
+                    <Link className="option" to="/history">
                             Historial
                     </Link>
-                </Grid>
-                <Grid xs={12} md={4} className={classes.MovGrid} item={true}>
-                    <Link className={classes.Movement} 
-                        to="/movements">Movimientos
+                </HomeOptions>
+                <HomeOptions xs={12} md={6}  item={true}>
+                    <Link className="option" to="/movements">Movimientos
                     </Link>
-                </Grid>
+                </HomeOptions>
             </Grid>
         </Aux>
     );
