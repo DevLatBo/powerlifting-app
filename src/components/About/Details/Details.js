@@ -7,21 +7,21 @@ const DetailsContainer = styled.div`
     margin-top: 140px;
     margin-bottom: -140px;
     padding: 120px 0px;
-`;
-const SectionHeading = styled.div`
-    text-align: center;
-    margin-bottom: 80px;
-    width: 100%;
-    & h2 {
+    & .title {
+        text-align: center;
+        margin-bottom: 80px;
+        width: 100%;
+    }
+    & .title h2 {
         font-size: 36px;
         font-weight: 600;
         color: #1E1E1E;
     }
-    & em {
+    & .title em {
         font-style: normal;
         color: #FF0000;
     }
-    & span {
+    & .title span {
         display: block;
         margin-top: 15px;
         text-transform: uppercase;
@@ -29,38 +29,40 @@ const SectionHeading = styled.div`
         color: #666;
         letter-spacing: 1px;
     }
-`;
-const DownContent = styled.div`
-    background-color: #FFF;
-    padding: 30px;
-    & h4 {
-        font-size: 20px;
-        font-weight: 700;
-        letter-spacing: 0.25px;
-        margin-bottom: 10px;
+    & .ejercicio {
+        margin-bottom: 30px;
     }
-    & span {
-        color: #FF0000;
-        font-weight: 600;
-        font-size: 14px;
-        display: block;
-        margin-bottom: 15px;
-    },
-    & p {
-        margin-bottom: 20px;
-    }
-`;
-const DetailItem = styled.div`
-    margin-bottom: 30px;
-    & img {
+    & .ejercicio img {
         width: 90%;
-        height: 275px;
+        height: 15rem;
         overflow: hidden;
         display: block;
         margin: 0 auto;
     }
     @media (max-width: 767px) {
-        margin-bottom: 0px;
+        & .ejercicio {
+            margin-bottom: 0px;
+        }
+    }
+    & .ejercicio .definition {
+        background-color: #FFF;
+        padding: 30px;
+    }
+    & .ejercicio .definition h4 {
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 0.25px;
+        margin-bottom: 10px;
+    }
+    & .ejercicio .definition span {
+        color: #FF0000;
+        font-weight: 600;
+        font-size: 14px;
+        display: block;
+        margin-bottom: 15px;
+    }
+    & .ejercicio .definition p {
+        margin-bottom: 10px;
     }
 `;
 
@@ -69,24 +71,24 @@ const Details = (props) => {
     info = props.movs.map((mov) => {
       return (
         <Grid item md={4} key = {mov.id}>
-            <DetailItem>
+            <div className="ejercicio">
                 <img src={`assets/images/${mov.image}`} alt=""/>
-                <DownContent>
+                <div className = "definition">
                     <h4>{mov.title}</h4>
                     <span>{mov.body}</span>
                     <p>{mov.description}</p>
-                </DownContent>
-            </DetailItem>
+                </div>
+            </div>
         </Grid> 
       );             
     })
     return (
         <DetailsContainer>
             <Grid container>
-                <SectionHeading>
+                <div className="title">
                     <h2>Movimientos del <em>Powerlifting</em></h2>
                     <span>Existen 3 movimientos dentro de esta disciplina</span>
-                </SectionHeading>
+                </div>
                 {info}
             </Grid>
         </DetailsContainer>
