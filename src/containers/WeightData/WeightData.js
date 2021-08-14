@@ -11,14 +11,22 @@ import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 
 const FormWeight = styled.div`
     margin: 20px auto;
-    width: 60%;
     text-align: center;
     box-shadow: 0 2px 3px #CCC;
     border: 1px solid #EEE;
     padding: 10px;
     box-sizing: border-box;
-    & h4 {
-        font-size: 40px;
+    @media (min-width: 768px) {
+        width: 60%;
+        & h4 {
+            font-size: 40px;
+        }
+    }
+    @media (max-width: 768px) {
+        width: 80%;
+        & h4 {
+            font-size: 30px;
+        }
     }
 `;
 const WeightData = (props) => {

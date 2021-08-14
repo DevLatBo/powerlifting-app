@@ -12,20 +12,27 @@
     margin-left: 0;
     padding-left: 0;
 }
-
+@media (min-width: 768px) {
+    .btnLift, .btnLiftDisabled{
+        font-size: 50px;
+        width: 50%;
+    }
+}
+@media (max-width: 768px){
+    .btnLift, .btnLiftDisabled {
+        font-size: 30px;
+        width: 80%;
+    }
+}
 .btnLift {
     background-color: #FF0000;
-    font-size: 50px;
-    width: 45%;
     color: #FFF;
     border-radius: 10px;
 }
 .btnLiftDisabled {
-    font-size: 50px;
-    width: 45%;
     color: #CCC;
     cursor: not-allowed;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 .Danger {

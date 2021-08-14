@@ -6,6 +6,15 @@
     width: 50%;
 }
 .InputNumberLift input{
-    font-size: 50px;
     text-align: center;
+}
+@media (min-width: 768px) {
+    .InputNumberLift input {
+        font-size: 50px;
+    }
+}
+@media (max-width: 768px) {
+    .InputNumberLift input {
+        font-size: 40px;
+    }
 }
