@@ -1,7 +1,27 @@
 import React from 'react';
+import styled from 'styled-components';
 import TextField from '@material-ui/core/TextField';
-import classes from './Input.module.css';
 
+const InputStyled = styled.div`
+    width: 100%;
+    padding: 20px 0px 20px 0px;
+    & .InputNumberLift {
+        width: 50%;
+    }
+    & .InputNumberLift input{
+        text-align: center;
+    }
+    @media (min-width: 768px) {
+        & .InputNumberLift input {
+            font-size: 50px;
+        }
+    }
+    @media (max-width: 768px) {
+        & .InputNumberLift input {
+            font-size: 40px;
+        }
+    }
+`;
 const input = (props) => {
     let inputElement = null;
     let errorVal = false;
@@ -14,7 +34,7 @@ const input = (props) => {
             inputElement = <TextField
                             error={errorVal}
                             {...props.elementConfig}
-                            className={classes[props.elementClass]}
+                            className={props.elementClass}
                             value={props.value} 
                             onChange={props.changed} />;
             break;
@@ -25,9 +45,9 @@ const input = (props) => {
             break;
     }
     return (
-        <div className={classes.Input}>
+        <InputStyled>
             {inputElement}
-        </div>
+        </InputStyled>
     );
 }
 
