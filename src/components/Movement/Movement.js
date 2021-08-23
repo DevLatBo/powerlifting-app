@@ -1,25 +1,24 @@
 import {React} from 'react';
+import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
-import {makeStyles} from '@material-ui/core/styles';
 
 import WeightData from './WeightData/WeightData';
 
-const useStyles = makeStyles({
-    Movement: {
-        '& h1':{
-            textAlign:'center',
-            fontSize:'50px',
-        }
+
+const MovementStyled = styled.div`
+    & h1 {
+        text-align: center;
+        font-size: 3.5rem;
+        text-transform: capitalize;
     }
-});
+`;
 const Movement = (props) => {
-    const classes = useStyles();
     let { movement } = useParams();
     return (
-        <div className={classes.Movement}>
+        <MovementStyled>
             <h1>{movement}</h1>
             <WeightData/>
-        </div>
+        </MovementStyled>
     )
 };
 export default Movement;
