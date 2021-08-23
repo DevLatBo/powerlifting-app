@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import Grid from "@material-ui/core/Grid";
 
 import Aux from '../../hoc/Aux/Aux';
-import Header from '../../components/UI/Header/Header';
+import Header from '../UI/Header/Header';
 
 const HomeOptions = styled(Grid)`
     display: inherit;

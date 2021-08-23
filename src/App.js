@@ -1,9 +1,9 @@
 import React, {Suspense} from 'react';
 import {Route, Switch} from 'react-router-dom';
 
-import Home from './containers/Home/Home';
+import Home from './components/Home/Home';
 import Layout from './hoc/Layout/Layout';
-import Movements from './containers/Movements/Movements';
+import Movements from './components/Movements/Movements';
 import Movement from './components/Movement/Movement';
 import About from './components/About/About';
 import History from './components/History/History';
