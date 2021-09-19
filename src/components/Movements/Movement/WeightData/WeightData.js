@@ -2,12 +2,12 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
 
-import Button from '../../UI/Button/Button';
-import Input from '../../UI/Input/Input';
-import axios from '../../../axios-records';
-import {updateObject, checkValidity} from '../../../shared/utility';
-import * as actions from '../../../store/actions/index';
-import withErrorHandler from '../../../hoc/withErrorHandler/withErrorHandler';
+import Button from '../../../UI/Button/Button';
+import Input from '../../../UI/Input/Input';
+import axios from '../../../../axios-records';
+import {updateObject, checkValidity} from '../../../../shared/utility';
+import * as actions from '../../../../store/actions/index';
+import withErrorHandler from '../../../../hoc/withErrorHandler/withErrorHandler';
 
 const FormWeight = styled.div`
     margin: 20px auto;

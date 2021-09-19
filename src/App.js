@@ -4,7 +4,7 @@ import {Route, Switch} from 'react-router-dom';
 import Home from './components/Home/Home';
 import Layout from './hoc/Layout/Layout';
 import Movements from './components/Movements/Movements';
-import Movement from './components/Movement/Movement';
+import Movement from './components/Movements/Movement/Movement';
 import About from './components/About/About';
 import History from './components/History/History';
 
