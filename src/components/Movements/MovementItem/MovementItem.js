@@ -2,7 +2,7 @@ import {React} from 'react';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 
-import WeightData from './WeightData/WeightData';
+import MovementItemForm from './MovementItemForm/MovementItemForm';
 
 
 const MovementStyled = styled.div`
@@ -12,13 +12,13 @@ const MovementStyled = styled.div`
         text-transform: capitalize;
     }
 `;
-const Movement = (props) => {
+const MovementItem = (props) => {
     let { movement } = useParams();
     return (
         <MovementStyled>
             <h1>{movement}</h1>
-            <WeightData/>
+            <MovementItemForm/>
         </MovementStyled>
     )
 };
-export default Movement;
+export default MovementItem;

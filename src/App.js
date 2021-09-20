@@ -4,7 +4,7 @@ import {Route, Switch} from 'react-router-dom';
 import Home from './components/Home/Home';
 import Layout from './hoc/Layout/Layout';
 import Movements from './components/Movements/Movements';
-import Movement from './components/Movements/Movement/Movement';
+import MovementItem from './components/Movements/MovementItem/MovementItem';
 import About from './components/About/About';
 import History from './components/History/History';
 
@@ -15,7 +15,7 @@ function App() {
           <Route path="/about" component={About}/> 
           <Route path="/history" component={History}/>
           <Route path="/movements" exact component={Movements}/>
-          <Route path="/movements/:movement" component={Movement}/>
+          <Route path="/movements/:movement" component={MovementItem}/>
       </Switch>
   );
   return (

@@ -29,14 +29,14 @@ const FormWeight = styled.div`
         }
     }
 `;
-const WeightData = (props) => {
+const MovementItemForm = (props) => {
     const [weightForm, setWeightForm] = useState({
         weight: {
             elementType: 'input',
             elementClass: 'InputNumberLift',
             elementConfig: {
                 variant: "outlined",
-                label: "Peso",
+                label: "Peso a Levantar",
                 type: 'number',
                 placeholder: 'Insert Weight',
             },
@@ -110,15 +110,14 @@ const WeightData = (props) => {
     );
     return (
         <FormWeight>
-            <h4>Peso a Levantar</h4>
             {form}
         </FormWeight>
     );
 }
-const mapDispatchToProps = dispatch => {
+/*const mapDispatchToProps = dispatch => {
     return {
         onLiftWeight: (liftData) => dispatch(actions.addLift(liftData))
     }
-}
+}*/
 
-export default connect(null, mapDispatchToProps)(withErrorHandler(WeightData, axios));
+export default MovementItemForm;
