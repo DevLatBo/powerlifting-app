@@ -7,6 +7,7 @@ import Movements from './components/Movements/Movements';
 import MovementItem from './components/Movements/MovementItem/MovementItem';
 import About from './components/About/About';
 import History from './components/History/History';
+import LiftProvider from './store/LiftProvider';
 
 function App() {
   let routes = (
@@ -19,11 +20,11 @@ function App() {
       </Switch>
   );
   return (
-    <div>
+    <LiftProvider>
       <Layout>
         <Suspense fallback={<p>Loading...</p>}>{routes}</Suspense>
       </Layout>
-    </div>
+    </LiftProvider>
   );
 }
 
