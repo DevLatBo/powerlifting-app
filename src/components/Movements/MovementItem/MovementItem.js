@@ -1,4 +1,4 @@
-import {React} from 'react';
+import React, {useContext} from 'react';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 
@@ -21,7 +21,7 @@ const MovementItem = (props) => {
     return (
         <MovementStyled>
             <h1>{movement}</h1>
-            <MovementItemForm onAddLift = {addLiftHandler} />
+            <MovementItemForm movement = {movement} onAddLift = {addLiftHandler} />
         </MovementStyled>
     )
 };

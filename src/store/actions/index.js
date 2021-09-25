@@ -1,3 +1,0 @@
-export {
-    addLift
-} from './lift';

@@ -1,27 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { createStore, combineReducers, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
 
 import './index.css';
 import App from './App';
-import liftReducer from './store/reducers/lift';
 import reportWebVitals from './reportWebVitals';
 
-const rootReducers = combineReducers({
-  lift: liftReducer
-});
 
-const store = createStore(rootReducers, applyMiddleware(thunk));
  
 const app = (
-  <Provider store={store}>
-    <BrowserRouter>
-      <App/>
-    </BrowserRouter>
-  </Provider>
+  <BrowserRouter>
+    <App/>
+  </BrowserRouter>
 );
 ReactDOM.render( app, document.getElementById('root')
 );

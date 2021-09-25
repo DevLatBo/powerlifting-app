@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Button from '../../../UI/Button/Button';
 import Input from '../../../UI/Input/Input';
 import {updateObject, checkValidity} from '../../../../shared/utility';
+import { Redirect } from 'react-router-dom';
 
 const FormWeight = styled.div`
     margin: 20px auto;
@@ -70,15 +71,16 @@ const MovementItemForm = (props) => {
         const formData = {};
         for( let formElementIdentifier in weightForm) {
             formData[formElementIdentifier] = weightForm[formElementIdentifier].value;
+            formData['movement'] = props.movement;
         }
         const liftData = {
-            weight: formData
+            lift: formData,
         };
         props.onAddLift(liftData);
     };
 
     const formElementsArray = [];
-    for( let key  in weightForm) {
+    for( let key in weightForm) {
         formElementsArray.push({
             id: key,
             config: weightForm[key]
