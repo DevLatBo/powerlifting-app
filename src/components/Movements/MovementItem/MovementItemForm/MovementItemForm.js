@@ -1,13 +1,9 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
-import {connect} from 'react-redux';
 
 import Button from '../../../UI/Button/Button';
 import Input from '../../../UI/Input/Input';
-import axios from '../../../../axios-records';
 import {updateObject, checkValidity} from '../../../../shared/utility';
-import * as actions from '../../../../store/actions/index';
-import withErrorHandler from '../../../../hoc/withErrorHandler/withErrorHandler';
 
 const FormWeight = styled.div`
     margin: 20px auto;
@@ -50,7 +46,7 @@ const MovementItemForm = (props) => {
             required: true,
         }
     });
-    const [ formIsValid, setFormIsValid] = useState(false);
+    const [formIsValid, setFormIsValid] = useState(false);
 
     const inputChangeHandler = (event, inputIdentifier) => {
         const updatedFormElement = updateObject(weightForm[inputIdentifier], {
@@ -78,7 +74,7 @@ const MovementItemForm = (props) => {
         const liftData = {
             weight: formData
         };
-        props.onLiftWeight(liftData);
+        props.onAddLift(liftData);
     };
 
     const formElementsArray = [];
@@ -114,10 +110,5 @@ const MovementItemForm = (props) => {
         </FormWeight>
     );
 }
-/*const mapDispatchToProps = dispatch => {
-    return {
-        onLiftWeight: (liftData) => dispatch(actions.addLift(liftData))
-    }
-}*/
 
 export default MovementItemForm;
