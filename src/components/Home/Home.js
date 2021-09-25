@@ -52,12 +52,13 @@ const Home = (props) => {
                 justify="center"
                 alignItems="center">
                 <HomeOptions xs={12} md={6} item={true}>
-                    <Link className="option" to="/history">
-                            Historial
+                    <Link className="option" to="/prs">
+                            Records Personales
                     </Link>
                 </HomeOptions>
                 <HomeOptions xs={12} md={6}  item={true}>
-                    <Link className="option" to="/movements">Movimientos
+                    <Link className="option" to="/movements">
+                        Movimientos
                     </Link>
                 </HomeOptions>
             </Grid>

@@ -6,7 +6,7 @@ import Layout from './hoc/Layout/Layout';
 import Movements from './components/Movements/Movements';
 import MovementItem from './components/Movements/MovementItem/MovementItem';
 import About from './components/About/About';
-import History from './components/History/History';
+import PersonalRecords from './components/PersonalRecords/PersonalRecords';
 import LiftProvider from './store/LiftProvider';
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
       <Switch>
           <Route path="/" exact component={Home}/>
           <Route path="/about" component={About}/> 
-          <Route path="/history" component={History}/>
+          <Route path="/prs" component={PersonalRecords}/>
           <Route path="/movements" exact component={Movements}/>
           <Route path="/movements/:movement" component={MovementItem}/>
       </Switch>

@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import Button from '../../../UI/Button/Button';
 import Input from '../../../UI/Input/Input';
 import {updateObject, checkValidity} from '../../../../shared/utility';
-import { Redirect } from 'react-router-dom';
 
 const FormWeight = styled.div`
     margin: 20px auto;
