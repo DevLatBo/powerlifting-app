@@ -6,33 +6,39 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import styled from 'styled-components';
 
+const StyledBox = styled(Box)`
+    width: 20rem;
+    margin: 25px auto;
+    .cardMov {
+        border-radius: 25px;
+        background-color: #FF0000;
+        color: #FFFFFF;
+    }
+    .cardMov .subtitleMov {
+        font-weight: bold;
+    }
+    .cardMov .recordMov {
+        margin-top: 15px;
+        text-align: center;
+    }
+`;
 const PersonalRecordItem = (props) => {
     return(
         <Grid item xs={12} md={4}>
-            <Box sx={{ minWidth: 275 }}>
-                <Card variant="outlined">
+            <StyledBox>
+                <Card variant="outlined" className="cardMov">
                     <CardContent>
-                        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                        <Typography sx={{ fontSize: 18 }} color="white" gutterBottom className="subtitleMov">
                             {props.movement}
                         </Typography>
-                        <Typography variant="h5" component="div">
-                            benevolent
-                        </Typography>
-                        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                            adjective
-                        </Typography>
-                        <Typography variant="body2">
-                            well meaning and kindly.
-                            <br />
-                            {'"a benevolent smile"'}
+                        <Typography sx={{ fontSize: 50 }} variant="h5" component="div" className="recordMov" >
+                            0 kg.
                         </Typography>
                     </CardContent>
-                    <CardActions>
-                        <Button size="small">Learn More</Button>
-                    </CardActions>
                 </Card>
-            </Box>
+            </StyledBox>
         </Grid>
     )
 }

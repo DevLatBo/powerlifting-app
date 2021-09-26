@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -7,6 +8,9 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
+const StyledTableCell = styled(TableCell)`
+    background: #FF0000;
+`;
 const LastRecords = (props) => {
     const rows = [
         {movement: 'Deadlift', lift: 95},
@@ -16,21 +20,19 @@ const LastRecords = (props) => {
         {movement: 'Squat', lift: 70},
     ];
     return (
-        <TableContainer component={Paper}>
+        <TableContainer component={Paper} sx={{width: '70%',margin:'40px auto'}}>
             <Table sx={{ minWidth: 700 }} aria-label="customized table">
                 <TableHead>
                     <TableRow>
-                        <TableCell>Movimiento</TableCell>
-                        <TableCell align="right">Peso (kg)</TableCell>
+                        <StyledTableCell align="center" sx={{color: '#FFFFFF',fontWeight:'bold'}}>Movimiento</StyledTableCell>
+                        <StyledTableCell align="center" sx={{color: '#FFFFFF',fontWeight:'bold'}}>Peso (kg)</StyledTableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                 {rows.map((row) => (
                     <TableRow key={row.name}>
-                        <TableCell component="th" scope="row">
-                            {row.movement}
-                        </TableCell>
-                        <TableCell align="right">{row.lift}</TableCell>
+                        <TableCell align="center"><strong>{row.movement}</strong></TableCell>
+                        <TableCell align="center">{row.lift}</TableCell>
                     </TableRow>
                 ))}
                 </TableBody>
