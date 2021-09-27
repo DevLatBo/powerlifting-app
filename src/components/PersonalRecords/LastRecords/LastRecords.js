@@ -1,24 +1,21 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import styled from 'styled-components';
 import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
+import LiftContext from '../../../store/lift-context';
+import LastRecordItems from './LastRecordItems/LastRecordItems';
+
 const StyledTableCell = styled(TableCell)`
     background: #FF0000;
 `;
 const LastRecords = (props) => {
-    const rows = [
-        {movement: 'Deadlift', lift: 95},
-        {movement: 'Bench Press', lift: 42.5},
-        {movement: 'Squat', lift: 100},
-        {movement: 'Deadlift', lift: 140.5},
-        {movement: 'Squat', lift: 70},
-    ];
+    const ctxLift = useContext(LiftContext);
+
     return (
         <TableContainer component={Paper} sx={{width: '70%',margin:'40px auto'}}>
             <Table sx={{ minWidth: 700 }} aria-label="customized table">
@@ -28,14 +25,7 @@ const LastRecords = (props) => {
                         <StyledTableCell align="center" sx={{color: '#FFFFFF',fontWeight:'bold'}}>Peso (kg)</StyledTableCell>
                     </TableRow>
                 </TableHead>
-                <TableBody>
-                {rows.map((row) => (
-                    <TableRow key={row.name}>
-                        <TableCell align="center"><strong>{row.movement}</strong></TableCell>
-                        <TableCell align="center">{row.lift}</TableCell>
-                    </TableRow>
-                ))}
-                </TableBody>
+                <LastRecordItems recordItems={ctxLift.lifts}/>
             </Table>
         </TableContainer>
     );
