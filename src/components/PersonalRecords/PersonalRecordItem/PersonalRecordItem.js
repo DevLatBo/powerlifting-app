@@ -2,9 +2,7 @@ import React from 'react';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import styled from 'styled-components';
 
@@ -23,10 +21,13 @@ const StyledBox = styled(Box)`
         margin-top: 15px;
         text-align: center;
     }
+    @media (min-width: 320px) and (max-width: 767px) {
+        width: 15rem;
+    }
 `;
 const PersonalRecordItem = (props) => {
     return(
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} lg={4}>
             <StyledBox>
                 <Card variant="outlined" className="cardMov">
                     <CardContent>
