@@ -5,20 +5,20 @@ import TextField from '@material-ui/core/TextField';
 const InputStyled = styled.div`
     width: 100%;
     padding: 20px 0px 20px 0px;
-    & .InputNumberLift {
+    & .InputCounterLift {
         width: 50%;
     }
-    & .InputNumberLift input{
+    & .InputCounterLift input{
         text-align: center;
     }
     @media (min-width: 768px) {
-        & .InputNumberLift input {
-            font-size: 50px;
+        & .InputCounterLift input {
+            font-size: 40px;
         }
     }
     @media (max-width: 768px) {
-        & .InputNumberLift input {
-            font-size: 40px;
+        & .InputCounterLift input {
+            font-size: 35px;
         }
     }
 `;
@@ -36,7 +36,8 @@ const input = (props) => {
                             {...props.elementConfig}
                             className={props.elementClass}
                             value={props.value} 
-                            onChange={props.changed} />;
+                            onChange={props.changed} 
+                            />;
             break;
         default:
             inputElement = <input { ...props.elementConfig} 

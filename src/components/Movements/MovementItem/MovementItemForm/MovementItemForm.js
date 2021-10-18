@@ -29,21 +29,37 @@ const MovementItemForm = (props) => {
     const [weightForm, setWeightForm] = useState({
         weight: {
             elementType: 'input',
-            elementClass: 'InputNumberLift',
+            elementClass: 'InputCounterLift',
             elementConfig: {
                 variant: "outlined",
                 label: "Peso a Levantar",
-                type: 'number',
-                placeholder: 'Insert Weight',
+                type: "number",
+                placeholder: "Insert Weight",
             },
             value: '0',
             validation: {
-                required: 'true',
-                isPositive: 'true'
+                required: true,
+                isPositive: "true"
             },
             valid: false,
             touched: false,
-            required: true,
+        },
+        repetition: {
+            elementType: "input",
+            elementClass: "InputCounterLift",
+            elementConfig: {
+                variant: "outlined",
+                label: "Repeticiones",
+                type: "number",
+                placeholder: "Number of Repetitions",
+            },
+            value: "0",
+            validation: {
+                required: true,
+                isPositive: "true",
+            },
+            valid: false,
+            touched: false,
         }
     });
     const [formIsValid, setFormIsValid] = useState(false);
