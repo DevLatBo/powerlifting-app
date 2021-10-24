@@ -36,7 +36,7 @@ const MovementItemForm = (props) => {
                 type: "number",
                 placeholder: "Insert Weight",
             },
-            value: '0',
+            value: "0",
             validation: {
                 required: true,
                 isPositive: "true"
@@ -91,6 +91,7 @@ const MovementItemForm = (props) => {
         const liftData = {
             lift: formData,
         };
+        console.log(liftData);
         props.onAddLift(liftData);
     };
 

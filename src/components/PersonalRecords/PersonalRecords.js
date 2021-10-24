@@ -19,7 +19,7 @@ const PersonalRecords = (props) => {
             <h1>Personal Records</h1>
             <StyledGrid container 
                 direction="row"
-                justify="center"
+                justifyContent="center"
                 alignItems="center"
                 sx={{display:"inline-flex"}}>
                 {prs}

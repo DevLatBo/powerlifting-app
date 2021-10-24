@@ -49,7 +49,7 @@ const Home = (props) => {
             <Header/>
             <Grid container 
                 direction="row"
-                justify="center"
+                jusfityContent="center"
                 alignItems="center">
                 <HomeOptions xs={12} md={6} item={true}>
                     <Link className="option" to="/prs">

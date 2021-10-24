@@ -35,7 +35,7 @@ const Movements = (props) => {
     return (
         <MovOptions container 
             direction="row"
-            justify="center"
+            justifyContent="center"
             alignItems="center">
             <Grid xs={12} md={12} className="movGrid" item={true}>
                 <Link className="movement"
