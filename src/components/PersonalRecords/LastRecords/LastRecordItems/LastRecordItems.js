@@ -11,11 +11,14 @@ const LastRecordItems = (props) => {
     ;
     const recordItems = props.recordItems;
     if(recordItems.length) {
+        console.log(recordItems);
         items = recordItems.map((recordItem) => {
             return (
                 <TableRow key={recordItem.lift.weight}>
                     <TableCell align="center"><strong>{recordItem.lift.movement}</strong></TableCell>
                     <TableCell align="center">{recordItem.lift.weight}</TableCell>
+                    <TableCell align="center">{recordItem.lift.repetition}</TableCell>
+                    <TableCell align="center">{recordItem.lift.date}</TableCell>
                 </TableRow>
             );
         })
