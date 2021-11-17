@@ -1,52 +1,34 @@
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
-import {Link} from 'react-router-dom';
 import Grid from "@material-ui/core/Grid";
 
 import MovementLink from './Movement/MovementLink';
 
 const MovOptions = styled(Grid)`
     margin-top: 30px;
-    & .movGrid {
-        display: inherit;
+    & .loader, & .error-message {
+        margin-top: 75px;
     }
-    & .movGrid .movement {
-        background: linear-gradient(90deg, rgba(70,24,24,1) 0%, rgba(255,6,6,1) 75%);
-        box-shadow: 0 5px 0 darkred;
-        color: white;
-        border-radius: 35px;
-        margin: 20px auto;
-        text-align: center;
-        padding: 50px 20px;
-        position: relative;
-        text-decoration: none;
-        text-transform: uppercase;
-        display: inline-block;
-        cursor: pointer;
-        width: 35%;
-        font-size: 18px;
+    & .error-message p {
+        color: #FF0000;
         font-weight: bold;
-    }
-    & .movGrid .movement:active {
-        box-shadow: none;
-        top: 5px;
-    }
-    @media (min-width: 320px) and (max-width: 480px) {
-        & .movGrid .movement {
-            width: 60%;
-            font-size: 16px;
-        }
+        font-size: 18px;
     }
 `;
 
 const Movements = (props) => {
     const [movements, setMovements] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState();
     useEffect( () => {
         const fetchMovements = async () => {
             const response = await fetch("https://powerlifting-react-default-rtdb.firebaseio.com/movements.json");
+            if(!response.ok) {
+                throw new Error("Something went wrong!");
+            }
             const responseData = await response.json();
-
             const loadedMovements = [];
+
             for(const key in responseData) {
                 loadedMovements.push({
                     id: key,
@@ -54,9 +36,11 @@ const Movements = (props) => {
                 });
             }
             setMovements(loadedMovements);
+            setIsLoading(false);
         }
         fetchMovements().catch((error) => {
-            console.log(error);
+            setIsLoading(false);
+            setError(error.message);
         });
     },[]);
     
@@ -68,31 +52,28 @@ const Movements = (props) => {
                 route={movement.id}
                 name={movement.name}/>
         );
-    })
+    });
+
+    const loader = (
+        <div className="loader">
+            <img src="assets/gifs/spinner_lg.gif" alt="Cargando..." />
+        </div>
+        );
+        
+    const errorMessage = (
+        <div className="error-message">
+            <p>{error}</p>
+        </div>
+    )
+
     return (
         <MovOptions container 
             direction="row"
             justifyContent="center"
             alignItems="center">
-                {movementLinks}
-            {/*<Grid xs={12} md={12} className="movGrid" item={true}>
-                <Link className="movement"
-                    to= "/movements/bench-press">
-                        Bench Press
-                </Link>
-            </Grid>
-            <Grid xs={12} md={12} className="movGrid" item={true}>
-                <Link className="movement"
-                    to="/movements/squat">
-                        Squat
-                </Link>
-            </Grid>
-            <Grid xs={12} md={12} className="movGrid" item={true}>
-                <Link className="movement"
-                    to= "/movements/deadlift">
-                        Deadlift
-                </Link>
-            </Grid>*/}
+                {!isLoading && !error && movementLinks}
+                {isLoading && loader}
+                {!isLoading && error && errorMessage}
         </MovOptions>
     );
 }
