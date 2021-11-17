@@ -19,7 +19,7 @@ const NavigationItems = (props) => {
     if(showLinks){
         nItems = (
             <NavItems>
-                <NavigationItem exact link="/">Home</NavigationItem>
+                <NavigationItem exact link="/">Inicio</NavigationItem>
                 <NavigationItem link="/about">Acerca de</NavigationItem>
             </NavItems>
         );

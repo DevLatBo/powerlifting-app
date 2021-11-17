@@ -14,13 +14,13 @@ const HomeOptions = styled(Grid)`
         box-shadow: 0 5px 0 darkred;
         color: white;
         border-radius: 35px;
-        padding: 50px 0px;
+        padding: 50px 15px;
         position: relative;
         text-decoration: none;
         text-transform: uppercase;
         cursor: pointer;
         font-weight: bold;
-        font-size: 22px;
+        font-size: 20px;
         text-align: center;
         display: inline-block;
         margin: 0 auto;
@@ -53,7 +53,7 @@ const Home = (props) => {
                 alignItems="center">
                 <HomeOptions xs={12} md={6} item={true}>
                     <Link className="option" to="/prs">
-                            Records Personales
+                        Records Personales
                     </Link>
                 </HomeOptions>
                 <HomeOptions xs={12} md={6}  item={true}>

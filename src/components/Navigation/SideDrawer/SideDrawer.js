@@ -25,6 +25,7 @@ const useStyles = makeStyles( (theme) => ({
         color:'#FFFFFF'
     },
 }));
+
 const SideDrawer = (props) => {
     const classes = useStyles();
     const sideList = (side) => {
@@ -52,6 +53,7 @@ const SideDrawer = (props) => {
             </div>
         );
     }
+    
     return (
         <Drawer open={props.openDrawer}
           BackdropProps = {{ invisible: false }}
