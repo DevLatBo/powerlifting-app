@@ -24,7 +24,7 @@ const LastRecords = (props) => {
                         <StyledTableCell align="center" sx={{color: '#FFFFFF',fontWeight:'bold'}}>Movimiento</StyledTableCell>
                         <StyledTableCell align="center" sx={{color: '#FFFFFF',fontWeight:'bold'}}>Peso (kg)</StyledTableCell>
                         <StyledTableCell align="center" sx={{color: '#FFFFFF',fontWeight:'bold'}}>Repeticiones</StyledTableCell>
-                        <StyledTableCell align="center" sx={{color: '#FFFFFF',fontWeight:'bold'}}>Date</StyledTableCell>
+                        <StyledTableCell align="center" sx={{color: '#FFFFFF',fontWeight:'bold'}}>Fecha</StyledTableCell>
                     </TableRow>
                 </TableHead>
                 <LastRecordItems recordItems={ctxLift.lifts}/>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
+import HomeIcon from '@mui/icons-material/Home';
 import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
 import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew';
 import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
@@ -31,6 +32,10 @@ const SideDrawer = (props) => {
             <div className={classes.list}>
                 <Divider />
                 <List>
+                    <ListItem button component={Link} to="/">
+                        <ListItemIcon><HomeIcon className={classes.drawerIcon}/></ListItemIcon>
+                        <ListItemText primary="Inicio" />
+                    </ListItem>
                     <ListItem button component={Link} to="/about">
                         <ListItemIcon><FitnessCenterIcon className={classes.drawerIcon}/></ListItemIcon>
                         <ListItemText primary="Acerca De" />
