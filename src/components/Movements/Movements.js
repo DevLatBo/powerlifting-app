@@ -64,7 +64,7 @@ const Movements = (props) => {
         <div className="error-message">
             <p>{error}</p>
         </div>
-    )
+    );
 
     return (
         <MovOptions container 

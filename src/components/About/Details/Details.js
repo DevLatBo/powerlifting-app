@@ -1,4 +1,4 @@
-import React from 'react';
+import {useState, useEffect} from 'react';
 import Grid from '@material-ui/core/Grid';
 import styled from 'styled-components';
 
@@ -66,8 +66,39 @@ const DetailsContainer = styled.div`
 `;
 
 const Details = (props) => {
-    let info = null;
-    info = props.movs.map((mov) => {
+    const [movements, setMovements] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState();
+
+    useEffect(() => {
+        const fetchMovements = async () => {
+          const response = await fetch("https://powerliting-react-default-rtdb.firebaseio.com/movements.json");
+          if(!response.ok) {
+            throw new Error("Something went wrong");
+          }
+          const responseData = await response.json();
+      
+          let loadedMovements = [];
+          for(const key in responseData) {
+            loadedMovements.push({
+              id: key,
+              name: responseData[key].name,
+              body: responseData[key].body,
+              description: responseData[key].description,
+              image: responseData[key].image
+            });
+          }
+          setMovements(loadedMovements);
+          setIsLoading(false);
+        }
+      
+        fetchMovements().catch((error) => {
+            setIsLoading(false);
+            setError(error.message);
+        });
+    }, []);
+
+    const movementsInfo = movements.map((mov) => {
       return (
         <Grid item md={4} key = {mov.id}>
             <div className="movement">
@@ -80,7 +111,20 @@ const Details = (props) => {
             </div>
         </Grid> 
       );             
-    })
+    });
+
+    const loader = (
+        <div className="loader">
+            <img src="assets/gifs/spinner_lg.gif" alt="Cargando..." />
+        </div>
+    );
+    
+    const errorMessage = (
+        <div className="error-message">
+            <p>{error}</p>
+        </div>
+    );
+
     return (
         <DetailsContainer>
             <Grid container>
@@ -88,7 +132,9 @@ const Details = (props) => {
                     <h2>Movimientos del <em>Powerlifting</em></h2>
                     <span>Existen 3 movimientos dentro de esta disciplina</span>
                 </div>
-                {info}
+                {!isLoading && !error && movementsInfo}
+                {isLoading && loader}
+                {errorMessage && !isLoading && errorMessage}
             </Grid>
         </DetailsContainer>
     );
