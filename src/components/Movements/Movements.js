@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import Grid from "@material-ui/core/Grid";
 
 import MovementLink from './Movement/MovementLink';
+import Spinner from '../UI/Loader/Loader';
+import BoxMessage from '../UI/BoxMessage/BoxMessage';
 
 const MovOptions = styled(Grid)`
     margin-top: 30px;
@@ -54,17 +56,11 @@ const Movements = (props) => {
         );
     });
 
-    const loader = (
-        <div className="loader">
-            <img src="assets/gifs/spinner_lg.gif" alt="Cargando..." />
-        </div>
-        );
+    const loader = <Spinner/>
         
-    const errorMessage = (
-        <div className="error-message">
-            <p>{error}</p>
-        </div>
-    );
+    const errorMessage = <BoxMessage type="error" 
+        className="error"
+        message={error}/>;
 
     return (
         <MovOptions container 

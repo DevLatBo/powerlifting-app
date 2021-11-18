@@ -2,6 +2,9 @@ import {useState, useEffect} from 'react';
 import Grid from '@material-ui/core/Grid';
 import styled from 'styled-components';
 
+import Spinner from '../../UI/Loader/Loader';
+import BoxMessage from '../../UI/BoxMessage/BoxMessage';
+
 const DetailsContainer = styled.div`
     margin-top: 140px;
     background-color: #F7F7F7;
@@ -72,9 +75,9 @@ const Details = (props) => {
 
     useEffect(() => {
         const fetchMovements = async () => {
-          const response = await fetch("https://powerliting-react-default-rtdb.firebaseio.com/movements.json");
+          const response = await fetch("https://powerlifting-react-default-rtdb.firebaseio.com/movements.json");
           if(!response.ok) {
-            throw new Error("Something went wrong");
+            throw new Error("Something went wrong!");
           }
           const responseData = await response.json();
       
@@ -113,17 +116,10 @@ const Details = (props) => {
       );             
     });
 
-    const loader = (
-        <div className="loader">
-            <img src="assets/gifs/spinner_lg.gif" alt="Cargando..." />
-        </div>
-    );
-    
-    const errorMessage = (
-        <div className="error-message">
-            <p>{error}</p>
-        </div>
-    );
+    const loader = <Spinner/>;
+    const errorMessage = <BoxMessage type="error" 
+                            className="error"
+                            message={error}/>;
 
     return (
         <DetailsContainer>
@@ -134,7 +130,7 @@ const Details = (props) => {
                 </div>
                 {!isLoading && !error && movementsInfo}
                 {isLoading && loader}
-                {errorMessage && !isLoading && errorMessage}
+                {error && !isLoading && errorMessage}
             </Grid>
         </DetailsContainer>
     );
