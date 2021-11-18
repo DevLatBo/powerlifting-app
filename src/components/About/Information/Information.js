@@ -17,14 +17,6 @@ const Info = styled.div`
             margin-bottom: 30px;
         }
     }
-    & .definition span {
-        text-transform: uppercase;
-        font-size: 15px;
-        color: #666;
-        letter-spacing: 1px;
-        margin-bottom: 10px;
-        display: block;
-    }
     & .definition h2 {
         font-size: 36px;
         font-weight: 600;
@@ -36,7 +28,7 @@ const Info = styled.div`
     }
     & .definition p {
         margin-bottom: 30px;
-        font-size:14px;
+        font-size: 15px;
     }
     & .reference img {
         width: 100%;
@@ -59,7 +51,6 @@ const Information = (props) => {
             <Grid container>
                 <Grid item md={6}>
                     <div className="definition">
-                        <span>Disciplina de fuerza</span>
                         <h2>Conoce mas sobre <em>Powerlifting</em></h2>
                         <p>Es una disciplina de fuerza, pues consiste en levantar el mayor peso posible en tres ejercicios diferentes. 
                             Para realizar esta disciplina, el atleta debe tener un entrenamiento físico y mental compuesto 
