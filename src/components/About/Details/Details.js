@@ -14,7 +14,7 @@ const DetailsContainer = styled.div`
         width: 100%;
     }
     & .title h2 {
-        font-size: 36px;
+        font-size: 2.25rem;
         font-weight: 600;
         color: #1E1E1E;
     }
@@ -26,16 +26,16 @@ const DetailsContainer = styled.div`
         display: block;
         margin-top: 15px;
         text-transform: uppercase;
-        font-size: 15px;
+        font-size: 1rem;
         color: #666;
-        letter-spacing: 1px;
+        letter-spacing: 0.125rem;
     }
     & .movement {
         margin-bottom: 30px;
     }
     & .movement img {
         width: 90%;
-        height: 15rem;
+        height: 14rem;
         overflow: hidden;
         display: block;
         margin: 0 auto;
@@ -50,8 +50,8 @@ const DetailsContainer = styled.div`
         background-color: #FFF;
         padding: 30px;
     }
-    & .movement .definition h4 {
-        font-size: 20px;
+    & .movement .definition h3 {
+        font-size: 1.25rem;
         font-weight: 700;
         letter-spacing: 0.25px;
         margin-bottom: 10px;
@@ -59,7 +59,7 @@ const DetailsContainer = styled.div`
     & .movement .definition span {
         color: #FF0000;
         font-weight: 600;
-        font-size: 14px;
+        font-size: 0.9rem;
         display: block;
         margin-bottom: 15px;
     }
@@ -107,7 +107,7 @@ const Details = (props) => {
             <div className="movement">
                 <img src={`assets/images/${mov.image}`} alt=""/>
                 <div className = "definition">
-                    <h4>{mov.title}</h4>
+                    <h3>{mov.name}</h3>
                     <span>{mov.body}</span>
                     <p>{mov.description}</p>
                 </div>

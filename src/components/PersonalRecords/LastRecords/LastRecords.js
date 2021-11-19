@@ -17,8 +17,10 @@ const LastRecords = (props) => {
     const ctxLift = useContext(LiftContext);
 
     return (
-        <TableContainer component={Paper} sx={{width: '70%',margin:'40px auto'}}>
-            <Table sx={{ minWidth: {lg: 700, xs: 100} }} aria-label="customized table">
+        <TableContainer component={Paper} 
+            sx={{width: '70%',margin:'40px auto'}}>
+            <Table sx={{ minWidth: {lg: 700, xs: 100} }} 
+                aria-label="customized table">
                 <TableHead>
                     <TableRow>
                         <StyledTableCell align="center" sx={{color: '#FFFFFF',fontWeight:'bold'}}>Movimiento</StyledTableCell>

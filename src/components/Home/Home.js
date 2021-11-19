@@ -20,7 +20,7 @@ const HomeOptions = styled(Grid)`
         text-transform: uppercase;
         cursor: pointer;
         font-weight: bold;
-        font-size: 20px;
+        font-size: 1rem;
         text-align: center;
         display: inline-block;
         margin: 0 auto;
@@ -49,7 +49,7 @@ const Home = (props) => {
             <Header/>
             <Grid container 
                 direction="row"
-                jusfityContent="center"
+                jusfitycontent="center"
                 alignItems="center">
                 <HomeOptions xs={12} md={6} item={true}>
                     <Link className="option" to="/prs">

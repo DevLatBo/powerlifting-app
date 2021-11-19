@@ -20,7 +20,7 @@ const MovementLink = (props) => {
             display: inline-block;
             cursor: pointer;
             width: 35%;
-            font-size: 18px;
+            font-size: 1.125rem;
             font-weight: bold;
         }
         & .movement:active {
@@ -30,7 +30,7 @@ const MovementLink = (props) => {
         @media (min-width: 320px) and (max-width: 480px) {
             & .movement {
                 width: 60%;
-                font-size: 16px;
+                font-size: 1rem;
             }
         }
     `;

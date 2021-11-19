@@ -13,12 +13,12 @@ const InputStyled = styled.div`
     }
     @media (min-width: 768px) {
         & .InputCounterLift input {
-            font-size: 40px;
+            font-size: 2.5rem;
         }
     }
     @media (max-width: 768px) {
         & .InputCounterLift input {
-            font-size: 35px;
+            font-size: 2.25rem;
         }
     }
 `;

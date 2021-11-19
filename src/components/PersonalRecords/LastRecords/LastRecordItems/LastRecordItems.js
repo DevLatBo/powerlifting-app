@@ -6,12 +6,11 @@ import TableRow from '@mui/material/TableRow';
 const LastRecordItems = (props) => {
     let items = 
         <TableRow>
-            <TableCell align="center" colSpan={2}><strong>No existen registros que mostrar.</strong></TableCell>
+            <TableCell align="center" colSpan={4}><strong>No existen registros que mostrar.</strong></TableCell>
         </TableRow>
     ;
     const recordItems = props.recordItems;
     if(recordItems.length) {
-        console.log(recordItems);
         items = recordItems.map((recordItem) => {
             return (
                 <TableRow key={recordItem.lift.weight}>

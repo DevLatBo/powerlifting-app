@@ -8,14 +8,6 @@ import BoxMessage from '../UI/BoxMessage/BoxMessage';
 
 const MovOptions = styled(Grid)`
     margin-top: 30px;
-    & .loader, & .error-message {
-        margin-top: 75px;
-    }
-    & .error-message p {
-        color: #FF0000;
-        font-weight: bold;
-        font-size: 18px;
-    }
 `;
 
 const Movements = (props) => {
@@ -24,7 +16,7 @@ const Movements = (props) => {
     const [error, setError] = useState();
     useEffect( () => {
         const fetchMovements = async () => {
-            const response = await fetch("https://powerlifting-react-default-rtdb.firebaseio.com/movements.json");
+            const response = await fetch("https://powerifting-react-default-rtdb.firebaseio.com/movements.json");
             if(!response.ok) {
                 throw new Error("Something went wrong!");
             }

@@ -14,15 +14,9 @@ const FormWeight = styled.div`
     box-sizing: border-box;
     @media (min-width: 768px) {
         width: 60%;
-        & h4 {
-            font-size: 40px;
-        }
     }
     @media (max-width: 768px) {
         width: 80%;
-        & h4 {
-            font-size: 30px;
-        }
     }
 `;
 const MovementItemForm = (props) => {

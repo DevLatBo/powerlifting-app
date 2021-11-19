@@ -12,14 +12,14 @@ const StyledGrid = styled(Grid)`
 const PersonalRecords = (props) => {
     const movements = ["Deadlift", "Squat", "Bench Press"];
     const prs = movements.map((movement) => {
-       return <PersonalRecordItem movement={movement}/>
+       return <PersonalRecordItem key={movement} movement={movement}/>
     })
     return (
         <div>
             <h1>Personal Records</h1>
             <StyledGrid container 
                 direction="row"
-                justifyContent="center"
+                justifycontent="center"
                 alignItems="center"
                 sx={{display:"inline-flex"}}>
                 {prs}

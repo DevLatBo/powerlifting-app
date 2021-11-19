@@ -18,7 +18,7 @@ const Info = styled.div`
         }
     }
     & .definition h2 {
-        font-size: 36px;
+        font-size: 2.25rem;
         font-weight: 600;
         margin-bottom: 35px;
     }
@@ -28,7 +28,7 @@ const Info = styled.div`
     }
     & .definition p {
         margin-bottom: 30px;
-        font-size: 15px;
+        font-size: 1rem;
     }
     & .reference img {
         width: 100%;
@@ -36,12 +36,12 @@ const Info = styled.div`
     }
     @media (min-width: 1280px) {
         & .reference {
-            margin-top: 2rem;
+            margin-top: 32px;
         }
     }
     @media (min-width: 960px) and (max-width: 1280px) {
         & .reference {
-            margin-top: 10rem;
+            margin-top: 160px;
         }
     }  
 `;

@@ -14,26 +14,26 @@ const Title = styled.div`
 
     & h1 {
         text-transform: capitalize;
-        font-size: 50px;
+        font-size: 3.5rem;
         font-weight: 700;
-        letter-spacing: 2px;
+        letter-spacing: 0.5rem;
         margin-bottom: 18px;
     }
 
     & span {
-        font-size: 25px;
+        font-size: 1.5rem;
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: 0.125rem;
         color: #FFF;
         display: block;
     }
 
     @media (max-width: 767px) {
         & h1 { 
-            font-size: 30px;
+            font-size: 1.75rem;
         }
         & span {
-            font-size: 15px;
+            font-size: 1rem;
         }
     }
 `;
