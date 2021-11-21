@@ -84,6 +84,25 @@ const MovementItemForm = (props) => {
             formData['date'] = new Date().toISOString().split('T')[0];
         }
         props.onAddLift(formData);
+
+        if(formIsValid) {
+            const defaultState = {
+                value: "0",
+                valid: false,
+                touched: false,
+            };
+            const updatedWeight = updateObject(weightForm.weight, defaultState);
+            const updatedRepetition = updateObject(weightForm.repetition, defaultState);
+            
+            
+            const updatedWeightForm = updateObject(weightForm, {
+                "weight": updatedWeight,
+                "repetition":updatedRepetition,
+            });
+
+            setWeightForm(updatedWeightForm);
+            setFormIsValid(false);
+        }
     };
 
     const formElementsArray = [];
