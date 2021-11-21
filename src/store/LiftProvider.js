@@ -14,6 +14,9 @@ const liftReducer = (state, action) => {
             lifts: updatedLifts
         };
     }
+    if(action.type === 'CLEAR') { 
+        return defaultLiftState;
+    }
     return defaultLiftState;
 }
 
@@ -26,10 +29,15 @@ const LiftProvider = (props) => {
     const addLiftHandler = (lift) => {
         dispatchLiftAction({ type: 'ADD', lift: lift});
     };
+    
+    const clearLiftHandler = () => {
+        dispatchLiftAction({ type: 'CLEAR'});
+    }
 
     const liftContext = {
         lifts: liftState.lifts,
-        addLift: addLiftHandler
+        addLift: addLiftHandler,
+        clearLift: clearLiftHandler,
     };
 
     return (

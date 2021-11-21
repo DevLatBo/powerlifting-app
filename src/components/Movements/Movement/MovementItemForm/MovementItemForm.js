@@ -83,11 +83,7 @@ const MovementItemForm = (props) => {
             formData['movement'] = props.movement;
             formData['date'] = new Date().toISOString().split('T')[0];
         }
-        const liftData = {
-            lift: formData,
-        };
-        console.log(liftData);
-        props.onAddLift(liftData);
+        props.onAddLift(formData);
     };
 
     const formElementsArray = [];
