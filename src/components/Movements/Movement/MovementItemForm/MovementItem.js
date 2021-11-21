@@ -2,11 +2,11 @@ import React, {useContext} from 'react';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 
-import MovementItemForm from './MovementItemForm/MovementItemForm';
-import LiftContext from '../../../store/lift-context';
+import MovementItemForm from './MovementItemForm';
+import LiftContext from '../../../../store/lift-context';
 
 const MovementStyled = styled.div`
-    & h1 {
+    & h2 {
         text-align: center;
         font-size: 3.5rem;
         text-transform: capitalize;
@@ -18,10 +18,12 @@ const MovementItem = (props) => {
     const addLiftHandler = (lift) => {
         liftCtx.addLift(lift);
     };
+    
     return (
         <MovementStyled>
-            <h1>{movement}</h1>
-            <MovementItemForm movement = {movement} onAddLift = {addLiftHandler} />
+            <h2>{movement}</h2>
+            <MovementItemForm movement = {movement} 
+                onAddLift = {addLiftHandler} />
         </MovementStyled>
     )
 };

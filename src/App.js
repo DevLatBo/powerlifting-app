@@ -4,7 +4,7 @@ import {Route, Switch} from 'react-router-dom';
 import Home from './components/Home/Home';
 import Layout from './hoc/Layout/Layout';
 import Movements from './components/Movements/Movements';
-import MovementItem from './components/Movements/MovementItem/MovementItem';
+import MovementItem from './components/Movements/Movement/MovementItemForm/MovementItem';
 import About from './components/About/About';
 import PersonalRecords from './components/PersonalRecords/PersonalRecords';
 import LiftProvider from './store/LiftProvider';

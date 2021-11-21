@@ -14,9 +14,10 @@ const Movements = (props) => {
     const [movements, setMovements] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState();
+
     useEffect( () => {
         const fetchMovements = async () => {
-            const response = await fetch("https://powerifting-react-default-rtdb.firebaseio.com/movements.json");
+            const response = await fetch("https://powerlifting-react-default-rtdb.firebaseio.com/movements.json");
             if(!response.ok) {
                 throw new Error("Something went wrong!");
             }
@@ -38,7 +39,6 @@ const Movements = (props) => {
         });
     },[]);
     
-
     const movementLinks = movements.map((movement) => {
         return (
             <MovementLink
