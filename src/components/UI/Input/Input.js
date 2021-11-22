@@ -24,15 +24,10 @@ const InputStyled = styled.div`
 `;
 const input = (props) => {
     let inputElement = null;
-    let errorVal = false;
-    if(props.shouldValidate && props.invalid && props.touched){
-        errorVal = true;
-    }
     
     switch(props.elementType){
         case 'input':
             inputElement = <TextField
-                            error={errorVal}
                             {...props.elementConfig}
                             className={props.elementClass}
                             value={props.value} 

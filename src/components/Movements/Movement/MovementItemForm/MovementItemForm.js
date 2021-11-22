@@ -31,12 +31,11 @@ const MovementItemForm = (props) => {
                 placeholder: "Insert Weight",
             },
             value: "0",
-            validation: {
-                required: true,
+            control: {
+                isEmpty: true,
                 isPositive: "true"
             },
             valid: false,
-            touched: false,
         },
         repetition: {
             elementType: "input",
@@ -48,21 +47,19 @@ const MovementItemForm = (props) => {
                 placeholder: "Number of Repetitions",
             },
             value: "0",
-            validation: {
-                required: true,
-                isPositive: "true",
+            control: {
+                isEmpty: true,
+                isPositive: true,
             },
             valid: false,
-            touched: false,
-        }
+        },
     });
     const [formIsValid, setFormIsValid] = useState(false);
 
     const inputChangeHandler = (event, inputIdentifier) => {
         const updatedFormElement = updateObject(weightForm[inputIdentifier], {
             value: event.target.value,
-            valid: checkValidity(event.target.value, weightForm[inputIdentifier].validation),
-            touched: true,
+            valid: checkValidity(event.target.value, weightForm[inputIdentifier].control),
         });
         const updatedWeightForm = updateObject(weightForm, {
             [inputIdentifier]:  updatedFormElement
@@ -78,7 +75,7 @@ const MovementItemForm = (props) => {
     const liftHandler = (event) => {
         event.preventDefault();
         const formData = {};
-        for( let formElementIdentifier in weightForm) {
+        for(let formElementIdentifier in weightForm) {
             formData[formElementIdentifier] = weightForm[formElementIdentifier].value;
             formData['movement'] = props.movement;
             formData['date'] = new Date().toISOString().split('T')[0];
@@ -89,7 +86,6 @@ const MovementItemForm = (props) => {
             const defaultState = {
                 value: "0",
                 valid: false,
-                touched: false,
             };
             const updatedWeight = updateObject(weightForm.weight, defaultState);
             const updatedRepetition = updateObject(weightForm.repetition, defaultState);
@@ -123,9 +119,6 @@ const MovementItemForm = (props) => {
                     elementClass={formElement.config.elementClass}
                     elementConfig={formElement.config.elementConfig}
                     value={formElement.config.value}
-                    invalid={!formElement.config.valid}
-                    shouldValidate={formElement.config.validation} 
-                    touched={formElement.config.touched}
                     changed={(event) => inputChangeHandler(event, formElement.id)} 
                 />
             ))}
