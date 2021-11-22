@@ -6,7 +6,7 @@ import PersonalRecordItem from './PersonalRecordItem/PersonalRecordItem';
 import LastRecords from './LastRecords/LastRecords';
 
 const StyledGrid = styled(Grid)`
-    margin: 40px 0px;
+    margin: 20px 0px;
 `;
 
 const PersonalRecords = (props) => {
@@ -16,7 +16,7 @@ const PersonalRecords = (props) => {
     })
     return (
         <div>
-            <h1>Personal Records</h1>
+            <h2>Personal Records</h2>
             <StyledGrid container 
                 direction="row"
                 justifycontent="center"

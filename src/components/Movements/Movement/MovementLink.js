@@ -19,7 +19,7 @@ const MovementLink = (props) => {
             text-transform: uppercase;
             display: inline-block;
             cursor: pointer;
-            width: 35%;
+            width: 30vw;
             font-size: 1.125rem;
             font-weight: bold;
         }
@@ -29,7 +29,7 @@ const MovementLink = (props) => {
         }
         @media (min-width: 320px) and (max-width: 480px) {
             & .movement {
-                width: 60%;
+                width: 60vw;
                 font-size: 1rem;
             }
         }

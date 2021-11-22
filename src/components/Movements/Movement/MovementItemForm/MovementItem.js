@@ -13,7 +13,7 @@ const MovementStyled = styled.div`
         text-transform: capitalize;
     }
     & .notification {
-        width:25%;
+        width:35vw;
         margin: 0 auto;
     }
 `;

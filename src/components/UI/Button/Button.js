@@ -19,13 +19,13 @@ const ButtonStyled = styled.button`
     @media (min-width: 768px) {
         &.btnLift, &.btnLiftDisabled{
             font-size: 50px;
-            width: 50%;
+            width: 30vw;
         }
     }
     @media (max-width: 768px){
         &.btnLift, &.btnLiftDisabled {
             font-size: 30px;
-            width: 80%;
+            width: 45vw;
         }
     }
     &.btnLift {

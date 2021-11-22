@@ -6,7 +6,7 @@ const InputStyled = styled.div`
     width: 100%;
     padding: 20px 0px 20px 0px;
     & .InputCounterLift {
-        width: 50%;
+        width: 30vw;
     }
     & .InputCounterLift input{
         text-align: center;
@@ -17,6 +17,9 @@ const InputStyled = styled.div`
         }
     }
     @media (max-width: 768px) {
+        & .InputCounterLift {
+            width: 45vw;
+        }
         & .InputCounterLift input {
             font-size: 2.25rem;
         }

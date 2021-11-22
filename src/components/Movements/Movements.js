@@ -7,7 +7,7 @@ import Spinner from '../UI/Loader/Loader';
 import BoxMessage from '../UI/BoxMessage/BoxMessage';
 
 const MovOptions = styled(Grid)`
-    margin-top: 30px;
+    margin-top: 20px;
 `;
 
 const Movements = (props) => {
