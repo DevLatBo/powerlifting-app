@@ -8,13 +8,13 @@ import Header from '../UI/Header/Header';
 
 const HomeOptions = styled(Grid)`
     display: inherit;
-    margin-top: 50px;
+    margin-top: 25px;
     & .option {
         background: linear-gradient(90deg, rgba(70,24,24,1) 0%, rgba(255,6,6,1) 75%);
         box-shadow: 0 5px 0 darkred;
         color: white;
-        border-radius: 35px;
-        padding: 50px 15px;
+        border-radius: 30px;
+        padding: 40px 15px;
         position: relative;
         text-decoration: none;
         text-transform: uppercase;
@@ -33,7 +33,7 @@ const HomeOptions = styled(Grid)`
     }
     @media (max-width: 768px) {
         & .option {
-            margin: 30px auto;
+            margin: 25px auto;
             width: 75%;
         }
     }

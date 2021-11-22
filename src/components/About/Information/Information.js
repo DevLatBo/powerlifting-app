@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import styled from 'styled-components';
 
 const Info = styled.div`
-    margin-top: 140px;
+    margin-top: 10vh;
     background-color: #F7F7F7;
     & .definition {
         padding: 45px 45px 45px 30px;
@@ -14,7 +14,7 @@ const Info = styled.div`
         & .definition {
             padding: 30px;
             margin-right: 0px;
-            margin-bottom: 30px;
+            margin-bottom: 10px;
         }
     }
     & .definition h2 {
@@ -30,20 +30,26 @@ const Info = styled.div`
         margin-bottom: 30px;
         font-size: 1rem;
     }
+    & .reference {
+        height: 50vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     & .reference img {
-        width: 100%;
+        width: 95vw;
+        height: 25vh;
+        padding: 0 30px;
         overflow: hidden;
     }
-    @media (min-width: 1280px) {
+    @media (max-width: 960px) {
         & .reference {
-            margin-top: 32px;
+            height: 30vh;
+        }
+        & .reference img {
+            height: 25vh;
         }
     }
-    @media (min-width: 960px) and (max-width: 1280px) {
-        & .reference {
-            margin-top: 160px;
-        }
-    }  
 `;
 const Information = (props) => {
     return(

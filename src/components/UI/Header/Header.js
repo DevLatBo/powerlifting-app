@@ -8,7 +8,7 @@ const Title = styled.div`
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 330px 0px 150px 0px;
+    padding: 25vh 0px 25vh 0px;
     color: #FFF;
     margin: -24px;
 

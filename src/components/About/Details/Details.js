@@ -6,11 +6,11 @@ import Spinner from '../../UI/Loader/Loader';
 import BoxMessage from '../../UI/BoxMessage/BoxMessage';
 
 const DetailsContainer = styled.div`
-    margin-top: 140px;
+    margin-top: 40px;
     background-color: #F7F7F7;
     & .title {
         text-align: center;
-        margin-bottom: 80px;
+        margin-bottom: 40px;
         width: 100%;
     }
     & .title h2 {
