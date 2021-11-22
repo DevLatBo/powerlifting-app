@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Table from '@mui/material/Table';
 import TableCell from '@mui/material/TableCell';
@@ -7,14 +7,12 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-import LiftContext from '../../../store/lift-context';
 import LastRecordItems from './LastRecordItems/LastRecordItems';
 
 const StyledTableCell = styled(TableCell)`
     background: #FF0000;
 `;
 const LastRecords = (props) => {
-    const ctxLift = useContext(LiftContext);
 
     return (
         <TableContainer component={Paper} 
@@ -29,7 +27,7 @@ const LastRecords = (props) => {
                         <StyledTableCell align="center" sx={{color: '#FFFFFF',fontWeight:'bold'}}>Fecha</StyledTableCell>
                     </TableRow>
                 </TableHead>
-                <LastRecordItems recordItems={ctxLift.lifts}/>
+                <LastRecordItems recordItems={[]}/>
             </Table>
         </TableContainer>
     );
