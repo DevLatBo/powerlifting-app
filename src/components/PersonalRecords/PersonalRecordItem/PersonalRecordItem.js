@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -26,6 +26,29 @@ const StyledBox = styled(Box)`
     }
 `;
 const PersonalRecordItem = (props) => {
+    const [records, setRecords] = useState([]);
+    useEffect( () => {
+        const fetchRecords = async () => {
+            const response = await fetch("https://powerlifting-react-default-rtdb.firebaseio.com/lifts/"+props.id+".json");
+            if(!response.ok) {
+                throw new Error("Sometjing wrong happened!");
+            }
+            const responseData = await response.json();
+    
+            let loadedRecords = [];
+            
+            for(let key in responseData) {
+                loadedRecords.push(
+                    responseData[key].lift.weight
+                );
+            }
+            const recordsWeight = loadedRecords.map(Number);
+            setRecords(recordsWeight);
+        }
+        fetchRecords();
+    }, [props.id]);
+
+
     return(
         <Grid item xs={12} lg={4}>
             <StyledBox>
@@ -35,7 +58,7 @@ const PersonalRecordItem = (props) => {
                             {props.movement}
                         </Typography>
                         <Typography sx={{ fontSize: 50 }} variant="h5" component="div" className="recordMov" >
-                            0 kg.
+                            {Math.max(...records)} kg.
                         </Typography>
                     </CardContent>
                 </Card>

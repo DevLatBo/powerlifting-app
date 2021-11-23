@@ -16,15 +16,27 @@ const LastRecords = (props) => {
 
     return (
         <TableContainer component={Paper} 
-            sx={{width: '70%',margin:'40px auto'}}>
+            sx={{width: {xs: "100%", md:"70%"},margin:'40px auto'}}>
             <Table sx={{ minWidth: {lg: 700, xs: 100} }} 
                 aria-label="customized table">
                 <TableHead>
                     <TableRow>
-                        <StyledTableCell align="center" sx={{color: '#FFFFFF',fontWeight:'bold'}}>Movimiento</StyledTableCell>
-                        <StyledTableCell align="center" sx={{color: '#FFFFFF',fontWeight:'bold'}}>Peso (kg)</StyledTableCell>
-                        <StyledTableCell align="center" sx={{color: '#FFFFFF',fontWeight:'bold'}}>Repeticiones</StyledTableCell>
-                        <StyledTableCell align="center" sx={{color: '#FFFFFF',fontWeight:'bold'}}>Fecha</StyledTableCell>
+                        <StyledTableCell align="center" 
+                            sx={{color: '#FFFFFF',fontWeight:'bold'}}>
+                                Movimiento
+                        </StyledTableCell>
+                        <StyledTableCell align="center" 
+                            sx={{color: '#FFFFFF',fontWeight:'bold'}}>
+                                Peso (kg)
+                        </StyledTableCell>
+                        <StyledTableCell align="center" 
+                            sx={{color: '#FFFFFF',fontWeight:'bold'}}>
+                                Reps.
+                        </StyledTableCell>
+                        <StyledTableCell align="center" 
+                            sx={{color: '#FFFFFF',fontWeight:'bold'}}>
+                                Fecha
+                        </StyledTableCell>
                     </TableRow>
                 </TableHead>
                 <LastRecordItems recordItems={[]}/>
