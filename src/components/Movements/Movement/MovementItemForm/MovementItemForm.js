@@ -77,7 +77,6 @@ const MovementItemForm = (props) => {
         const formData = {};
         for(let formElementIdentifier in weightForm) {
             formData[formElementIdentifier] = weightForm[formElementIdentifier].value;
-            formData['movement'] = props.movement;
             formData['date'] = new Date().toISOString().split('T')[0];
         }
         props.onAddLift(formData);

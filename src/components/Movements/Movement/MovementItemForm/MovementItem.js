@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState} from 'react';
 import Alert from '@mui/material/Alert';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
@@ -19,7 +19,6 @@ const MovementStyled = styled.div`
 `;
 
 const MovementItem = (props) => {
-    const liftCtx = useContext(LiftContext);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [didSubmit, setDidSubmit] = useState(false);
 
@@ -27,11 +26,11 @@ const MovementItem = (props) => {
     //console.log(movement);
     const addLiftHandler =  async (liftData) => {
         setIsSubmitting(true);
-        await fetch("https://powerlifting-react-default-rtdb.firebaseio.com/lifts.json", {
+        await fetch("https://powerlifting-react-default-rtdb.firebaseio.com/lifts/"+movement+".json", {
             method: "POST",
             body: JSON.stringify({
-                [movement]: liftData,
-            })
+                lift:liftData
+            }),
         });
         setIsSubmitting(false);
         setDidSubmit(true);
