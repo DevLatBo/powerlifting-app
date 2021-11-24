@@ -5,7 +5,7 @@ const Spinner = styled.img`
 `;
 const Loader = (props) => {
     return (
-        <Spinner src="assets/gifs/spinner_lg.gif" 
+        <Spinner src={`assets/gifs/spinner_${props.size}.gif`} 
             alt="Cargando..." />
     );
 
