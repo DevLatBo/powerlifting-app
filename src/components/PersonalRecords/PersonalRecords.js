@@ -40,7 +40,7 @@ const PersonalRecords = (props) => {
         });
     }, [])
 
-    const loader = <Spinner/>;
+    const loader = <Spinner size="lg"/>;
 
     const errorMessage = <BoxMessage type="error" 
                         message={error}

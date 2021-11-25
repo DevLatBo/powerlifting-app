@@ -8,10 +8,11 @@ import Typography from '@mui/material/Typography';
 import styled from 'styled-components';
 
 import Spinner from '../../UI/Loader/Loader';
+import BoxMessage from '../../UI/BoxMessage/BoxMessage';
 
 const StyledBox = styled(Box)`
-    width: 20rem;
-    margin: 25px auto;
+    width: 17rem;
+    margin: 20px auto;
     .cardMov {
         border-radius: 25px;
         background-color: #FF0000;
@@ -23,14 +24,19 @@ const StyledBox = styled(Box)`
     .cardMov .recordMov {
         margin-top: 15px;
         text-align: center;
+        font-size: 2.5rem;
     }
     @media (min-width: 320px) and (max-width: 767px) {
         width: 15rem;
+        .cardMov .recordMov {
+            font-size: 2rem;
+        }
     }
 `;
 const PersonalRecordItem = (props) => {
     const [records, setRecords] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState();
 
     useEffect( () => {
         const fetchRecords = async () => {
@@ -51,28 +57,42 @@ const PersonalRecordItem = (props) => {
             setRecords(recordsWeight);
             setIsLoading(false);
         }
-        fetchRecords();
+        fetchRecords().catch((error) => {
+            setError(error.message);
+            setIsLoading(false);
+        });
     }, [props.id]);
 
     const loader = <Spinner size="sm" />;
 
-    const maxPR = Math.max(...records);
+    const errorMessage = <BoxMessage type="error" 
+                            className="error"
+                            message={error}/>;
+
+    const maxPR = (records.length) ? Math.max(...records) : 0;
 
     return(
-        <Grid item xs={12} lg={4}>
+        <Grid item xs={12} md={4}>
             <StyledBox>
                 <Card variant="outlined" className="cardMov">
                     <CardContent>
-                        <Typography sx={{ fontSize: 18 }} color="white" gutterBottom className="subtitleMov">
+                        <Typography sx={{ fontSize: 18 }} 
+                                color="white" 
+                                gutterBottom 
+                                className="subtitleMov">
                             {props.movement}
                         </Typography>
-                        <Typography sx={{ fontSize: 50 }} variant="h5" component="div" className="recordMov" >
-                            { !isLoading && <CountUp start={0} 
+                        <Typography sx={{ fontSize: 50 }} 
+                                variant="h5" 
+                                component="div" 
+                                className="recordMov" >
+                            { !isLoading && !error && <CountUp start={0} 
                                                     end={maxPR} 
-                                                    suffix="kg." 
+                                                    suffix=" kg." 
                                                     decimals="2" 
-                                                    duration={1.5}/> } 
+                                                    duration={3}/> } 
                             { isLoading && loader }
+                            { !isLoading && error && errorMessage }
                         </Typography>
                     </CardContent>
                 </Card>

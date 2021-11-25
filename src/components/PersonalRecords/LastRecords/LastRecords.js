@@ -13,7 +13,54 @@ const StyledTableCell = styled(TableCell)`
     background: #FF0000;
 `;
 const LastRecords = (props) => {
-
+    const recordItems = {
+        "bench-press": {
+            "lift": {
+                "date": "2021-06-11",
+                "weight": "75.5",
+                "repetition":"4",
+            },
+            "lift": {
+                "date": "2021-06-14",
+                "weight": "79",
+                "repetition":"2",
+            },
+        },
+        "deadlift": {
+            "lift": {
+                "date": "2021-06-11",
+                "weight": "140",
+                "repetition":"7",
+            },
+            "lift": {
+                "date": "2021-06-16",
+                "weight": "160",
+                "repetition":"2",
+            },
+            "lift": {
+                "date": "2021-06-20",
+                "weight": "165",
+                "repetition":"1",
+            },
+        },
+        "squat": {
+            "lift": {
+                "date": "2021-06-14",
+                "weight": "100",
+                "repetition":"2",
+            },
+        },
+    }
+    const loadedRecords = [];
+    for(let key in recordItems) {
+        loadedRecords.push({
+            "id": key,
+            "date": recordItems[key].lift.date,
+            "weight": recordItems[key].lift.weight,
+            "repetition":recordItems[key].lift.repetition,
+        });
+    }
+    
     return (
         <TableContainer component={Paper} 
             sx={{width: {xs: "100%", md:"70%"},margin:'40px auto'}}>
@@ -39,7 +86,7 @@ const LastRecords = (props) => {
                         </StyledTableCell>
                     </TableRow>
                 </TableHead>
-                <LastRecordItems recordItems={[]}/>
+                <LastRecordItems recordItems={loadedRecords}/>
             </Table>
         </TableContainer>
     );
