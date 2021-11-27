@@ -74,11 +74,7 @@ const LastRecords = (props) => {
                         </StyledTableCell>
                         <StyledTableCell align="center" 
                             sx={{color: '#FFFFFF',fontWeight:'bold'}}>
-                                Peso (kg)
-                        </StyledTableCell>
-                        <StyledTableCell align="center" 
-                            sx={{color: '#FFFFFF',fontWeight:'bold'}}>
-                                Reps.
+                                Peso (kg) [Reps]
                         </StyledTableCell>
                         <StyledTableCell align="center" 
                             sx={{color: '#FFFFFF',fontWeight:'bold'}}>
