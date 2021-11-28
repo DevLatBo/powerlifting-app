@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react';
 import Grid from '@material-ui/core/Grid';
 import styled from 'styled-components';
 
+import useHttp from '../../../hooks/use-http';
 import Spinner from '../../UI/Loader/Loader';
 import BoxMessage from '../../UI/BoxMessage/BoxMessage';
 
@@ -70,36 +71,27 @@ const DetailsContainer = styled.div`
 
 const Details = (props) => {
     const [movements, setMovements] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState();
-
+    const {isLoading, error, sendRequest: fetchMovements} = useHttp();
+    
     useEffect(() => {
-        const fetchMovements = async () => {
-          const response = await fetch("https://powerlifting-react-default-rtdb.firebaseio.com/movements.json");
-          if(!response.ok) {
-            throw new Error("Something went wrong!");
-          }
-          const responseData = await response.json();
-      
-          let loadedMovements = [];
-          for(const key in responseData) {
-            loadedMovements.push({
-              id: key,
-              name: responseData[key].name,
-              body: responseData[key].body,
-              description: responseData[key].description,
-              image: responseData[key].image
-            });
-          }
-          setMovements(loadedMovements);
-          setIsLoading(false);
-        }
-      
-        fetchMovements().catch((error) => {
-            setIsLoading(false);
-            setError(error.message);
-        });
-    }, []);
+        const obtainMovements = (movements) => {
+            const loadedMovements = [];
+            for(let key in movements) {
+                loadedMovements.push({
+                    id: key,
+                    name: movements[key].name,
+                    body: movements[key].body,
+                    description: movements[key].description,
+                    image: movements[key].image
+                });
+            }
+            setMovements(loadedMovements);
+        };
+        fetchMovements(
+            {url: "https://powerlifting-react-default-rtdb.firebaseio.com/movements.json"},
+            obtainMovements
+        );
+    }, [fetchMovements]);
 
     const movementsInfo = movements.map((mov) => {
       return (

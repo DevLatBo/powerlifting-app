@@ -13,8 +13,6 @@ const MovOptions = styled(Grid)`
 
 const Movements = (props) => {
     const [movements, setMovements] = useState([]);
-    /*const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState();*/
     const { isLoading, error, sendRequest: fetchMovements } = useHttp();
 
     useEffect(() => {
@@ -33,27 +31,6 @@ const Movements = (props) => {
             {url: "https://powerlifting-react-default-rtdb.firebaseio.com/movements.json"}, 
             obtainMovements
         );
-        /*const fetchMovements = async () => {
-            const response = await fetch("https://powerlifting-react-default-rtdb.firebaseio.com/movements.json");
-            if(!response.ok) {
-                throw new Error("Something went wrong!");
-            }
-            const responseData = await response.json();
-            const loadedMovements = [];
-
-            for(const key in responseData) {
-                loadedMovements.push({
-                    id: key,
-                    name: responseData[key].name
-                });
-            }
-            setMovements(loadedMovements);
-            setIsLoading(false);
-        }
-        fetchMovements().catch((error) => {
-            setIsLoading(false);
-            setError(error.message);
-        });*/
     },[fetchMovements]);
     
     const movementLinks = movements.map((movement) => {

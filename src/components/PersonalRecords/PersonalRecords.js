@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import Grid from '@mui/material/Grid';
 
+import useHttp from '../../hooks/use-http';
 import PersonalRecordItem from './PersonalRecordItem/PersonalRecordItem';
 import LastRecords from './LastRecords/LastRecords';
 import Spinner from '../UI/Loader/Loader';
@@ -13,32 +14,24 @@ const StyledGrid = styled(Grid)`
 
 const PersonalRecords = (props) => {
     const [movements, setMovements] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState();
+    const { isLoading, error, sendRequest: fetchMovements } = useHttp(); 
 
     useEffect(() => {
-        const fetchMovements = async() => {
-            const response = await fetch("https://powerlifting-react-default-rtdb.firebaseio.com/movements.json");
-            if(!response.ok) {
-                throw new Error("Something wrong happened!");
-            }
-            const responseData = await response.json();
-    
-            let loadedMovements = [];
-            for(let key in responseData) {
+        const obtainMovements = (movements) => {
+            const loadedMovements = [];
+            for(let key in movements) {
                 loadedMovements.push({
                     id: key,
-                    name: responseData[key].name,
+                    name: movements[key].name,
                 });
             }
             setMovements(loadedMovements);
-            setIsLoading(false);
         }
-        fetchMovements().catch((error) => {
-            setIsLoading(false);
-            setError(error.message);
-        });
-    }, [])
+        fetchMovements(
+            {url: "https://powerlifting-react-default-rtdb.firebaseio.com/movements.json"},
+            obtainMovements
+        );
+    }, [fetchMovements])
 
     const loader = <Spinner size="lg"/>;
 
