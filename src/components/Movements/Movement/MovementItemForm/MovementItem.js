@@ -12,8 +12,13 @@ const MovementStyled = styled.div`
         text-transform: capitalize;
     }
     & .notification {
-        width:35vw;
+        width: 35vw;
         margin: 0 auto;
+    }
+    @media (max-width: 768px) {
+        & .notification {
+            width: 60vw;
+        }
     }
 `;
 
@@ -27,6 +32,9 @@ const MovementItem = (props) => {
         setIsSubmitting(true);
         await fetch("https://powerlifting-react-default-rtdb.firebaseio.com/lifts/"+movement+".json", {
             method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
             body: JSON.stringify({
                 lift:liftData
             }),

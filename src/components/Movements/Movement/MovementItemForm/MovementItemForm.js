@@ -13,10 +13,10 @@ const FormWeight = styled.div`
     padding: 10px;
     box-sizing: border-box;
     @media (min-width: 768px) {
-        width: 60vw;
+        width: 45vw;
     }
     @media (max-width: 768px) {
-        width: 80vw;
+        width: 60vw;
     }
 `;
 const MovementItemForm = (props) => {

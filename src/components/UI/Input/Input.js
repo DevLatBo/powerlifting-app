@@ -15,6 +15,9 @@ const InputStyled = styled.div`
         & .InputCounterLift input {
             font-size: 2.5rem;
         }
+        & .InputCounterLift input::placeholder{
+            font-size: 1.5rem;
+        }
     }
     @media (max-width: 768px) {
         & .InputCounterLift {
@@ -22,6 +25,9 @@ const InputStyled = styled.div`
         }
         & .InputCounterLift input {
             font-size: 2.25rem;
+        }
+        & .InputCounterLift input::placeholder{
+            font-size: 1rem;
         }
     }
 `;
