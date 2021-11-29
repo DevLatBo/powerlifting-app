@@ -20,9 +20,13 @@ const LastRecords = (props) => {
         const obtainLiftsData = (lifts) => {
             const loadedLifts = [];
             for(let movement in lifts) {
-                loadedLifts.push({
-                    mov: movement,
-                    data: lifts[movement]
+                Object.entries(lifts[movement]).forEach( ([key, data]) => {
+                    loadedLifts.push({
+                        movement: movement,
+                        date: data.date,
+                        repetition: data.repetition,
+                        weight: data.weight,
+                    });
                 });
             }
             setRecords(loadedLifts);
@@ -33,15 +37,14 @@ const LastRecords = (props) => {
         );
 
     }, [fetchLiftsData]);
-    /*console.log(records);
-    const movements = records.map((recordData) => recordData.mov);
-    console.log(movements);*/
-    const loadedRecords = [];    
+    records.sort((a,b) => (a.date < b.date) ? 1:-1);
+    const lastRecords = records.slice(0,5);
+
     return (
         <TableContainer component={Paper} 
             sx={{width: {xs: "100%", md:"70%"},margin:'40px auto'}}>
             <Table sx={{ minWidth: {lg: 700, xs: 100} }} 
-                aria-label="customized table">
+                aria-label="PRs Table">
                 <TableHead>
                     <TableRow>
                         <StyledTableCell align="center" 
@@ -58,7 +61,7 @@ const LastRecords = (props) => {
                         </StyledTableCell>
                     </TableRow>
                 </TableHead>
-                <LastRecordItems recordItems={loadedRecords}/>
+                <LastRecordItems recordItems={lastRecords}/>
             </Table>
         </TableContainer>
     );

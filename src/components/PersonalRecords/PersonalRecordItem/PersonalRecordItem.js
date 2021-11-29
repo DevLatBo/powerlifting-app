@@ -50,7 +50,7 @@ const PersonalRecordItem = (props) => {
             
             for(let key in responseData) {
                 loadedRecords.push(
-                    responseData[key].lift.weight
+                    responseData[key].weight
                 );
             }
             const recordsWeight = loadedRecords.map(Number);
