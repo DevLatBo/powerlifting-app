@@ -30,14 +30,15 @@ const MovementItem = (props) => {
     
     const addLiftHandler =  async (liftData) => {
         setIsSubmitting(true);
+        console.log(liftData);
         await fetch("https://powerlifting-react-default-rtdb.firebaseio.com/lifts/"+movement+".json", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({
-                lift:liftData
-            }),
+            body: JSON.stringify(
+                liftData
+            ),
         });
         setIsSubmitting(false);
         setDidSubmit(true);
