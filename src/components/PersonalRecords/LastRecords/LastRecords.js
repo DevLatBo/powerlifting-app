@@ -8,8 +8,6 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 import useHttp from '../../../hooks/use-http';
-import Spinner from '../../UI/Loader/Loader';
-import BoxMessage from '../../UI/BoxMessage/BoxMessage';
 import LastRecordItems from './LastRecordItems/LastRecordItems';
 
 const StyledTableCell = styled(TableCell)`
@@ -42,14 +40,6 @@ const LastRecords = (props) => {
     records.sort((a,b) => (a.date < b.date) ? 1:-1);
     const lastRecords = records.slice(0,5);
 
-    const loader = <Spinner size="lg" />
-
-    const errorMessage = <BoxMessage type="error"
-                            className="error" 
-                            message={error}/>
-
-    const lastRecordsInfo =  <LastRecordItems recordItems={lastRecords}/>;
-
     return (
         <TableContainer component={Paper} 
             sx={{width: {xs: "100%", md:"70%"},margin:'40px auto'}}>
@@ -71,9 +61,11 @@ const LastRecords = (props) => {
                         </StyledTableCell>
                     </TableRow>
                 </TableHead>
-                { !isLoading && !error && lastRecordsInfo}
-                { isLoading && loader}
-                { !isLoading && error && errorMessage }
+                <LastRecordItems 
+                    error={error} 
+                    flagLoader={isLoading}
+                    recordItems={lastRecords}
+                />
             </Table>
         </TableContainer>
     );
