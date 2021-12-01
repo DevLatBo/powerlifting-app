@@ -38,7 +38,7 @@ const LastRecords = (props) => {
 
     }, [fetchLiftsData]);
     records.sort((a,b) => (a.date < b.date) ? 1:-1);
-    const lastRecords = records.slice(0,5);
+    const lastRecords = (records.length >=5) ? records.slice(0,5) : records;
 
     return (
         <TableContainer component={Paper} 
