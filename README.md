@@ -28,5 +28,5 @@ Donde:
  - A = Alteracion considerable de la vista en la interfaz o del uso de la web-app.
  - B = Modificacion, correcciones o mejoras en funcionalidades.
  - C = Pequeño ajustes con tal de que no afecte en funcionalidad.
-
+***
 **05K4R1N**
