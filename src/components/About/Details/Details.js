@@ -111,8 +111,9 @@ const Details = (props) => {
     const loader = <Spinner size="lg"/>;
     
     const errorMessage = <BoxMessage type="error" 
-                            className="error"
-                            message={error}/>;
+                            className="error">
+                            {error}
+                        </BoxMessage>;
 
     return (
         <DetailsContainer>

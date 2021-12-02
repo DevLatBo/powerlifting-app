@@ -66,8 +66,9 @@ const PersonalRecordItem = (props) => {
     const loader = <Spinner size="sm" />;
 
     const errorMessage = <BoxMessage type="error" 
-                            className="error"
-                            message={error}/>;
+                            className="error">
+                            {error}
+                        </BoxMessage>;
 
     const maxPR = (records.length) ? Math.max(...records) : 0;
 

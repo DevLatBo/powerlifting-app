@@ -26,8 +26,9 @@ const LastRecordItems = (props) => {
         <TableRow>
             <TableCell align="center" colSpan={3}>
                 <BoxMessage type="error"
-                    className="error" 
-                    message={props.error}/>
+                    className="error">
+                    {props.error}
+                </BoxMessage>
             </TableCell>
         </TableRow>;
 

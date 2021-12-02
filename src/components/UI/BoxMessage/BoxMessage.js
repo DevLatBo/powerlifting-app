@@ -16,7 +16,7 @@ const BoxMessage = (props) => {
         <Box>
             <Alert severity={props.type}
                 className={props.className}>
-                    {props.message}
+                    {props.children}
             </Alert>
         </Box>
     );

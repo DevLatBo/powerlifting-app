@@ -35,9 +35,10 @@ const PersonalRecords = (props) => {
 
     const loader = <Spinner size="lg"/>;
 
-    const errorMessage = <BoxMessage type="error" 
-                        message={error}
-                        className="error"/>
+    const errorMessage = <BoxMessage type="error"
+                        className="error">
+                            {error}
+                        </BoxMessage>
     
 
     const prs = movements.map((movement) => {
