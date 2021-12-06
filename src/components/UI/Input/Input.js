@@ -10,6 +10,12 @@ const InputStyled = styled.div`
     }
     & .InputCounterLift input{
         text-align: center;
+        -moz-appearance: textfield;
+    }
+    & .InputCounterLift input::-webkit-outer-spin-button,
+    & .InputCounterLift input::-webkit-inner-spin-button{
+        -webkit-appearance: none;
+        margin: 0;
     }
     @media (min-width: 768px) {
         & .InputCounterLift input {
@@ -33,7 +39,6 @@ const InputStyled = styled.div`
 `;
 const input = (props) => {
     let inputElement = null;
-    
     switch(props.elementType){
         case 'input':
             inputElement = <TextField
@@ -41,6 +46,7 @@ const input = (props) => {
                             className={props.elementClass}
                             value={props.value} 
                             onChange={props.changed} 
+                            InputProps={{ inputProps: props.elementProperties}}
                             />;
             break;
         default:

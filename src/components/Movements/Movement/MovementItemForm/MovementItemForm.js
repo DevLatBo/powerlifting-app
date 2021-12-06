@@ -36,6 +36,9 @@ const MovementItemForm = (props) => {
                 isPositive: "true"
             },
             valid: false,
+            properties: {
+                "step": "0.5",
+            }
         },
         repetition: {
             elementType: "input",
@@ -52,6 +55,9 @@ const MovementItemForm = (props) => {
                 isPositive: true,
             },
             valid: false,
+            properties: {
+                "step": "0.5",
+            },
         },
     });
     const [formIsValid, setFormIsValid] = useState(false);
@@ -117,6 +123,7 @@ const MovementItemForm = (props) => {
                     elementType={formElement.config.elementType} 
                     elementClass={formElement.config.elementClass}
                     elementConfig={formElement.config.elementConfig}
+                    elementProperties={formElement.config.properties}
                     value={formElement.config.value}
                     changed={(event) => inputChangeHandler(event, formElement.id)} 
                 />
