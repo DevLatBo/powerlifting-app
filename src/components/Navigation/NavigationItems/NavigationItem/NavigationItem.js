@@ -11,7 +11,7 @@ const useStyles = makeStyles({
     Item: {
         fontSize: '17px',
         display: 'block',
-        color: 'white',
+        color: '#FFFFFF',
         textAlign: 'center',
         padding: '14px 16px',
         textDecoration: 'none'

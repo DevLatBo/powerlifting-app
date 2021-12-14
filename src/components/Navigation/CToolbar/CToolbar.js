@@ -1,5 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
+import {NavLink} from 'react-router-dom';
 import {makeStyles} from '@material-ui/core/styles';
 import { useTheme, useMediaQuery } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
@@ -39,6 +40,10 @@ const useStyles = makeStyles((theme) => ({
     rightLinks: {
         marginLeft: 'auto',
     },
+    homeLink: {
+        color: '#FFFFFF',
+        textDecoration: 'none'
+    },
 }));
 
 const CToolbar = (props) => {
@@ -66,7 +71,11 @@ const CToolbar = (props) => {
                 }
                 
                 <Typography variant="h6" noWrap>
-                    Powerlifting
+                    <NavLink 
+                        className={classes.homeLink}
+                        to = "/">
+                            <strong>Powerlifting</strong>
+                    </NavLink>
                 </Typography>
                 <section className={classes.rightLinks}>
                     <NavigationItems/>
