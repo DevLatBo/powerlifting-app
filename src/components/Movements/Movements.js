@@ -6,6 +6,7 @@ import useHttp from '../../hooks/use-http';
 import MovementLink from './Movement/MovementLink';
 import Spinner from '../UI/Loader/Loader';
 import BoxMessage from '../UI/BoxMessage/BoxMessage';
+import Section from '../UI/Section/Section';
 
 const MovOptions = styled(Grid)`
     margin-top: 20px;
@@ -50,14 +51,16 @@ const Movements = (props) => {
         </BoxMessage>;
 
     return (
-        <MovOptions container 
-            direction="row"
-            justifyContent="center"
-            alignItems="center">
-                {!isLoading && !error && movementLinks}
-                {isLoading && loader}
-                {!isLoading && error && errorMessage}
-        </MovOptions>
+        <Section>
+            <MovOptions container 
+                direction="row"
+                justifyContent="center"
+                alignItems="center">
+                    {!isLoading && !error && movementLinks}
+                    {isLoading && loader}
+                    {!isLoading && error && errorMessage}
+            </MovOptions>
+        </Section>
     );
 }
 

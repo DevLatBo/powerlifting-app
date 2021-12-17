@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 
 import MovementItemForm from './MovementItemForm';
+import Section from '../../../UI/Section/Section';
 
 const MovementStyled = styled.div`
     & h2 {
@@ -48,13 +49,15 @@ const MovementItem = (props) => {
     };
     
     return (
-        <MovementStyled>
-            <h2>{movement}</h2>
-            {didSubmit && <Alert className="notification" onClose={closeAlert}>Levantamiento registrado con exito!</Alert>}
-            {isSubmitting && <Alert severity="info" className="notification">Registrando levantamiento...</Alert>}
-            <MovementItemForm movement = {movement} 
-                onAddLift = {addLiftHandler} />
-        </MovementStyled>
+        <Section>
+            <MovementStyled>
+                <h2>{movement}</h2>
+                {didSubmit && <Alert className="notification" onClose={closeAlert}>Levantamiento registrado con exito!</Alert>}
+                {isSubmitting && <Alert severity="info" className="notification">Registrando levantamiento...</Alert>}
+                <MovementItemForm movement = {movement} 
+                    onAddLift = {addLiftHandler} />
+            </MovementStyled>
+        </Section>
     )
 };
 export default MovementItem;

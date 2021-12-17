@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 
 import Aux from '../../hoc/Aux/Aux';
 import Header from '../UI/Header/Header';
+import Section from '../UI/Section/Section';
 
 const HomeOptions = styled(Grid)`
     display: inherit;
@@ -47,21 +48,23 @@ const Home = (props) => {
     return (
         <Aux>
             <Header/>
-            <Grid container 
-                direction="row"
-                jusfitycontent="center"
-                alignItems="center">
-                <HomeOptions xs={12} md={6} item={true}>
-                    <Link className="option" to="/prs">
-                        Records Personales
-                    </Link>
-                </HomeOptions>
-                <HomeOptions xs={12} md={6}  item={true}>
-                    <Link className="option" to="/movements">
-                        Movimientos
-                    </Link>
-                </HomeOptions>
-            </Grid>
+            <Section>
+                <Grid container 
+                    direction="row"
+                    jusfitycontent="center"
+                    alignItems="center">
+                    <HomeOptions xs={12} md={6} item={true}>
+                        <Link className="option" to="/prs">
+                            Records Personales
+                        </Link>
+                    </HomeOptions>
+                    <HomeOptions xs={12} md={6}  item={true}>
+                        <Link className="option" to="/movements">
+                            Movimientos
+                        </Link>
+                    </HomeOptions>
+                </Grid>
+            </Section>
         </Aux>
     );
 }

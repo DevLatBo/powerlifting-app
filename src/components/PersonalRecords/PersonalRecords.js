@@ -7,6 +7,7 @@ import PersonalRecordItem from './PersonalRecordItem/PersonalRecordItem';
 import LastRecords from './LastRecords/LastRecords';
 import Spinner from '../UI/Loader/Loader';
 import BoxMessage from '../UI/BoxMessage/BoxMessage';
+import Section from '../UI/Section/Section';
 
 const StyledGrid = styled(Grid)`
     margin: 20px 0px;
@@ -48,7 +49,7 @@ const PersonalRecords = (props) => {
     });
 
     return (
-        <div>
+        <Section>
             <h2>Personal Records</h2>
             <StyledGrid container 
                 direction="row"
@@ -60,7 +61,7 @@ const PersonalRecords = (props) => {
                     {!isLoading && error && errorMessage}
             </StyledGrid>
             <LastRecords/>
-        </div>
+        </Section>
     );
 }
 
