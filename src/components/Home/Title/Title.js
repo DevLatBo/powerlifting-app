@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Grid from '@material-ui/core/Grid';
 
-const Title = styled.div`
+const StyledTitle = styled.div`
     text-align: center;
     background-image: url(${props => props.image});
     background-position: center center;
@@ -39,14 +39,14 @@ const Title = styled.div`
 `;
 const Header = (props) => {
     return (
-        <Title image={`assets/images/page-heading-background.jpg`}>
+        <StyledTitle image={`assets/images/page-heading-background.jpg`}>
             <Grid container>
                 <Grid item xs={12}>
                     <h1>POWERLIFTING</h1>
                     <span>Levantamiento de potencia</span>
                 </Grid>
             </Grid>
-        </Title>
+        </StyledTitle>
     );
 }
 

@@ -4,7 +4,9 @@ import {Link} from 'react-router-dom';
 import Grid from "@material-ui/core/Grid";
 
 import Aux from '../../hoc/Aux/Aux';
-import Header from '../UI/Header/Header';
+import Title from './Title/Title';
+import Definition from './Information/Definition';
+import Movements from './Information/Movements';
 import Section from '../UI/Section/Section';
 
 const HomeOptions = styled(Grid)`
@@ -47,7 +49,9 @@ const HomeOptions = styled(Grid)`
 const Home = (props) => {
     return (
         <Aux>
-            <Header/>
+            <Title/>
+            <Definition/>
+            <Movements/>
             <Section>
                 <Grid container 
                     direction="row"
