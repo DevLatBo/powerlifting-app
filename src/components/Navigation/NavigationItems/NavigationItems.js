@@ -19,7 +19,8 @@ const NavigationItems = (props) => {
     if(showLinks){
         nItems = (
             <NavItems>
-                <NavigationItem link="/about">Acerca de</NavigationItem>
+                <NavigationItem link="/prs">Records Personales</NavigationItem>
+                <NavigationItem link="/movements">Registrar Levantamiento</NavigationItem>
             </NavItems>
         );
     }

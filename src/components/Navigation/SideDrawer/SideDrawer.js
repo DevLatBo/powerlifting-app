@@ -37,10 +37,6 @@ const SideDrawer = (props) => {
                         <ListItemIcon><HomeIcon className={classes.drawerIcon}/></ListItemIcon>
                         <ListItemText primary="Inicio" />
                     </ListItem>
-                    <ListItem button component={Link} to="/about">
-                        <ListItemIcon><FitnessCenterIcon className={classes.drawerIcon}/></ListItemIcon>
-                        <ListItemText primary="Acerca De" />
-                    </ListItem>
                     <ListItem button component={Link} to="/prs">
                         <ListItemIcon><MilitaryTechIcon className={classes.drawerIcon}/></ListItemIcon>
                         <ListItemText primary="Records Personales" />
