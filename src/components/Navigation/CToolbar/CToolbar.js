@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
           easing: theme.transitions.easing.sharp,
           duration: theme.transitions.duration.leavingScreen,
         }),
-        background: 'transparent',
+        background: '#FF0000',
         boxShadow: 'none',
     },
     appBarShift: {
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
         }),
     },
     menuButton: {
-        marginRight: theme.spacing(2),
+        marginRight: "0.5rem"
     },
     hide: {
         display: 'none',
@@ -69,7 +69,6 @@ const CToolbar = (props) => {
                         <MenuIcon />
                     </IconButton>
                 }
-                
                 <Typography variant="h6" noWrap>
                     <NavLink 
                         className={classes.homeLink}
