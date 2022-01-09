@@ -1,11 +1,10 @@
-import React,{useState} from 'react';
+import React, { useContext } from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
 import Navbar from '../../components/Navigation/Navigation';
-import CToolbar from '../../components/Navigation/CToolbar/CToolbar';
 import CssBaseline from '@material-ui/core/CssBaseline';
-
+import SideDrawerContext from '../../store/sideDrawer-context';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,25 +35,16 @@ const useStyles = makeStyles((theme) => ({
 
 const Layout = (props) => {
   const classes = useStyles();
-  /*const [open, setOpen] = useState(false);
-
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };*/
+  const sideDrawerCtx = useContext(SideDrawerContext);
 
   return (
     <div className={classes.root}>
       <CssBaseline />
-      {/*<CToolbar openDrawer={open} drawerOpen={handleDrawerOpen} />*/}
       <Navbar />
       <SideDrawer/>
       <main
         className={clsx(classes.content, {
-          [classes.contentShift]: open,
+          [classes.contentShift]: sideDrawerCtx.drawerOpen,
         })}
       >
         <div className={classes.drawerHeader} />

@@ -13,9 +13,6 @@ const StyledToolbar = styled(Toolbar)`
     & .menuButton{
         margin-right: 0.5rem;
     }
-    & .hide{
-        display: none;
-    }
     & .right-links{
         margin-left: auto;
     }
