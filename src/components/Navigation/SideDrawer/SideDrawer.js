@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import HomeIcon from '@mui/icons-material/Home';
@@ -12,6 +12,7 @@ import Divider from '@material-ui/core/Divider';
 import List from '@material-ui/core/List';
 import Drawer from '@material-ui/core/Drawer';
 
+import SideDrawerContext from '../../../store/sideDrawer-context';
 
 const useStyles = makeStyles( (theme) => ({
     list: {
@@ -28,6 +29,12 @@ const useStyles = makeStyles( (theme) => ({
 
 const SideDrawer = (props) => {
     const classes = useStyles();
+    const sideDrawerCtx = useContext(SideDrawerContext);
+
+    const handlerSideDrawerClose = () => {
+        sideDrawerCtx.closeSideDrawer();
+    }
+    
     const sideList = (side) => {
         return(
             <div className={classes.list}>
@@ -51,9 +58,9 @@ const SideDrawer = (props) => {
     }
     
     return (
-        <Drawer open={props.openDrawer}
+        <Drawer open={sideDrawerCtx.drawerOpen}
           BackdropProps = {{ invisible: false }}
-          onClose = {props.drawerClose}
+          onClose = {handlerSideDrawerClose}
           classes={{
             paper: classes.drawerPaper,
           }}

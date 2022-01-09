@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import clsx from 'clsx';
 import {makeStyles} from '@material-ui/core/styles';
 import { useTheme, useMediaQuery } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 
 import Nav from './Nav/Nav';
+import SideDrawerContext from '../../store/sideDrawer-context';
 
 const drawerWidth = 200;
 
@@ -31,15 +32,16 @@ const Navigation = (props) => {
     const classes = useStyles();
     const theme = useTheme();
     const showMenuIcon = useMediaQuery(theme.breakpoints.up('sm'));
+    const sideDrawerCtx = useContext(SideDrawerContext);
+
     return (
         <AppBar
         position="fixed"
         className={clsx(classes.appBar, {
-          [classes.appBarShift]: props.openDrawer,
+          [classes.appBarShift]: sideDrawerCtx.drawerOpen,
         })}
         >
-            <Nav showedMenuIcon={showMenuIcon} 
-                showedSideBar={props.drawerOpen}/>
+            <Nav showedMenuIcon={showMenuIcon} />
         </AppBar>
     )
 }

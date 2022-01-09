@@ -6,7 +6,7 @@ import Layout from './hoc/Layout/Layout';
 import Movements from './components/Movements/Movements';
 import MovementItem from './components/Movements/Movement/MovementItemForm/MovementItem';
 import PersonalRecords from './components/PersonalRecords/PersonalRecords';
-import LiftProvider from './store/LiftProvider';
+import SideDrawerProvider from './store/SideDrawerProvider';
 
 function App() {
   let routes = (
@@ -18,11 +18,11 @@ function App() {
       </Switch>
   );
   return (
-    <LiftProvider>
+    <SideDrawerProvider>
       <Layout>
         <Suspense fallback={<p>Loading...</p>}>{routes}</Suspense>
       </Layout>
-    </LiftProvider>
+    </SideDrawerProvider>
   );
 }
 

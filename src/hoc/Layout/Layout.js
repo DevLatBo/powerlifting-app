@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Layout = (props) => {
   const classes = useStyles();
-  const [open, setOpen] = useState(false);
+  /*const [open, setOpen] = useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -44,14 +44,14 @@ const Layout = (props) => {
 
   const handleDrawerClose = () => {
     setOpen(false);
-  };
+  };*/
 
   return (
     <div className={classes.root}>
       <CssBaseline />
       {/*<CToolbar openDrawer={open} drawerOpen={handleDrawerOpen} />*/}
-      <Navbar openDrawer={open} drawerOpen={handleDrawerOpen} />
-      <SideDrawer openDrawer={open} drawerClose={handleDrawerClose}/>
+      <Navbar />
+      <SideDrawer/>
       <main
         className={clsx(classes.content, {
           [classes.contentShift]: open,
