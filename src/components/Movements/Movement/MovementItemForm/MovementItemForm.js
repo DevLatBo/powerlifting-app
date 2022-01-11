@@ -81,9 +81,11 @@ const MovementItemForm = (props) => {
     const liftHandler = (event) => {
         event.preventDefault();
         const formData = {};
+        const today = new Date();
         for(let formElementIdentifier in weightForm) {
             formData[formElementIdentifier] = weightForm[formElementIdentifier].value;
-            formData['date'] = new Date().toISOString().split('T')[0];
+            formData['date'] = today.toISOString().split('T')[0];
+            formData['time'] = today.getHours() + ":" + today.getMinutes();
         }
         props.onAddLift(formData);
 
