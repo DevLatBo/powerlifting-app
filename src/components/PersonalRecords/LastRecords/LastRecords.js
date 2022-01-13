@@ -24,6 +24,7 @@ const LastRecords = (props) => {
                     loadedLifts.push({
                         movement: movement,
                         date: data.date,
+                        time: data.time,
                         repetition: data.repetition,
                         weight: data.weight,
                     });
@@ -37,7 +38,7 @@ const LastRecords = (props) => {
         );
 
     }, [fetchLiftsData]);
-    records.sort((a,b) => (a.date < b.date) ? 1:-1);
+    records.sort((a,b) => (a.time < b.time) ? 1:-1);
     const lastRecords = (records.length >=5) ? records.slice(0,5) : records;
 
     return (

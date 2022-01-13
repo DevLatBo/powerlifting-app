@@ -44,7 +44,7 @@ const LastRecordItems = (props) => {
                         {recordItem.weight} [{recordItem.repetition}]
                     </TableCell>
                     <TableCell align="center">
-                        {recordItem.date}
+                        {recordItem.date} - {recordItem.time}
                     </TableCell>
                 </TableRow>
             );
