@@ -35,8 +35,7 @@ const Navigation = (props) => {
     const sideDrawerCtx = useContext(SideDrawerContext);
 
     return (
-        <AppBar
-        position="fixed"
+        <AppBar position="absolute"
         className={clsx(classes.appBar, {
           [classes.appBarShift]: sideDrawerCtx.drawerOpen,
         })}

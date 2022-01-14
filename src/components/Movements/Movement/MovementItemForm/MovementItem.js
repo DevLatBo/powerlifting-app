@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, Fragment} from 'react';
 import Alert from '@mui/material/Alert';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
@@ -6,20 +6,11 @@ import { useParams } from 'react-router-dom';
 import MovementItemForm from './MovementItemForm';
 import Section from '../../../UI/Section/Section';
 
-const MovementStyled = styled.div`
-    & h2 {
-        text-align: center;
-        font-size: 3.5rem;
-        text-transform: capitalize;
-    }
-    & .notification {
-        width: 35vw;
-        margin: 0 auto;
-    }
+const StyledAlert = styled(Alert)`
+    width: 35vw;
+    margin: 0 auto;
     @media (max-width: 768px) {
-        & .notification {
-            width: 60vw;
-        }
+        width: 60vw;
     }
 `;
 
@@ -49,15 +40,15 @@ const MovementItem = (props) => {
     };
     
     return (
-        <Section>
-            <MovementStyled>
-                <h2>{movement}</h2>
-                {didSubmit && <Alert className="notification" onClose={closeAlert}>Levantamiento registrado con exito!</Alert>}
-                {isSubmitting && <Alert severity="info" className="notification">Registrando levantamiento...</Alert>}
+        <Fragment>
+            <Section>
+                {/*<h2>{movement}</h2>*/}
+                {didSubmit && <StyledAlert onClose={closeAlert}>Levantamiento registrado con exito!</StyledAlert>}
+                {isSubmitting && <StyledAlert severity="info">Registrando levantamiento...</StyledAlert>}
                 <MovementItemForm movement = {movement} 
                     onAddLift = {addLiftHandler} />
-            </MovementStyled>
-        </Section>
+            </Section>
+        </Fragment>
     )
 };
 export default MovementItem;

@@ -5,13 +5,18 @@ const SectionStyled = styled.div`
         switch(props.$type) {
             case "definition":
                 return css`
-                    padding: 70px;
+                    padding: 60px;
                     background: #FF0000;
                     color: #FFFFFF;
                     text-align: center;`;
+            case "title-page":
+                return css`
+                    background-image: url('assets/images/title-background.jpg');
+                    color: #FFFFFF;
+                    `;
             default:
                 return css`
-                    padding: 70px;
+                    padding: 60px;
                 `;
         }
     }}

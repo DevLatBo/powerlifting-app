@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
+    marginTop: "64px",
   },
   contentShift: {
     transition: theme.transitions.create('margin', {
