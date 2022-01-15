@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, Fragment} from 'react';
 import styled from 'styled-components';
 import Grid from "@material-ui/core/Grid";
 
@@ -51,16 +51,21 @@ const Movements = (props) => {
         </BoxMessage>;
 
     return (
-        <Section>
-            <MovOptions container 
-                direction="row"
-                justifyContent="center"
-                alignItems="center">
-                    {!isLoading && !error && movementLinks}
-                    {isLoading && loader}
-                    {!isLoading && error && errorMessage}
-            </MovOptions>
-        </Section>
+        <Fragment>
+            <Section type="title-page" imageBackground={`/assets/images/title-background.jpg`}>
+                <h2>Movimientos del Powerlifting</h2>
+            </Section>
+            <Section>
+                <MovOptions container 
+                    direction="row"
+                    justifyContent="center"
+                    alignItems="center">
+                        {!isLoading && !error && movementLinks}
+                        {isLoading && loader}
+                        {!isLoading && error && errorMessage}
+                </MovOptions>
+            </Section>
+        </Fragment>
     );
 }
 

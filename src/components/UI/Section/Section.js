@@ -17,7 +17,7 @@ const SectionStyled = styled.div`
                     background-repeat: no-repeat;
                     background-size: cover;
                     width: 100%;
-                    height: 40%;
+                    height: 45vh;
                     display:flex;
                     flex-flow:column;
                     align-items: center;
