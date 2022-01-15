@@ -41,6 +41,10 @@ const MovementItem = (props) => {
     
     return (
         <Fragment>
+            <Section type="title-page" imageBackground={`/assets/images/title-background.jpg`}>
+                <h2>{movement}</h2>
+                <h3>Ingrese numero de repeticiones y peso.</h3>
+            </Section>
             <Section>
                 {/*<h2>{movement}</h2>*/}
                 {didSubmit && <StyledAlert onClose={closeAlert}>Levantamiento registrado con exito!</StyledAlert>}

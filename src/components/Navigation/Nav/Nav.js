@@ -10,6 +10,7 @@ import NavigationItems from '../NavigationItems/NavigationItems';
 import SideDrawerContext from '../../../store/sideDrawer-context';
 
 const StyledToolbar = styled(Toolbar)`
+    height: 64px;
     & .menuButton{
         margin-right: 0.5rem;
     }
@@ -21,6 +22,7 @@ const StyledToolbar = styled(Toolbar)`
         text-decoration: none;
     }
 `;
+
 const Nav = (props) => {
     const sideDrawerCtx = useContext(SideDrawerContext);
 

@@ -19,23 +19,32 @@ const MovementLink = (props) => {
             text-transform: uppercase;
             display: inline-block;
             cursor: pointer;
-            width: 30vw;
-            font-size: 1.125rem;
+            width: 20vw;
+            font-size: 1rem;
             font-weight: bold;
         }
         & .movement:active {
             box-shadow: none;
             top: 5px;
         }
+        @media (min-width: 767px) and (max-width: 1024px) {
+            & .movement {
+                width: 25vw;
+            }
+        }
+        @media (min-width: 481px) and (max-width: 767px) {
+            & .movement {
+                width: 55vw;
+            }
+        }
         @media (min-width: 320px) and (max-width: 480px) {
             & .movement {
-                width: 60vw;
-                font-size: 1rem;
+                width: 55vw;
             }
         }
     `;
     return(
-        <Option xs={12} md={12} item={true}>
+        <Option xs={12} md={4} item={true}>
             <Link className="movement"
                 to={"movements/"+props.route}>
                     {props.name}

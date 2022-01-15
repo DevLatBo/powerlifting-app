@@ -39,7 +39,7 @@ const StyledTitle = styled.div`
 `;
 const Header = (props) => {
     return (
-        <StyledTitle image={`assets/images/page-heading-background.jpg`}>
+        <StyledTitle image={`/assets/images/page-heading-background.jpg`}>
             <Grid container>
                 <Grid item xs={12}>
                     <h1>POWERLIFTING</h1>
