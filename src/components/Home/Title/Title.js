@@ -10,8 +10,6 @@ const StyledTitle = styled.div`
     background-size: cover;
     padding: 40vh 0px 40vh 0px;
     color: #FFF;
-    margin: -24px;
-
     & h1 {
         text-transform: capitalize;
         font-size: 3.5rem;

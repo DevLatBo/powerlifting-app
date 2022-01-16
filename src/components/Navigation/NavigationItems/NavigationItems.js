@@ -1,8 +1,7 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import styled from 'styled-components';
 import { useTheme, useMediaQuery } from '@material-ui/core';
 
-import Aux from '../../../hoc/Aux/Aux';
 import NavigationItem from './NavigationItem/NavigationItem';
 
 const NavItems = styled.ul`
@@ -25,9 +24,9 @@ const NavigationItems = (props) => {
         );
     }
     return (
-        <Aux>
+        <Fragment>
             {nItems}
-        </Aux>
+        </Fragment>
     )
 }
 export default NavigationItems;

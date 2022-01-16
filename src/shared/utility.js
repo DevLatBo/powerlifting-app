@@ -15,3 +15,13 @@ export const checkValidity = (value, rules) => {
     }
     return isValid;
 }
+
+export const obtainMovementName = (movement) => {
+    const movements = [];
+    movements['bench-press'] = 'Press de Banca';
+    movements['deadlift'] = 'Peso Muerto';
+    movements['squat'] = 'Sentadilla';
+
+    let res = movements[movement].toUpperCase();
+    return res;
+};

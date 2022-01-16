@@ -3,6 +3,7 @@ import Alert from '@mui/material/Alert';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 
+import { obtainMovementName } from '../../../../shared/utility';
 import MovementItemForm from './MovementItemForm';
 import Section from '../../../UI/Section/Section';
 
@@ -19,7 +20,7 @@ const MovementItem = (props) => {
     const [didSubmit, setDidSubmit] = useState(false);
 
     let { movement } = useParams();
-    
+    const movementName = obtainMovementName(movement);
     const addLiftHandler =  async (liftData) => {
         setIsSubmitting(true);
         await fetch("https://powerlifting-react-default-rtdb.firebaseio.com/lifts/"+movement+".json", {
@@ -42,11 +43,10 @@ const MovementItem = (props) => {
     return (
         <Fragment>
             <Section type="title-page" imageBackground={`/assets/images/title-background.jpg`}>
-                <h2>{movement}</h2>
-                <h3>Ingrese numero de repeticiones y peso.</h3>
+                <h2>{movementName}</h2>
+                <h3>Ingrese número de repeticiones y peso a levantar.</h3>
             </Section>
             <Section>
-                {/*<h2>{movement}</h2>*/}
                 {didSubmit && <StyledAlert onClose={closeAlert}>Levantamiento registrado con exito!</StyledAlert>}
                 {isSubmitting && <StyledAlert severity="info">Registrando levantamiento...</StyledAlert>}
                 <MovementItemForm movement = {movement} 
