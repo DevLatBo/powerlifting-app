@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, Fragment} from 'react';
 import styled from 'styled-components';
 import Grid from '@mui/material/Grid';
 
@@ -49,8 +49,11 @@ const PersonalRecords = (props) => {
     });
 
     return (
-        <Section>
-            <h2>Personal Records</h2>
+        <Fragment>
+            <Section type="title-page" imageBackground={`/assets/images/title-background.jpg`}>
+                <h2>Records Personales</h2>
+                <h3>PR & Historial</h3>
+            </Section>
             <StyledGrid container 
                 direction="row"
                 justifycontent="center"
@@ -61,7 +64,7 @@ const PersonalRecords = (props) => {
                     {!isLoading && error && errorMessage}
             </StyledGrid>
             <LastRecords/>
-        </Section>
+        </Fragment>
     );
 }
 
