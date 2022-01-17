@@ -6,6 +6,7 @@ import TableRow from '@mui/material/TableRow';
 
 import Spinner from '../../../UI/Loader/Loader';
 import BoxMessage from '../../../UI/BoxMessage/BoxMessage';
+import { obtainMovementName } from '../../../../shared/utility'; 
 
 const LastRecordItems = (props) => {
     let items = 
@@ -38,7 +39,7 @@ const LastRecordItems = (props) => {
             return (
                 <TableRow key={recordItem.id}>
                     <TableCell align="center">
-                        <strong>{recordItem.movement}</strong>
+                        <strong>{obtainMovementName(recordItem.movement)}</strong>
                     </TableCell>
                     <TableCell align="center">
                         {recordItem.weight} [{recordItem.repetition}]

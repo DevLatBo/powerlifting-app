@@ -3,7 +3,7 @@ import React, {Fragment} from 'react';
 import Title from './Title/Title';
 import Definition from './Information/Definition';
 import Movements from './Information/Movements';
-
+import Target from './Information/Target';
 
 
 const Home = (props) => {
@@ -11,6 +11,7 @@ const Home = (props) => {
         <Fragment>
             <Title/>
             <Definition/>
+            <Target/>
             <Movements/>
         </Fragment>
     );

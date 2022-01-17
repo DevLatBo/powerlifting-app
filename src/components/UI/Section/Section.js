@@ -9,6 +9,12 @@ const SectionStyled = styled.div`
                     background: #FF0000;
                     color: #FFFFFF;
                     text-align: center;`;
+            case "target":
+                return css`
+                    padding: 60px;
+                    background: #000000;
+                    color: #FFFFFF;
+                    text-align: center;`;
             case "title-page":
                 return css`
                     padding: 60px;
