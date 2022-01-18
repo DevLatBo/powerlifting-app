@@ -3,12 +3,6 @@ import styled from 'styled-components';
 import Section from '../../UI/Section/Section';
 
 const StyledDefinition = styled.div`
-    padding: 45px 45px;
-    @media (max-width: 767px) {
-        padding: 30px;
-        margin-right: 0px;
-        margin-bottom: 10px;
-    }
     & h2 {
         font-size: 2.25rem;
         font-weight: 600;

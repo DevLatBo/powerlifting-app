@@ -5,13 +5,13 @@ const SectionStyled = styled.div`
         switch(props.$type) {
             case "definition":
                 return css`
-                    padding: 60px;
+                    padding: 10vh 15vw;
                     background: #FF0000;
                     color: #FFFFFF;
                     text-align: center;`;
             case "target":
                 return css`
-                    padding: 60px;
+                    padding: 10vh 15vw;
                     background: #000000;
                     color: #FFFFFF;
                     text-align: center;`;
