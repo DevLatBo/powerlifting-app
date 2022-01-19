@@ -1,24 +1,10 @@
 import React, {useState} from 'react';
-import styled from 'styled-components';
 
 import Button from '../../../UI/Button/Button';
 import Input from '../../../UI/Input/Input';
-import {updateObject, checkValidity} from '../../../../shared/utility';
+import { updateObject, checkValidity } from '../../../../shared/utility';
+import { StyledForm } from './MovementItem-styling';
 
-const FormWeight = styled.div`
-    margin: 20px auto;
-    text-align: center;
-    box-shadow: 0 2px 3px #CCC;
-    border: 1px solid #EEE;
-    padding: 10px;
-    box-sizing: border-box;
-    @media (min-width: 768px) {
-        width: 45vw;
-    }
-    @media (max-width: 768px) {
-        width: 60vw;
-    }
-`;
 const MovementItemForm = (props) => {
     const [weightForm, setWeightForm] = useState({
         weight: {
@@ -134,9 +120,9 @@ const MovementItemForm = (props) => {
         </form>
     );
     return (
-        <FormWeight>
+        <StyledForm>
             {form}
-        </FormWeight>
+        </StyledForm>
     );
 }
 

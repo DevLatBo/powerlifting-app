@@ -1,5 +1,4 @@
 import React, {useEffect, useState, Fragment} from 'react';
-import styled from 'styled-components';
 import Grid from "@material-ui/core/Grid";
 
 import useHttp from '../../hooks/use-http';
@@ -8,9 +7,7 @@ import Spinner from '../UI/Loader/Loader';
 import BoxMessage from '../UI/BoxMessage/BoxMessage';
 import Section from '../UI/Section/Section';
 
-const MovOptions = styled(Grid)`
-    margin-top: 20px;
-`;
+
 
 const Movements = (props) => {
     const [movements, setMovements] = useState([]);
@@ -56,14 +53,14 @@ const Movements = (props) => {
                 <h2>Movimientos del Powerlifting</h2>
             </Section>
             <Section>
-                <MovOptions container 
+                <Grid container 
                     direction="row"
                     justifyContent="center"
                     alignItems="center">
                         {!isLoading && !error && movementLinks}
                         {isLoading && loader}
                         {!isLoading && error && errorMessage}
-                </MovOptions>
+                </Grid>
             </Section>
         </Fragment>
     );

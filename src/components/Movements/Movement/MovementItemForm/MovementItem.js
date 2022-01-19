@@ -1,19 +1,10 @@
 import React, {useState, Fragment} from 'react';
-import Alert from '@mui/material/Alert';
-import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 
 import { obtainMovementName } from '../../../../shared/utility';
+import { StyledAlert } from './MovementItem-styling';
 import MovementItemForm from './MovementItemForm';
 import Section from '../../../UI/Section/Section';
-
-const StyledAlert = styled(Alert)`
-    width: 35vw;
-    margin: 0 auto;
-    @media (max-width: 768px) {
-        width: 60vw;
-    }
-`;
 
 const MovementItem = (props) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
