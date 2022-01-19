@@ -7,8 +7,6 @@ import Spinner from '../UI/Loader/Loader';
 import BoxMessage from '../UI/BoxMessage/BoxMessage';
 import Section from '../UI/Section/Section';
 
-
-
 const Movements = (props) => {
     const [movements, setMovements] = useState([]);
     const { isLoading, error, sendRequest: fetchMovements } = useHttp();
