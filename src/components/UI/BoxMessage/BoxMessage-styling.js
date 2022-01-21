@@ -1,14 +1,15 @@
+import Alert from '@mui/material/Alert';
 import styled from 'styled-components';
 
-export const Box = styled.div`
+export const StyledAlert = styled(Alert)`
     margin: 0 auto;
-    & .error {
+    &.error {
         font-size: 1.75rem;
     }
-    & .error .MuiAlert-icon {
+    &.error .MuiAlert-icon {
         font-size: 2.125rem;
     }
-    & .form-alert {
+    &.form-alert {
         width: 35vw;
         margin: 0 auto;
         @media (max-width: 768px) {
