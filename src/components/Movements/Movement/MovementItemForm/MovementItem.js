@@ -5,6 +5,7 @@ import { obtainMovementName } from '../../../../shared/utility';
 import { StyledAlert } from './MovementItem-styling';
 import MovementItemForm from './MovementItemForm';
 import Section from '../../../UI/Section/Section';
+import BoxMessage from '../../../UI/BoxMessage/BoxMessage';
 
 const MovementItem = (props) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -38,8 +39,8 @@ const MovementItem = (props) => {
                 <h3>Ingrese número de repeticiones y peso a levantar.</h3>
             </Section>
             <Section>
-                {didSubmit && <StyledAlert onClose={closeAlert}>Levantamiento registrado con exito!</StyledAlert>}
-                {isSubmitting && <StyledAlert severity="info">Registrando levantamiento...</StyledAlert>}
+                {didSubmit && <BoxMessage className="form-alert" onClose={closeAlert}>Levantamiento registrado con exito!</BoxMessage>}
+                {isSubmitting && <BoxMessage className="form-alert" type="info">Registrando levantamiento...</BoxMessage>}
                 <MovementItemForm movement = {movement} 
                     onAddLift = {addLiftHandler} />
             </Section>

@@ -1,21 +1,12 @@
 import Alert from '@mui/material/Alert';
-import styled from 'styled-components';
-
-const Box = styled.div`
-    margin: 0 auto;
-    & .error {
-        font-size:1.75rem;
-    }
-    & .error .MuiAlert-icon {
-        font-size: 2.125rem;
-    }
-`;
+import { Box } from './BoxMessage-styling';
 
 const BoxMessage = (props) => {
     return (
         <Box>
             <Alert severity={props.type}
-                className={props.className}>
+                className={props.className}
+                onClose={props.onClose}>
                     {props.children}
             </Alert>
         </Box>

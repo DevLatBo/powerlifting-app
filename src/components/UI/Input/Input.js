@@ -46,7 +46,7 @@ const input = (props) => {
                             className={props.elementClass}
                             value={props.value} 
                             onChange={props.changed} 
-                            InputProps={{ inputProps: props.elementProperties}}
+                            InputProps={{inputProps: props.elementProperties}}
                             />;
             break;
         default:

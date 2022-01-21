@@ -1,8 +1,5 @@
-import styled from 'styled-components';
+import { Spinner } from './Loader-styling';
 
-const Spinner = styled.img`
-    margin: 0 auto;
-`;
 const Loader = (props) => {
     return (
         <Spinner src={`assets/gifs/spinner_${props.size}.gif`} 
