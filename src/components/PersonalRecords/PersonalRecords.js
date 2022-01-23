@@ -1,5 +1,4 @@
 import {useState, useEffect, Fragment} from 'react';
-import styled from 'styled-components';
 import Grid from '@mui/material/Grid';
 
 import useHttp from '../../hooks/use-http';
@@ -9,9 +8,6 @@ import Spinner from '../UI/Loader/Loader';
 import BoxMessage from '../UI/BoxMessage/BoxMessage';
 import Section from '../UI/Section/Section';
 
-const StyledGrid = styled(Grid)`
-    margin: 20px 0px;
-`;
 
 const PersonalRecords = (props) => {
     const [movements, setMovements] = useState([]);
@@ -54,16 +50,20 @@ const PersonalRecords = (props) => {
                 <h2>Records Personales</h2>
                 <h3>PR & Historial</h3>
             </Section>
-            <StyledGrid container 
-                direction="row"
-                justifycontent="center"
-                alignItems="center"
-                sx={{display:"inline-flex"}}>
-                    {!isLoading && !error && prs}
-                    {isLoading && loader}
-                    {!isLoading && error && errorMessage}
-            </StyledGrid>
-            <LastRecords/>
+            <Section>
+                <Grid container 
+                    direction="row"
+                    justifycontent="center"
+                    alignItems="center"
+                    sx={{display:"inline-flex"}}>
+                        {!isLoading && !error && prs}
+                        {isLoading && loader}
+                        {!isLoading && error && errorMessage}
+                </Grid>
+            </Section>
+            <Section>
+                <LastRecords/>
+            </Section>
         </Fragment>
     );
 }

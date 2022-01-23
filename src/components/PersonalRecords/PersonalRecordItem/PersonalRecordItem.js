@@ -1,38 +1,14 @@
 import { useState, useEffect } from 'react';
 import CountUp from 'react-countup';
 import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import styled from 'styled-components';
 
+import { StyledBox } from './PersonalRecordItem-styling';
 import Spinner from '../../UI/Loader/Loader';
 import BoxMessage from '../../UI/BoxMessage/BoxMessage';
 
-const StyledBox = styled(Box)`
-    width: 17rem;
-    margin: 20px auto;
-    .cardMov {
-        border-radius: 25px;
-        background-color: #FF0000;
-        color: #FFFFFF;
-    }
-    .cardMov .subtitleMov {
-        font-weight: bold;
-    }
-    .cardMov .recordMov {
-        margin-top: 15px;
-        text-align: center;
-        font-size: 2.5rem;
-    }
-    @media (min-width: 320px) and (max-width: 767px) {
-        width: 15rem;
-        .cardMov .recordMov {
-            font-size: 2rem;
-        }
-    }
-`;
 const PersonalRecordItem = (props) => {
     const [records, setRecords] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
