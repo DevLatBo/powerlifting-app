@@ -5,7 +5,7 @@ import useHttp from '../../hooks/use-http';
 import MovementLink from './Movement/MovementLink';
 import Spinner from '../UI/Loader/Loader';
 import BoxMessage from '../UI/BoxMessage/BoxMessage';
-import Section from '../UI/Section/Section';
+import { StyledBlock, StyledTitlePage } from '../UI/Block/block-styling';
 
 const Movements = (props) => {
     const [movements, setMovements] = useState([]);
@@ -47,10 +47,10 @@ const Movements = (props) => {
 
     return (
         <Fragment>
-            <Section type="title-page" imageBackground={`/assets/images/title-background.jpg`}>
+            <StyledTitlePage imageBackground={`/assets/images/title-background.jpg`}>
                 <h2>Movimientos del Powerlifting</h2>
-            </Section>
-            <Section>
+            </StyledTitlePage>
+            <StyledBlock>
                 <Grid container 
                     direction="row"
                     justifyContent="center"
@@ -59,7 +59,7 @@ const Movements = (props) => {
                         {isLoading && loader}
                         {!isLoading && error && errorMessage}
                 </Grid>
-            </Section>
+            </StyledBlock>
         </Fragment>
     );
 }

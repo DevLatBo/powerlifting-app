@@ -1,7 +1,5 @@
 import { StyledInformation } from '../../UI/Block/block-styling';
 
-
-
 const Target = (props) => {
     return(
         <StyledInformation backgroundColor="#000000">

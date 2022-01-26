@@ -2,9 +2,8 @@ import React, {useState, Fragment} from 'react';
 import { useParams } from 'react-router-dom';
 
 import { obtainMovementName } from '../../../../shared/utility';
-import { StyledAlert } from './MovementItem-styling';
 import MovementItemForm from './MovementItemForm';
-import Section from '../../../UI/Section/Section';
+import { StyledTitlePage, StyledBlock } from '../../../UI/Block/block-styling';
 import BoxMessage from '../../../UI/BoxMessage/BoxMessage';
 
 const MovementItem = (props) => {
@@ -34,16 +33,16 @@ const MovementItem = (props) => {
     
     return (
         <Fragment>
-            <Section type="title-page" imageBackground={`/assets/images/title-background.jpg`}>
+            <StyledTitlePage imageBackground={`/assets/images/title-background.jpg`}>
                 <h2>{movementName}</h2>
                 <h3>Ingrese número de repeticiones y peso a levantar.</h3>
-            </Section>
-            <Section>
+            </StyledTitlePage>
+            <StyledBlock>
                 {didSubmit && <BoxMessage className="form-alert" onClose={closeAlert}>Levantamiento registrado con exito!</BoxMessage>}
                 {isSubmitting && <BoxMessage className="form-alert" type="info">Registrando levantamiento...</BoxMessage>}
                 <MovementItemForm movement = {movement} 
                     onAddLift = {addLiftHandler} />
-            </Section>
+            </StyledBlock>
         </Fragment>
     )
 };
