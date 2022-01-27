@@ -6,7 +6,7 @@ import PersonalRecordItem from './PersonalRecordItem/PersonalRecordItem';
 import LastRecords from './LastRecords/LastRecords';
 import Spinner from '../UI/Loader/Loader';
 import BoxMessage from '../UI/BoxMessage/BoxMessage';
-import Section from '../UI/Section/Section';
+import { StyledTitlePage, StyledBlock } from '../UI/Block/block-styling';
 
 
 const PersonalRecords = (props) => {
@@ -46,11 +46,11 @@ const PersonalRecords = (props) => {
 
     return (
         <Fragment>
-            <Section type="title-page" imageBackground={`/assets/images/title-background.jpg`}>
+            <StyledTitlePage type="title-page" imageBackground={`/assets/images/title-background.jpg`}>
                 <h2>Records Personales</h2>
                 <h3>PR & Historial</h3>
-            </Section>
-            <Section>
+            </StyledTitlePage>
+            <StyledBlock>
                 <Grid container 
                     direction="row"
                     justifycontent="center"
@@ -60,10 +60,10 @@ const PersonalRecords = (props) => {
                         {isLoading && loader}
                         {!isLoading && error && errorMessage}
                 </Grid>
-            </Section>
-            <Section>
+            </StyledBlock>
+            <StyledBlock>
                 <LastRecords/>
-            </Section>
+            </StyledBlock>
         </Fragment>
     );
 }

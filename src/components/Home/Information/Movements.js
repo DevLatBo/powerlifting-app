@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import styled from 'styled-components';
 
 import useHttp from '../../../hooks/use-http';
-import Section from '../../UI/Section/Section';
+import { StyledBlock } from '../../UI/Block/block-styling';
 import Spinner from '../../UI/Loader/Loader';
 import BoxMessage from '../../UI/BoxMessage/BoxMessage';
 
@@ -115,7 +115,7 @@ const Movements = (props) => {
                         </BoxMessage>;
 
     return (
-        <Section>
+        <StyledBlock>
             <StyledInfo container>
                 <div className="title">
                     <h2>Movimientos del <em>Powerlifting</em></h2>
@@ -125,7 +125,7 @@ const Movements = (props) => {
                 {isLoading && loader}
                 {error && !isLoading && errorMessage}
             </StyledInfo>
-        </Section>
+        </StyledBlock>
     );
 }
 
