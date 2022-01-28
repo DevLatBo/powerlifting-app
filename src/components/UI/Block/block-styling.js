@@ -18,7 +18,6 @@ export const StyledInformation = styled.div`
 
 export const StyledMovements = styled.div`
     padding: 60px;
-    background: ${props => props.backgroundColor}
     & .title {
         text-align: center;
         margin-bottom: 40px;
@@ -28,10 +27,6 @@ export const StyledMovements = styled.div`
         font-size: 2.25rem;
         font-weight: 600;
         color: #1E1E1E;
-    }
-    & .title em {
-        font-style: normal;
-        color: #FF0000;
     }
     & .title span {
         display: block;
@@ -80,15 +75,14 @@ export const StyledMovements = styled.div`
 `;
 
 export const StyledTitlePage = styled.div`
-    padding: 60px;
     background-image: url(${props => props.imageBackground});
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
     height: 45vh;
-    display:flex;
-    flex-flow:column;
+    display: flex;
+    flex-flow: column;
     align-items: center;
     justify-content: center;
     & h2 {

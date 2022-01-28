@@ -3,70 +3,9 @@ import Grid from '@material-ui/core/Grid';
 import styled from 'styled-components';
 
 import useHttp from '../../../hooks/use-http';
-import { StyledBlock } from '../../UI/Block/block-styling';
+import { StyledMovements } from '../../UI/Block/block-styling';
 import Spinner from '../../UI/Loader/Loader';
 import BoxMessage from '../../UI/BoxMessage/BoxMessage';
-
-const StyledInfo = styled(Grid)`
-    & .title {
-        text-align: center;
-        margin-bottom: 40px;
-        width: 100%;
-    }
-    & .title h2 {
-        font-size: 2.25rem;
-        font-weight: 600;
-        color: #1E1E1E;
-    }
-    & .title em {
-        font-style: normal;
-        color: #FF0000;
-    }
-    & .title span {
-        display: block;
-        margin-top: 15px;
-        text-transform: uppercase;
-        font-size: 1rem;
-        color: #666;
-        letter-spacing: 0.125rem;
-    }
-    & .movement {
-        margin-bottom: 30px;
-    }
-    & .movement img {
-        width: 90%;
-        height: 14rem;
-        overflow: hidden;
-        display: block;
-        margin: 0 auto;
-        padding: 0 30px;
-    }
-    @media (max-width: 767px) {
-        & .movement {
-            margin-bottom: 0px;
-        }
-    }
-    & .movement .definition {
-        background-color: #FFF;
-        padding: 30px;
-    }
-    & .movement .definition h3 {
-        font-size: 1.25rem;
-        font-weight: 700;
-        letter-spacing: 0.25px;
-        margin-bottom: 10px;
-    }
-    & .movement .definition span {
-        color: #FF0000;
-        font-weight: 600;
-        font-size: 0.9rem;
-        display: block;
-        margin-bottom: 15px;
-    }
-    & .movement .definition p {
-        margin-bottom: 10px;
-    }
-`;
 
 const Movements = (props) => {
     const [movements, setMovements] = useState([]);
@@ -115,17 +54,17 @@ const Movements = (props) => {
                         </BoxMessage>;
 
     return (
-        <StyledBlock>
-            <StyledInfo container>
-                <div className="title">
-                    <h2>Movimientos del <em>Powerlifting</em></h2>
+        <StyledMovements>
+            <Grid container>
+                <Grid item md={12} className="title">
+                    <h2>Movimientos</h2>
                     <span>Existen 3 movimientos dentro de esta disciplina</span>
-                </div>
+                </Grid>
                 {!isLoading && !error && movementsInfo}
                 {isLoading && loader}
                 {error && !isLoading && errorMessage}
-            </StyledInfo>
-        </StyledBlock>
+            </Grid>
+        </StyledMovements>
     );
 }
 
