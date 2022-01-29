@@ -40,7 +40,7 @@ export const StyledMovements = styled.div`
         margin-bottom: 30px;
     }
     & .movement img {
-        width: 90%;
+        width: 100%;
         height: 14rem;
         overflow: hidden;
         display: block;
