@@ -6,6 +6,7 @@ import Layout from './hoc/Layout/Layout';
 import Movements from './components/Movements/Movements';
 import MovementItem from './components/Movements/Movement/MovementItemForm/MovementItem';
 import PersonalRecords from './components/PersonalRecords/PersonalRecords';
+import Author from './components/Author/Author';
 import SideDrawerProvider from './store/SideDrawerProvider';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route path="/prs" component={PersonalRecords}/>
           <Route path="/movements" exact component={Movements}/>
           <Route path="/movements/:movement" component={MovementItem}/>
+          <Route path="/author" component={Author}/>
       </Switch>
   );
   return (

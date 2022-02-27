@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import HomeIcon from '@mui/icons-material/Home';
 import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
 import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew';
+import AttributionIcon from '@mui/icons-material/Attribution';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -50,6 +51,10 @@ const SideDrawer = (props) => {
                     <ListItem button component={Link} to="/movements">
                         <ListItemIcon><AccessibilityNewIcon className={classes.drawerIcon}/></ListItemIcon>
                         <ListItemText primary="Movimientos" />
+                    </ListItem>
+                    <ListItem button component={Link} to="/author">
+                        <ListItemIcon><AttributionIcon className={classes.drawerIcon}/></ListItemIcon>
+                        <ListItemText primary="Autor" />
                     </ListItem>
                 </List>
             </div>

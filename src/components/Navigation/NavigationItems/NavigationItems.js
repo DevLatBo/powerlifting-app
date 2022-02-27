@@ -14,6 +14,7 @@ const NavigationItems = (props) => {
             <NavItems>
                 <NavigationItem link="/prs">PRs</NavigationItem>
                 <NavigationItem link="/movements">Movimientos</NavigationItem>
+                <NavigationItem link="/author">Autor</NavigationItem>
             </NavItems>
         );
     }
