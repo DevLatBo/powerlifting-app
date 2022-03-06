@@ -1,6 +1,5 @@
 import {useState, useEffect} from 'react';
 import Grid from '@material-ui/core/Grid';
-import styled from 'styled-components';
 
 import useHttp from '../../../hooks/use-http';
 import { StyledMovements } from '../../UI/Block/block-styling';
