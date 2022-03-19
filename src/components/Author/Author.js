@@ -13,12 +13,10 @@ const Author = (props) => {
                 <h2>Programador</h2>
                 <h3>Ing. Oscar Rolando Gamboa Acho</h3>
             </StyledTitlePage>
-            <Grid container spacing={2}>
-                <Profile/>
-                <SocialNetwork/>
-            </Grid>
+            <Profile/>
+            <SocialNetwork/>
         </Fragment>
-    )
+    );
 };
 
 export default Author;
