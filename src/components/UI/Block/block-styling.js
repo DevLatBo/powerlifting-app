@@ -16,6 +16,16 @@ export const StyledInformation = styled.div`
     }
 `;
 
+export const StyledSocialNetworks = styled.div`
+    padding: 60px;
+    text-align: center;
+    & .link {
+        padding: 15px;
+    }
+    & .link img {
+        width: 5vh;
+    }
+`;
 export const StyledMovements = styled.div`
     padding: 60px;
     & .title {
