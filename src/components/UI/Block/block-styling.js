@@ -60,9 +60,6 @@ export const StyledMovements = styled.div`
         & .movement {
             margin-bottom: 0px;
         }
-        & .movement img {
-            width: 65vw;
-        }
     }
     & .movement .definition {
         background-color: #FFF;
