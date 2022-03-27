@@ -51,7 +51,6 @@ export const StyledMovements = styled.div`
     }
     & .movement img {
         width: 100%;
-        height: 14rem;
         overflow: hidden;
         display: block;
         margin: 0 auto;
@@ -61,10 +60,14 @@ export const StyledMovements = styled.div`
         & .movement {
             margin-bottom: 0px;
         }
+        & .movement img {
+            width: 65vw;
+        }
     }
     & .movement .definition {
         background-color: #FFF;
         padding: 30px;
+        text-align: justify;
     }
     & .movement .definition h3 {
         font-size: 1.25rem;
