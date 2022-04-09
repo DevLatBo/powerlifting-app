@@ -1,6 +1,5 @@
 import { Fragment } from 'react';
 import { StyledTitlePage } from '../UI/Block/block-styling';
-import Grid from '@material-ui/core/Grid';
 
 import Profile from './Profile/Profile';
 import SocialNetwork from './SocialNetwork/SocialNetowrk';

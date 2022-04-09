@@ -7,6 +7,7 @@ import Movements from './components/Movements/Movements';
 import MovementItem from './components/Movements/Movement/MovementItemForm/MovementItem';
 import PersonalRecords from './components/PersonalRecords/PersonalRecords';
 import Author from './components/Author/Author';
+import NotFound from './components/NotFound/NotFound';
 import SideDrawerProvider from './store/SideDrawerProvider';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/movements" exact component={Movements}/>
           <Route path="/movements/:movement" component={MovementItem}/>
           <Route path="/author" component={Author}/>
+          <Route path="*" exact={true} component={NotFound}/>
       </Switch>
   );
   return (
