@@ -18,7 +18,7 @@ function App() {
           <Route path="/movements" exact component={Movements}/>
           <Route path="/movements/:movement" component={MovementItem}/>
           <Route path="/author" component={Author}/>
-          <Route path="*" exact={true} component={NotFound}/>
+          <Route component={NotFound}/>
       </Switch>
   );
   return (
