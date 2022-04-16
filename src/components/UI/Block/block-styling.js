@@ -56,18 +56,6 @@ export const StyledHome = styled.div`
     }
 `;
 
-export const StyledSocialNetworks = styled.div`
-    padding: 60px;
-    text-align: center;
-    & .link {
-        padding: 15px;
-    }
-    & .link img {
-        width: 5vh;
-    }
-`;
-
-
 export const StyledTitlePage = styled.div`
     background-image: url(${props => props.imageBackground});
     background-position: center center;

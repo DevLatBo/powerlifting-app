@@ -1,8 +1,8 @@
-import { StyledSocialNetworks } from '../../UI/Block/block-styling';
+import { StyledFooter } from '../UI/Footer/Footer-styling';
 
-const SocialNetwork = (props) => {
+const Footer = (props) => {
     return (
-        <StyledSocialNetworks>
+        <StyledFooter>
             <a className="link" href="https://www.facebook.com/DevLatBo">
                 <img src={`assets/images/facebook.png`} alt="Facebook" />
             </a>
@@ -12,8 +12,8 @@ const SocialNetwork = (props) => {
             <a className="link" href="https://www.youtube.com/DevLatBo">
                 <img src={`assets/images/youtube.png`} alt="Youtube" />
             </a>
-        </StyledSocialNetworks>
-    )
-};
+        </StyledFooter>
+    );
+}
 
-export default SocialNetwork;
+export default Footer;

@@ -3,13 +3,11 @@ import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
 import Navbar from '../../components/Navigation/Navigation';
+import Footer from '../../components/Footer/Footer';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import SideDrawerContext from '../../store/sideDrawer-context';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-  },
   content: {
     flexGrow: 1,
     /*padding: theme.spacing(3),*/
@@ -51,6 +49,7 @@ const Layout = (props) => {
         <div className={classes.drawerHeader} />
         {props.children}
       </main>
+      <Footer/>
     </div>
   );
 }

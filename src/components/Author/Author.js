@@ -2,7 +2,6 @@ import { Fragment } from 'react';
 import { StyledTitlePage } from '../UI/Block/block-styling';
 
 import Profile from './Profile/Profile';
-import SocialNetwork from './SocialNetwork/SocialNetowrk';
 
 
 const Author = (props) => {
@@ -13,7 +12,6 @@ const Author = (props) => {
                 <h3>Ing. Oscar Rolando Gamboa Acho</h3>
             </StyledTitlePage>
             <Profile/>
-            <SocialNetwork/>
         </Fragment>
     );
 };
