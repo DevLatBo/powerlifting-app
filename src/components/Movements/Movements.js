@@ -5,7 +5,7 @@ import useHttp from '../../hooks/use-http';
 import MovementLink from './Movement/MovementLink';
 import Spinner from '../UI/Loader/Loader';
 import BoxMessage from '../UI/BoxMessage/BoxMessage';
-import { StyledBlock, StyledTitlePage } from '../UI/Block/block-styling';
+import { StyledBlock, StyledTitlePage } from '../UI/Styling/General-styling';
 
 const Movements = (props) => {
     const [movements, setMovements] = useState([]);

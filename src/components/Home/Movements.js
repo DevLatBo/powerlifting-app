@@ -1,10 +1,10 @@
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import Grid from '@material-ui/core/Grid';
 
-import useHttp from '../../../hooks/use-http';
-import { StyledHome } from '../../UI/Block/block-styling';
-import Spinner from '../../UI/Loader/Loader';
-import BoxMessage from '../../UI/BoxMessage/BoxMessage';
+import useHttp from '../../hooks/use-http';
+import { StyledHome } from '../UI/Styling/Home-styling';
+import Spinner from '../UI/Loader/Loader';
+import BoxMessage from '../UI/BoxMessage/BoxMessage';
 
 const Movements = (props) => {
     const [movements, setMovements] = useState([]);

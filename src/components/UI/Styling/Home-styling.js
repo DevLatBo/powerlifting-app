@@ -56,29 +56,36 @@ export const StyledHome = styled.div`
     }
 `;
 
-export const StyledTitlePage = styled.div`
-    background-image: url(${props => props.imageBackground});
+export const StyledHomeTitle = styled.div`
+    text-align: center;
+    background-image: url(${props => props.image});
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    width: 100%;
-    height: 45vh;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    justify-content: center;
-    & h2 {
-        color: #FFFFFF;
-        font-size: 2.5rem;
-        text-align: center;
+    padding: 40vh 0px 40vh 0px;
+    color: #FFF;
+    & h1 {
+        text-transform: capitalize;
+        font-size: 3.5rem;
+        font-weight: 700;
+        letter-spacing: 0.5rem;
+        margin-bottom: 18px;
     }
-    & h3 {
-        color: #FFFFFF;
-        font-size: 1.5rem;
-        text-align: center;
-    }
-`;
 
-export const StyledBlock = styled.div`
-    padding: 60px;
+    & span {
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.125rem;
+        color: #FFF;
+        display: block;
+    }
+
+    @media (max-width: 767px) {
+        & h1 { 
+            font-size: 1.75rem;
+        }
+        & span {
+            font-size: 1rem;
+        }
+    }
 `;

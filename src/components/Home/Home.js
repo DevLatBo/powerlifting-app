@@ -1,9 +1,9 @@
 import React, {Fragment} from 'react';
 
-import Title from './Title/Title';
-import Definition from './Information/Definition';
-import Movements from './Information/Movements';
-import Target from './Information/Target';
+import Title from './Title';
+import Definition from './Definition';
+import Movements from './Movements';
+import Target from './Target';
 
 
 const Home = (props) => {

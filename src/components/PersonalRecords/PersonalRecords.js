@@ -6,7 +6,7 @@ import PersonalRecordItem from './PersonalRecordItem/PersonalRecordItem';
 import LastRecords from './LastRecords/LastRecords';
 import Spinner from '../UI/Loader/Loader';
 import BoxMessage from '../UI/BoxMessage/BoxMessage';
-import { StyledTitlePage, StyledBlock } from '../UI/Block/block-styling';
+import { StyledTitlePage, StyledBlock } from '../UI/Styling/General-styling';
 
 
 const PersonalRecords = (props) => {

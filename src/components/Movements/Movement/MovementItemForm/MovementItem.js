@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import { obtainMovementName } from '../../../../shared/utility';
 import MovementItemForm from './MovementItemForm';
-import { StyledTitlePage, StyledBlock } from '../../../UI/Block/block-styling';
+import { StyledTitlePage, StyledBlock } from '../../../UI/Styling/General-styling';
 import BoxMessage from '../../../UI/BoxMessage/BoxMessage';
 
 const MovementItem = (props) => {
