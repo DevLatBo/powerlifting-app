@@ -1,7 +1,5 @@
 import styled from 'styled-components';
-
 import Grid from "@material-ui/core/Grid";
-
 
 export const GridStyled = styled(Grid)`
     .photo-profile {
@@ -27,7 +25,7 @@ export const GridStyled = styled(Grid)`
         text-align: center;
     }
     .images-profile img {
-        width: 10vw;
+        width: 15vw;
         padding: 20px;
     }
     @media (min-width: 320px) and (max-width: 480px) {

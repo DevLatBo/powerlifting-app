@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {NavLink} from 'react-router-dom';
 
 export const StyledTitlePage = styled.div`
     background-image: url(${props => props.imageBackground});
@@ -21,6 +22,27 @@ export const StyledTitlePage = styled.div`
         font-size: 1.5rem;
         text-align: center;
     }
+`;
+
+export const NavItems = styled.ul`
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+`;
+
+export const NavItem = styled.li`
+    margin-left: 20px;
+    float: left;
+`;
+
+export const NavLinkStyled = styled(NavLink)`
+    font-size: 17px;
+    display: block;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 `;
 
 export const StyledBlock = styled.div`
