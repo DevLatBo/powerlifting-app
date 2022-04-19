@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import {NavLink} from 'react-router-dom';
+import Toolbar from '@material-ui/core/Toolbar';
+import { NavLink } from 'react-router-dom';
 
 export const StyledTitlePage = styled.div`
     background-image: url(${props => props.imageBackground});
@@ -21,6 +22,20 @@ export const StyledTitlePage = styled.div`
         color: #FFFFFF;
         font-size: 1.5rem;
         text-align: center;
+    }
+`;
+
+export const StyledToolbar = styled(Toolbar)`
+    height: 64px;
+    & .menuButton{
+        margin-right: 0.5rem;
+    }
+    & .right-links{
+        margin-left: auto;
+    }
+    & .home-link{
+        color: #FFFFFF;
+        text-decoration: none;
     }
 `;
 

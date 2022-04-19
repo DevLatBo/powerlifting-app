@@ -4,7 +4,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Typography from '@material-ui/core/Typography';
 import {NavLink} from 'react-router-dom';
 
-import { StyledToolbar } from './Nav-styling';
+import { StyledToolbar } from '../../UI/Styling/General-styling';
 import NavigationItems from '../NavigationItems/NavigationItems';
 import SideDrawerContext from '../../../store/sideDrawer-context';
 
