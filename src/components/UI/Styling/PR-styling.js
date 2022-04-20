@@ -1,5 +1,10 @@
+import TableCell from '@mui/material/TableCell';
 import Box from '@mui/material/Box';
-import styled from "styled-components";
+import styled from 'styled-components';
+
+export const StyledTableCell = styled(TableCell)`
+    background: #FF0000;
+`;
 
 export const StyledBox = styled(Box)`
     width: 17rem;

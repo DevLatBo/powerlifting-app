@@ -6,7 +6,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 import useHttp from '../../../hooks/use-http';
-import { StyledTableCell } from './LastRecords-styling';
+import { StyledTableCell } from '../../UI/Styling/PR-styling';
 import LastRecordItems from './LastRecordItems/LastRecordItems';
 
 const LastRecords = (props) => {

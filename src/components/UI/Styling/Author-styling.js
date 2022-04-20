@@ -2,10 +2,10 @@ import styled from 'styled-components';
 import Grid from "@material-ui/core/Grid";
 
 export const GridStyled = styled(Grid)`
+    padding: 60px;
     .photo-profile {
         text-align: center;
-        padding: 10px;
-        margin: 0 40px 0 40px;
+        padding: 10px;  
     }
     .photo-profile img {
         border-radius: 25px;
@@ -13,7 +13,6 @@ export const GridStyled = styled(Grid)`
     }
     .description-profile {
         padding: 10px;
-        margin: 0 40px 0 40px;
         text-align: justify;
     }
     .description-profile p {

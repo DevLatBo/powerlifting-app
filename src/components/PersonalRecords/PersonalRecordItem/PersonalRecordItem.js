@@ -5,7 +5,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 
-import { StyledBox } from './PersonalRecordItem-styling';
+import { StyledBox } from '../../UI/Styling/PR-styling';
 import Spinner from '../../UI/Loader/Loader';
 import BoxMessage from '../../UI/BoxMessage/BoxMessage';
 
