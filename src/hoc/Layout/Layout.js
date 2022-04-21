@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
 import Navbar from '../../components/Navigation/Navigation';
 import Footer from '../../components/Footer/Footer';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import SideDrawerContext from '../../store/sideDrawer-context';
 
 const useStyles = makeStyles((theme) => ({
   content: {
@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Layout = (props) => {
   const classes = useStyles();
-  const sideDrawerCtx = useContext(SideDrawerContext);
+  const sdVisible = useSelector((state) => state.sd.isVisible);
 
   return (
     <div className={classes.root}>
@@ -43,7 +43,7 @@ const Layout = (props) => {
       <SideDrawer/>
       <main
         className={clsx(classes.content, {
-          [classes.contentShift]: sideDrawerCtx.drawerOpen,
+          [classes.contentShift]: sdVisible,
         })}
       >
         <div className={classes.drawerHeader} />

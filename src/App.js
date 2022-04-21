@@ -8,7 +8,6 @@ import MovementItem from './components/Movements/Movement/MovementItemForm/Movem
 import PersonalRecords from './components/PersonalRecords/PersonalRecords';
 import Author from './components/Author/Author';
 import NotFound from './components/NotFound/NotFound';
-import SideDrawerProvider from './store/SideDrawerProvider';
 
 function App() {
   let routes = (
@@ -22,11 +21,9 @@ function App() {
       </Switch>
   );
   return (
-    <SideDrawerProvider>
-      <Layout>
-        <Suspense fallback={<p>Loading...</p>}>{routes}</Suspense>
-      </Layout>
-    </SideDrawerProvider>
+    <Layout>
+      <Suspense fallback={<p>Loading...</p>}>{routes}</Suspense>
+    </Layout>
   );
 }
 

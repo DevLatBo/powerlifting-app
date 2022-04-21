@@ -1,4 +1,5 @@
-import {useContext} from 'react';
+import { useDispatch } from 'react-redux';
+import { sideDrawerActions } from '../../../store/sideDrawer-slice';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Typography from '@material-ui/core/Typography';
@@ -6,13 +7,11 @@ import {NavLink} from 'react-router-dom';
 
 import { StyledToolbar } from '../../UI/Styling/General-styling';
 import NavigationItems from '../NavigationItems/NavigationItems';
-import SideDrawerContext from '../../../store/sideDrawer-context';
 
 const Nav = (props) => {
-    const sideDrawerCtx = useContext(SideDrawerContext);
-
+    const dispatch = useDispatch();
     const handlerSideDrawerOpen = () => {
-        sideDrawerCtx.openSideDrawer();
+        dispatch(sideDrawerActions.openSideDrawer());
     }
 
     return (

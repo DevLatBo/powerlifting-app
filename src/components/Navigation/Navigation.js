@@ -1,11 +1,11 @@
-import React, {useContext} from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import clsx from 'clsx';
 import {makeStyles} from '@material-ui/core/styles';
 import { useTheme, useMediaQuery } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 
 import Nav from './Nav/Nav';
-import SideDrawerContext from '../../store/sideDrawer-context';
 
 const drawerWidth = 200;
 
@@ -32,12 +32,12 @@ const Navigation = (props) => {
     const classes = useStyles();
     const theme = useTheme();
     const showMenuIcon = useMediaQuery(theme.breakpoints.up('sm'));
-    const sideDrawerCtx = useContext(SideDrawerContext);
+    const sdVisible = useSelector((state) => state.sd.isVisible);
 
     return (
         <AppBar position="absolute"
         className={clsx(classes.appBar, {
-          [classes.appBarShift]: sideDrawerCtx.drawerOpen,
+          [classes.appBarShift]: sdVisible,
         })}
         >
             <Nav showedMenuIcon={showMenuIcon} />

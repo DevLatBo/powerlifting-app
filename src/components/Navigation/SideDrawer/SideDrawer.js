@@ -1,4 +1,6 @@
-import React, {useContext} from 'react';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { sideDrawerActions } from '../../../store/sideDrawer-slice';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import HomeIcon from '@mui/icons-material/Home';
@@ -11,8 +13,6 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import List from '@material-ui/core/List';
 import Drawer from '@material-ui/core/Drawer';
-
-import SideDrawerContext from '../../../store/sideDrawer-context';
 
 const useStyles = makeStyles( (theme) => ({
     list: {
@@ -29,10 +29,11 @@ const useStyles = makeStyles( (theme) => ({
 
 const SideDrawer = (props) => {
     const classes = useStyles();
-    const sideDrawerCtx = useContext(SideDrawerContext);
+    const dispatch = useDispatch();
+    const sdVisible = useSelector((state) => state.sd.isVisible);
 
     const handlerSideDrawerClose = () => {
-        sideDrawerCtx.closeSideDrawer();
+        dispatch(sideDrawerActions.closeSideDrawer());
     }
     
     const sideList = (side) => {
@@ -62,7 +63,7 @@ const SideDrawer = (props) => {
     }
     
     return (
-        <Drawer open={sideDrawerCtx.drawerOpen}
+        <Drawer open={sdVisible}
           BackdropProps = {{ invisible: false }}
           onClose = {handlerSideDrawerClose}
           classes={{
