@@ -1,5 +1,5 @@
 import Grid from "@material-ui/core/Grid";
-import { NotFoundImg, NotFoundMsg } from '../UI/Styling/NotFound-styling';
+import { NotFoundImg, NotFoundMsg } from '../UI/Styling/Section/NotFound-styling';
 
 const NotFound = (props) => {
     return (

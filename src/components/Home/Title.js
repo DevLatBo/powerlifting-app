@@ -1,7 +1,7 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 
-import { StyledHomeTitle } from '../UI/Styling/Home-styling';
+import { StyledHomeTitle } from '../UI/Styling/Section/Home-styling';
 
 const Header = (props) => {
     return (

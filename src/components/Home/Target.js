@@ -1,4 +1,4 @@
-import { StyledHome } from '../UI/Styling/Home-styling';
+import { StyledHome } from '../UI/Styling/Section/Home-styling';
 
 const Target = (props) => {
     return(

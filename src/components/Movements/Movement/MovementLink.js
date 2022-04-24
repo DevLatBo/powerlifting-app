@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import { StyledLinks } from '../../UI/Styling/Movements-styling';
+import { StyledLinks } from '../../UI/Styling/Section/Movements-styling';
 
 const MovementLink = (props) => {
     return(

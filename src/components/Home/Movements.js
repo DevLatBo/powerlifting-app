@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Grid from '@material-ui/core/Grid';
 
 import useHttp from '../../hooks/use-http';
-import { StyledHome } from '../UI/Styling/Home-styling';
+import { StyledHome } from '../UI/Styling/Section/Home-styling';
 import Spinner from '../UI/Loader/Loader';
 import BoxMessage from '../UI/BoxMessage/BoxMessage';
 

@@ -1,5 +1,5 @@
 import Grid from "@material-ui/core/Grid";
-import { GridStyled } from '../../UI/Styling/Author-styling';
+import { GridStyled } from '../../UI/Styling/Section/Author-styling';
 
 const Profile = (props) => {
     return (

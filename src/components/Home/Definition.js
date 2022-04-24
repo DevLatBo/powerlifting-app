@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledHome } from '../UI/Styling/Home-styling';
+import { StyledHome } from '../UI/Styling/Section/Home-styling';
 
 const Definition = (props) => {
     return(

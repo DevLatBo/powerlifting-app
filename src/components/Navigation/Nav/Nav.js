@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import {NavLink} from 'react-router-dom';
 
 import { StyledToolbar } from '../../UI/Styling/General-styling';
-import NavigationItems from '../NavigationItems/NavigationItems';
+import NavigationItems from './NavigationItems/NavigationItems';
 
 const Nav = (props) => {
     const dispatch = useDispatch();

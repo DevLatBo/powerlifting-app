@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import Button from '../../../UI/Button/Button';
 import Input from '../../../UI/Input/Input';
 import { updateObject, checkValidity } from '../../../../shared/utility';
-import { StyledForm } from '../../../UI/Styling/Movements-styling';
+import { StyledForm } from '../../../UI/Styling/Section/Movements-styling';
 
 const MovementItemForm = (props) => {
     const [weightForm, setWeightForm] = useState({

@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 import { useTheme, useMediaQuery } from '@material-ui/core';
 
-import { NavItems } from '../../UI/Styling/General-styling';
+import { NavItems } from '../../../UI/Styling/General-styling';
 import NavigationItem from './NavigationItem/NavigationItem';
 
 const NavigationItems = (props) => {
