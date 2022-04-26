@@ -5,7 +5,7 @@ import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 
 import Spinner from '../../../UI/Loader/Loader';
-import BoxMessage from '../../../UI/BoxMessage/BoxMessage';
+import Alert from '../../../UI/Alert/Alert';
 import { obtainMovementName } from '../../../../shared/utility'; 
 
 const LastRecordItems = (props) => {
@@ -26,10 +26,10 @@ const LastRecordItems = (props) => {
     const errorMessage = 
         <TableRow>
             <TableCell align="center" colSpan={3}>
-                <BoxMessage type="error"
+                <Alert type="error"
                     className="error">
                     {props.error}
-                </BoxMessage>
+                </Alert>
             </TableCell>
         </TableRow>;
 

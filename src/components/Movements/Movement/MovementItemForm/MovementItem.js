@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { obtainMovementName } from '../../../../shared/utility';
 import MovementItemForm from './MovementItemForm';
 import { StyledTitlePage, StyledBlock } from '../../../UI/Styling/General-styling';
-import BoxMessage from '../../../UI/BoxMessage/BoxMessage';
+import Alert from '../../../UI/Alert/Alert';
 
 const MovementItem = (props) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -38,8 +38,8 @@ const MovementItem = (props) => {
                 <h3>Ingrese número de repeticiones y peso a levantar.</h3>
             </StyledTitlePage>
             <StyledBlock>
-                {didSubmit && <BoxMessage className="form-alert" onClose={closeAlert}>Levantamiento registrado con exito!</BoxMessage>}
-                {isSubmitting && <BoxMessage className="form-alert" type="info">Registrando levantamiento...</BoxMessage>}
+                {didSubmit && <Alert className="form-alert" onClose={closeAlert}>Levantamiento registrado con exito!</Alert>}
+                {isSubmitting && <Alert className="form-alert" type="info">Registrando levantamiento...</Alert>}
                 <MovementItemForm movement = {movement} 
                     onAddLift = {addLiftHandler} />
             </StyledBlock>

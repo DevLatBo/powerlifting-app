@@ -1,6 +1,6 @@
-import { StyledAlert } from './BoxMessage-styling';
+import { StyledAlert } from './Alert-styling';
 
-const BoxMessage = (props) => {
+const Alert = (props) => {
     return (
         <StyledAlert severity={props.type}
             className={props.className}
@@ -10,4 +10,4 @@ const BoxMessage = (props) => {
     );
 }
 
-export default BoxMessage;
+export default Alert;

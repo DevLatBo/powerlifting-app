@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 
 import { StyledBox } from '../../UI/Styling/Section/PR-styling';
 import Spinner from '../../UI/Loader/Loader';
-import BoxMessage from '../../UI/BoxMessage/BoxMessage';
+import Alert from '../../UI/Alert/Alert';
 
 const PersonalRecordItem = (props) => {
     const [records, setRecords] = useState([]);
@@ -41,10 +41,10 @@ const PersonalRecordItem = (props) => {
 
     const loader = <Spinner size="sm" />;
 
-    const errorMessage = <BoxMessage type="error" 
+    const errorMessage = <Alert type="error" 
                             className="error">
                             {error}
-                        </BoxMessage>;
+                        </Alert>;
 
     const maxPR = (records.length) ? Math.max(...records) : 0;
 

@@ -4,7 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import useHttp from '../../hooks/use-http';
 import MovementLink from './Movement/MovementLink';
 import Spinner from '../UI/Loader/Loader';
-import BoxMessage from '../UI/BoxMessage/BoxMessage';
+import Alert from '../UI/Alert/Alert';
 import { StyledBlock, StyledTitlePage } from '../UI/Styling/General-styling';
 
 const Movements = (props) => {
@@ -40,10 +40,10 @@ const Movements = (props) => {
 
     const loader = <Spinner size="lg"/>
         
-    const errorMessage = <BoxMessage type="error" 
+    const errorMessage = <Alert type="error" 
         className="error">
             {error}
-        </BoxMessage>;
+        </Alert>;
 
     return (
         <Fragment>

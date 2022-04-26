@@ -5,7 +5,7 @@ import useHttp from '../../hooks/use-http';
 import PersonalRecordItem from './PersonalRecordItem/PersonalRecordItem';
 import LastRecords from './LastRecords/LastRecords';
 import Spinner from '../UI/Loader/Loader';
-import BoxMessage from '../UI/BoxMessage/BoxMessage';
+import Alert from '../UI/Alert/Alert';
 import { StyledTitlePage, StyledBlock } from '../UI/Styling/General-styling';
 
 
@@ -32,10 +32,10 @@ const PersonalRecords = (props) => {
 
     const loader = <Spinner size="lg"/>;
 
-    const errorMessage = <BoxMessage type="error"
+    const errorMessage = <Alert type="error"
                         className="error">
                             {error}
-                        </BoxMessage>
+                        </Alert>
     
 
     const prs = movements.map((movement) => {
