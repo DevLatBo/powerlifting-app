@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { sideDrawerActions } from '../../../store/sideDrawer-slice';
+import { uiActions } from '../../../store/ui-slice';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import HomeIcon from '@mui/icons-material/Home';
@@ -30,10 +30,10 @@ const useStyles = makeStyles( (theme) => ({
 const SideDrawer = (props) => {
     const classes = useStyles();
     const dispatch = useDispatch();
-    const sdVisible = useSelector((state) => state.sd.isVisible);
+    const sdVisible = useSelector((state) => state.ui.sdIsVisible);
 
     const handlerSideDrawerClose = () => {
-        dispatch(sideDrawerActions.closeSideDrawer());
+        dispatch(uiActions.closeSideDrawer());
     }
     
     const sideList = (side) => {

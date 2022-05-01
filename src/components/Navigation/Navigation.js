@@ -32,7 +32,7 @@ const Navigation = (props) => {
     const classes = useStyles();
     const theme = useTheme();
     const showMenuIcon = useMediaQuery(theme.breakpoints.up('sm'));
-    const sdVisible = useSelector((state) => state.sd.isVisible);
+    const sdVisible = useSelector((state) => state.ui.sdIsVisible);
 
     return (
         <AppBar position="absolute"

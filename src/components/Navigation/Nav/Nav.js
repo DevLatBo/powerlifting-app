@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { sideDrawerActions } from '../../../store/sideDrawer-slice';
+import { uiActions } from '../../../store/ui-slice';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Typography from '@material-ui/core/Typography';
@@ -11,7 +11,7 @@ import NavigationItems from './NavigationItems/NavigationItems';
 const Nav = (props) => {
     const dispatch = useDispatch();
     const handlerSideDrawerOpen = () => {
-        dispatch(sideDrawerActions.openSideDrawer());
+        dispatch(uiActions.openSideDrawer());
     }
 
     return (

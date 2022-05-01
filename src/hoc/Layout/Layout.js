@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Layout = (props) => {
   const classes = useStyles();
-  const sdVisible = useSelector((state) => state.sd.isVisible);
+  const sdVisible = useSelector((state) => state.ui.sdIsVisible);
 
   return (
     <div className={classes.root}>
