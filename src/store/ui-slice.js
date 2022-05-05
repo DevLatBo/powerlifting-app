@@ -5,7 +5,6 @@ const uiSlice = createSlice({
     initialState: {
         sdIsVisible: false, 
         alertMessage: null,
-        loader: false,
     },
     reducers: {
         openSideDrawer(state) {
@@ -14,6 +13,13 @@ const uiSlice = createSlice({
         closeSideDrawer(state) {
             state.sdIsVisible = false;
         },
+        showAlert(state, action) {
+            state.alertMessage = {
+                type: action.payload.type,
+                class: action.payload.class,
+                message: action.payload.message,
+            };
+        }
     }
 })
 

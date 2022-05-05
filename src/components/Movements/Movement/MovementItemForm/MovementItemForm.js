@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 import Button from '../../../UI/Button/Button';
 import Input from '../../../UI/Input/Input';
@@ -8,8 +8,8 @@ import { StyledForm } from '../../../UI/Styling/Section/Movements-styling';
 const MovementItemForm = (props) => {
     const [weightForm, setWeightForm] = useState({
         weight: {
-            elementType: 'input',
-            elementClass: 'InputCounterLift',
+            elementType: 'number',
+            elementClass: 'InputNumberLift',
             elementConfig: {
                 variant: "outlined",
                 label: "Peso a Levantar",
@@ -23,12 +23,12 @@ const MovementItemForm = (props) => {
             },
             valid: false,
             properties: {
-                "step": "0.5",
+                "step": "0.25",
             }
         },
         repetition: {
-            elementType: "input",
-            elementClass: "InputCounterLift",
+            elementType: "number",
+            elementClass: "InputNumberLift",
             elementConfig: {
                 variant: "outlined",
                 label: "Repeticiones",
@@ -42,7 +42,7 @@ const MovementItemForm = (props) => {
             },
             valid: false,
             properties: {
-                "step": "0.5",
+                "step": "1",
             },
         },
     });
