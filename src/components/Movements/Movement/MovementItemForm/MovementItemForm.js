@@ -9,7 +9,7 @@ const MovementItemForm = (props) => {
     const [weightForm, setWeightForm] = useState({
         weight: {
             elementType: 'number',
-            elementClass: 'InputNumberLift',
+            elementClass: 'InputLift',
             elementConfig: {
                 variant: "outlined",
                 label: "Peso a Levantar",
@@ -28,7 +28,7 @@ const MovementItemForm = (props) => {
         },
         repetition: {
             elementType: "number",
-            elementClass: "InputNumberLift",
+            elementClass: "InputLift",
             elementConfig: {
                 variant: "outlined",
                 label: "Repeticiones",

@@ -1,12 +1,12 @@
 import React, { Fragment} from 'react';
 
-import { StyledInput } from './Input-styling';
+import { StyledInputLift } from './Input-styling';
 
 const input = (props) => {
     let inputElement = null;
     switch(props.elementType){
         case 'number':
-            inputElement = <StyledInput
+            inputElement = <StyledInputLift
                             {...props.elementConfig}
                             className={props.elementClass}
                             value={props.value} 
