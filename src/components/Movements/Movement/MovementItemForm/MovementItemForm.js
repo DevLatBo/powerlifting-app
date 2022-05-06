@@ -1,75 +1,39 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
+import { liftActions } from '../../../../store/lift-slice';
 import Button from '../../../UI/Button/Button';
 import Input from '../../../UI/Input/Input';
 import { updateObject, checkValidity } from '../../../../shared/utility';
 import { StyledForm } from '../../../UI/Styling/Section/Movements-styling';
 
 const MovementItemForm = (props) => {
-    const [weightForm, setWeightForm] = useState({
-        weight: {
-            elementType: 'number',
-            elementClass: 'InputLift',
-            elementConfig: {
-                variant: "outlined",
-                label: "Peso a Levantar",
-                type: "number",
-                placeholder: "Insert Weight",
-            },
-            value: "0",
-            control: {
-                isEmpty: true,
-                isPositive: "true"
-            },
-            valid: false,
-            properties: {
-                "step": "0.25",
-            }
-        },
-        repetition: {
-            elementType: "number",
-            elementClass: "InputLift",
-            elementConfig: {
-                variant: "outlined",
-                label: "Repeticiones",
-                type: "number",
-                placeholder: "Number of Repetitions",
-            },
-            value: "0",
-            control: {
-                isEmpty: true,
-                isPositive: true,
-            },
-            valid: false,
-            properties: {
-                "step": "1",
-            },
-        },
-    });
-    const [formIsValid, setFormIsValid] = useState(false);
+    const formIsValid = useSelector((state) => state.lift.formIsValid);
+    const liftForm = useSelector((state) => state.lift.liftForm);
+    const dispatch = useDispatch();
 
     const inputChangeHandler = (event, inputIdentifier) => {
-        const updatedFormElement = updateObject(weightForm[inputIdentifier], {
+        const updatedFormElement = updateObject(liftForm[inputIdentifier], {
             value: event.target.value,
-            valid: checkValidity(event.target.value, weightForm[inputIdentifier].control),
+            valid: checkValidity(event.target.value, liftForm[inputIdentifier].control),
         });
-        const updatedWeightForm = updateObject(weightForm, {
+        const updatedLiftForm = updateObject(liftForm, {
             [inputIdentifier]:  updatedFormElement
         });
         let formIsValid = true;
-        for(let inputIdentifier in updatedWeightForm){
-            formIsValid = updatedWeightForm[inputIdentifier].valid && formIsValid;
+        for(let inputIdentifier in updatedLiftForm){
+            formIsValid = updatedLiftForm[inputIdentifier].valid && formIsValid;
         };
-        setWeightForm(updatedWeightForm);
-        setFormIsValid(formIsValid);
+        dispatch(liftActions.setFormElements({form:updatedLiftForm}));
+        dispatch(liftActions.setFormValidation({valid: formIsValid}));
     };
 
     const liftHandler = (event) => {
         event.preventDefault();
         const formData = {};
         const today = new Date();
-        for(let formElementIdentifier in weightForm) {
-            formData[formElementIdentifier] = weightForm[formElementIdentifier].value;
+        for(let formElementIdentifier in liftForm) {
+            formData[formElementIdentifier] = liftForm[formElementIdentifier].value;
             formData['date'] = today.toISOString().split('T')[0];
             formData['time'] = today.getHours() + ":" + today.getMinutes();
         }
@@ -80,25 +44,25 @@ const MovementItemForm = (props) => {
                 value: "0",
                 valid: false,
             };
-            const updatedWeight = updateObject(weightForm.weight, defaultState);
-            const updatedRepetition = updateObject(weightForm.repetition, defaultState);
+            const updatedWeight = updateObject(liftForm.weight, defaultState);
+            const updatedRepetition = updateObject(liftForm.repetition, defaultState);
             
             
-            const updatedWeightForm = updateObject(weightForm, {
+            const updatedLiftForm = updateObject(liftForm, {
                 "weight": updatedWeight,
                 "repetition":updatedRepetition,
             });
 
-            setWeightForm(updatedWeightForm);
-            setFormIsValid(false);
+            dispatch(liftActions.setFormElements({form: updatedLiftForm}));
+            dispatch(liftActions.setFormValidation({valid: false}));
         }
     };
 
     const formElementsArray = [];
-    for( let key in weightForm) {
+    for( let key in liftForm) {
         formElementsArray.push({
             id: key,
-            config: weightForm[key]
+            config: liftForm[key]
         });
     }
     const btnStyle = (formIsValid)?"btnLift":"btnLiftDisabled";
