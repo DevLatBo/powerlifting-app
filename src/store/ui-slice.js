@@ -19,6 +19,9 @@ const uiSlice = createSlice({
                 class: action.payload.class,
                 message: action.payload.message,
             };
+        },
+        removeAlert(state) {
+            state.alertMessage = null;
         }
     }
 })

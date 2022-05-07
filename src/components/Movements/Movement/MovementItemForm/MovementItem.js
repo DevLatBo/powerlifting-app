@@ -1,35 +1,39 @@
-import React, {useState, Fragment} from 'react';
+import React, { Fragment, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import { obtainMovementName } from '../../../../shared/utility';
 import MovementItemForm from './MovementItemForm';
 import { StyledTitlePage, StyledBlock } from '../../../UI/Styling/General-styling';
 import Alert from '../../../UI/Alert/Alert';
+import { addLifting } from '../../../../store/mov-actions';
+import { uiActions } from '../../../../store/ui-slice';
 
 const MovementItem = (props) => {
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [didSubmit, setDidSubmit] = useState(false);
-
+    const alert = useSelector((state) => state.ui.alertMessage);
+    const dispatch = useDispatch();
     let { movement } = useParams();
     const movementName = obtainMovementName(movement);
+
+    useEffect(() => {
+        let timer = null;
+        if(alert) {
+            timer = setTimeout(() => {
+                dispatch(uiActions.removeAlert());
+            }, 1250);
+        }
+        return () => {
+            clearTimeout(timer);
+        }
+    }, [alert, dispatch]);
+
     const addLiftHandler =  async (liftData) => {
-        setIsSubmitting(true);
-        await fetch("https://powerlifting-react-default-rtdb.firebaseio.com/lifts/"+movement+".json", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(
-                liftData
-            ),
-        });
-        setIsSubmitting(false);
-        setDidSubmit(true);
+        dispatch(addLifting(movement, liftData));
     };
-    
-    const closeAlert = () => {
-        setDidSubmit(false);
-    };
+
+    const clearAlert = () => {
+        dispatch(uiActions.removeAlert());
+    }
     
     return (
         <Fragment>
@@ -38,10 +42,16 @@ const MovementItem = (props) => {
                 <h3>Ingrese número de repeticiones y peso a levantar.</h3>
             </StyledTitlePage>
             <StyledBlock>
-                {didSubmit && <Alert className="form-alert" onClose={closeAlert}>Levantamiento registrado con exito!</Alert>}
-                {isSubmitting && <Alert className="form-alert" type="info">Registrando levantamiento...</Alert>}
-                <MovementItemForm movement = {movement} 
-                    onAddLift = {addLiftHandler} />
+                { alert && (
+                        <Alert type={alert.type} 
+                            className={alert.class}
+                            onClose={clearAlert}>
+                            {alert.message}
+                        </Alert>
+                )}
+                <MovementItemForm 
+                    movement={movement} 
+                    onAddLift={addLiftHandler} />
             </StyledBlock>
         </Fragment>
     )
