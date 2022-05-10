@@ -1,11 +1,14 @@
-import { useCallback, useState } from "react";
-const useHttp = () => {
-    const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState();
+import { useCallback } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { uiActions } from "../store/ui-slice";
 
+const useHttp = () => {
+    const isLoading = useSelector((state) => state.ui.loaderIsVisible);
+    const error = useSelector((state) => state.ui.error);
+    const dispatch = useDispatch();
     const sendRequest = useCallback( async (requestConfig, applyData) => {
-        setIsLoading(true);
-        setError(null);
+        dispatch(uiActions.showLoader());
+        dispatch(uiActions.clearError());
         try {
             const response = await fetch(requestConfig.url, {
                 method: requestConfig.method ? requestConfig.method : 'GET',
@@ -18,10 +21,10 @@ const useHttp = () => {
             const data = await response.json();
             applyData(data);
         }catch(error) {
-            setError(error.message);
+            dispatch(uiActions.setError({error: error.message}));
         }
-        setIsLoading(false);
-    }, []);
+        dispatch(uiActions.hideLoader());
+    }, [dispatch]);
 
     return {
         isLoading,

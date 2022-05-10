@@ -9,7 +9,7 @@ import { StyledForm } from '../../../UI/Styling/Section/Movements-styling';
 
 const MovementItemForm = (props) => {
     const formIsValid = useSelector((state) => state.lift.formIsValid);
-    const liftForm = useSelector((state) => state.lift.liftForm);
+    const liftForm = useSelector((state) => state.lift.form);
     const dispatch = useDispatch();
 
     const inputChangeHandler = (event, inputIdentifier) => {

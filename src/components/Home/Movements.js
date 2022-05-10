@@ -1,34 +1,23 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import Grid from '@material-ui/core/Grid';
 
-import useHttp from '../../hooks/use-http';
 import { StyledHome } from '../UI/Styling/Section/Home-styling';
 import Spinner from '../UI/Loader/Loader';
 import Alert from '../UI/Alert/Alert';
+import { fetchMovementsData } from '../../store/mov-actions';
+import { useSelector, useDispatch } from 'react-redux';
 
 const Movements = (props) => {
-    const [movements, setMovements] = useState([]);
-    const {isLoading, error, sendRequest: fetchMovements} = useHttp();
+    const dispatch = useDispatch();
+    //const [movements, setMovements] = useState([]);
+    //const {isLoading, error, sendRequest: fetchMovements} = useHttp();
+    const movements = useSelector((state) => state.mov.movements);
+    const isLoading = useSelector((state) => state.ui.loaderIsVisible);
+    const alertMessage = useSelector((state) => state.ui.alertMessage);
     
     useEffect(() => {
-        const obtainMovements = (movements) => {
-            const loadedMovements = [];
-            for(let key in movements) {
-                loadedMovements.push({
-                    id: key,
-                    name: movements[key].name,
-                    body: movements[key].body,
-                    description: movements[key].description,
-                    image: movements[key].image
-                });
-            }
-            setMovements(loadedMovements);
-        };
-        fetchMovements(
-            {url: "https://powerlifting-react-default-rtdb.firebaseio.com/movements.json"},
-            obtainMovements
-        );
-    }, [fetchMovements]);
+        dispatch(fetchMovementsData());
+    }, [dispatch]);
 
     const movementsInfo = movements.map((mov) => {
       return (
@@ -45,13 +34,13 @@ const Movements = (props) => {
       );             
     });
 
-    const loader = <Spinner size="lg"/>;
+    const loader = isLoading && <Spinner size="lg"/>;
     
-    const errorMessage = <Alert type="error" 
-                            className="error">
-                            {error}
+    const errorMessage = alertMessage && <Alert type={alertMessage.type} 
+                            className={alertMessage.class}>
+                            {alertMessage.error}
                         </Alert>;
-
+    console.log(isLoading);
     return (
         <StyledHome 
             backgroundColor="#FFFFFF"
@@ -63,9 +52,12 @@ const Movements = (props) => {
                     <h2>Movimientos</h2>
                     <span>Existen 3 movimientos dentro de esta disciplina</span>
                 </Grid>
-                {!isLoading && !error && movementsInfo}
+                {/*!isLoading && !error && movementsInfo}
                 {isLoading && loader}
-                {error && !isLoading && errorMessage}
+                {error && !isLoading && errorMessage*/}
+                {movementsInfo}
+                {loader}
+                {errorMessage}
             </Grid>
         </StyledHome>
     );

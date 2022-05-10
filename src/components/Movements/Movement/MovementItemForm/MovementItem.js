@@ -14,14 +14,14 @@ const MovementItem = (props) => {
     const dispatch = useDispatch();
     let { movement } = useParams();
     const movementName = obtainMovementName(movement);
+    
 
     useEffect(() => {
         let timer = null;
-        if(alert) {
-            timer = setTimeout(() => {
-                dispatch(uiActions.removeAlert());
-            }, 1250);
-        }
+        timer = setTimeout(() => {
+            dispatch(uiActions.removeAlert());
+        }, 1500);
+    
         return () => {
             clearTimeout(timer);
         }

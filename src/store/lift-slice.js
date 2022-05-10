@@ -5,7 +5,9 @@ const liftSlice = createSlice({
     name: 'lift',
     initialState: {
         formIsValid: false,
-        liftForm: {
+        submitted: false,
+        processed: false,
+        form: {
             weight: {
                 elementType: 'number',
                 elementClass: 'InputLift',
@@ -51,8 +53,15 @@ const liftSlice = createSlice({
             state.formIsValid = action.payload.valid;
         },
         setFormElements(state, action) {
-            state.liftForm = action.payload.form;
-        }
+            state.form = action.payload.form;
+        },
+        setSubmitOn(state) {
+            state.submitted = true;
+        },
+        confirmSuccessFul(state) {
+            state.submitted = false;
+            state.processed = true;
+        },
     }
 });
 
