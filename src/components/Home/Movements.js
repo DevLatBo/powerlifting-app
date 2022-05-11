@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 
 import { StyledHome } from '../UI/Styling/Section/Home-styling';
 import Spinner from '../UI/Loader/Loader';
 import Alert from '../UI/Alert/Alert';
 import { fetchMovementsData } from '../../store/mov-actions';
-import { useSelector, useDispatch } from 'react-redux';
 
 const Movements = (props) => {
     const dispatch = useDispatch();

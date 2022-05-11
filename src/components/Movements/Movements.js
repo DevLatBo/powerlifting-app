@@ -1,4 +1,5 @@
 import React, {useEffect, useState, Fragment} from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Grid from "@material-ui/core/Grid";
 
 import useHttp from '../../hooks/use-http';
@@ -6,9 +7,10 @@ import MovementLink from './Movement/MovementLink';
 import Spinner from '../UI/Loader/Loader';
 import Alert from '../UI/Alert/Alert';
 import { StyledBlock, StyledTitlePage } from '../UI/Styling/General-styling';
+import { fetchMovementsData } from '../../store/mov-actions';
 
 const Movements = (props) => {
-    const [movements, setMovements] = useState([]);
+    /*const [movements, setMovements] = useState([]);
     const { isLoading, error, sendRequest: fetchMovements } = useHttp();
 
     useEffect(() => {
@@ -27,7 +29,15 @@ const Movements = (props) => {
             {url: "https://powerlifting-react-default-rtdb.firebaseio.com/movements.json"}, 
             obtainMovements
         );
-    },[fetchMovements]);
+    },[fetchMovements]);*/
+    const isLoading = useSelector((state) => state.ui.loaderIsVisible);
+    const movements = useSelector((state) => state.mov.movements);
+    const alertMessage = useSelector((state) => state.ui.alertMessage);
+    const dispatch = useDispatch();
+    
+    useEffect(() => {
+        dispatch(fetchMovementsData());
+    }, [dispatch]);
     
     const movementLinks = movements.map((movement) => {
         return (
@@ -38,11 +48,11 @@ const Movements = (props) => {
         );
     });
 
-    const loader = <Spinner size="lg"/>
+    const loader = isLoading && <Spinner size="lg"/>
         
-    const errorMessage = <Alert type="error" 
-        className="error">
-            {error}
+    const errorMessage = alertMessage && <Alert type={alertMessage.type} 
+        className={alertMessage.class}>
+            {alertMessage.message}
         </Alert>;
 
     return (
@@ -55,9 +65,9 @@ const Movements = (props) => {
                     direction="row"
                     justifyContent="center"
                     alignItems="center">
-                        {!isLoading && !error && movementLinks}
-                        {isLoading && loader}
-                        {!isLoading && error && errorMessage}
+                        {movementLinks}
+                        {loader}
+                        {errorMessage}
                 </Grid>
             </StyledBlock>
         </Fragment>
