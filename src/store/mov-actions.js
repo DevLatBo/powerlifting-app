@@ -58,17 +58,18 @@ export const fetchMovementsData = () => {
         }
         try {
             const movementsData = await fetchData();
-            dispatch(uiActions.hideLoader());
             dispatch(
                 movActions.replaceMovementsData({ movements: movementsData })
             );
 
         } catch(error) {
+            dispatch(uiActions.setError({error: error.message}));
             dispatch(uiActions.showAlert({
-                status: 'error',
+                type: 'error',
                 class: 'error',
-                message: error,
+                message: error.message,
             }));
         }
+        dispatch(uiActions.hideLoader());
     }
 };

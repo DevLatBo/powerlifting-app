@@ -14,7 +14,6 @@ const MovementItem = (props) => {
     const dispatch = useDispatch();
     let { movement } = useParams();
     const movementName = obtainMovementName(movement);
-    
 
     useEffect(() => {
         let timer = null;

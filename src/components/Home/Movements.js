@@ -9,8 +9,6 @@ import { useSelector, useDispatch } from 'react-redux';
 
 const Movements = (props) => {
     const dispatch = useDispatch();
-    //const [movements, setMovements] = useState([]);
-    //const {isLoading, error, sendRequest: fetchMovements} = useHttp();
     const movements = useSelector((state) => state.mov.movements);
     const isLoading = useSelector((state) => state.ui.loaderIsVisible);
     const alertMessage = useSelector((state) => state.ui.alertMessage);
@@ -35,12 +33,10 @@ const Movements = (props) => {
     });
 
     const loader = isLoading && <Spinner size="lg"/>;
-    
     const errorMessage = alertMessage && <Alert type={alertMessage.type} 
                             className={alertMessage.class}>
-                            {alertMessage.error}
+                            {alertMessage.message}
                         </Alert>;
-    console.log(isLoading);
     return (
         <StyledHome 
             backgroundColor="#FFFFFF"
@@ -52,9 +48,6 @@ const Movements = (props) => {
                     <h2>Movimientos</h2>
                     <span>Existen 3 movimientos dentro de esta disciplina</span>
                 </Grid>
-                {/*!isLoading && !error && movementsInfo}
-                {isLoading && loader}
-                {error && !isLoading && errorMessage*/}
                 {movementsInfo}
                 {loader}
                 {errorMessage}
