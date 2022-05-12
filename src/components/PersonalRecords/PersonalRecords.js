@@ -1,40 +1,30 @@
-import {useState, useEffect, Fragment} from 'react';
+import { useEffect, Fragment } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Grid from '@mui/material/Grid';
 
-import useHttp from '../../hooks/use-http';
 import PersonalRecordItem from './PersonalRecordItem/PersonalRecordItem';
 import LastRecords from './LastRecords/LastRecords';
 import Spinner from '../UI/Loader/Loader';
 import Alert from '../UI/Alert/Alert';
 import { StyledTitlePage, StyledBlock } from '../UI/Styling/General-styling';
-
+import { fetchMovementsData } from '../../store/mov-actions';
 
 const PersonalRecords = (props) => {
-    const [movements, setMovements] = useState([]);
-    const { isLoading, error, sendRequest: fetchMovements } = useHttp(); 
+
+    const dispatch = useDispatch();
+    const isLoading = useSelector((state) => state.ui.loaderIsVisible);
+    const alertMessage = useSelector((state) => state.ui.alertMessage);
+    const movements = useSelector((state) => state.mov.movements);
 
     useEffect(() => {
-        const obtainMovements = (movements) => {
-            const loadedMovements = [];
-            for(let key in movements) {
-                loadedMovements.push({
-                    id: key,
-                    name: movements[key].name,
-                });
-            }
-            setMovements(loadedMovements);
-        }
-        fetchMovements(
-            {url: "https://powerlifting-react-default-rtdb.firebaseio.com/movements.json"},
-            obtainMovements
-        );
-    }, [fetchMovements])
+        dispatch(fetchMovementsData());
+    }, [dispatch]);
 
-    const loader = <Spinner size="lg"/>;
+    const loader = isLoading && <Spinner size="lg"/>;
 
-    const errorMessage = <Alert type="error"
-                        className="error">
-                            {error}
+    const errorMessage = alertMessage && <Alert type={alertMessage.type}
+                        className={alertMessage.class}>
+                            {alertMessage.message}
                         </Alert>
     
 
@@ -56,9 +46,9 @@ const PersonalRecords = (props) => {
                     justifycontent="center"
                     alignItems="center"
                     sx={{display:"inline-flex"}}>
-                        {!isLoading && !error && prs}
-                        {isLoading && loader}
-                        {!isLoading && error && errorMessage}
+                        {prs}
+                        {loader}
+                        {errorMessage}
                 </Grid>
             </StyledBlock>
             <StyledBlock>

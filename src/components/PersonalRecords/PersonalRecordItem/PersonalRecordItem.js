@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import CountUp from 'react-countup';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
@@ -8,45 +9,25 @@ import Typography from '@mui/material/Typography';
 import { StyledBox } from '../../UI/Styling/Section/PR-styling';
 import Spinner from '../../UI/Loader/Loader';
 import Alert from '../../UI/Alert/Alert';
+import { fetchRecordByMovement } from '../../../store/mov-actions';
 
 const PersonalRecordItem = (props) => {
-    const [records, setRecords] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState();
+    const dispatch = useDispatch();
+    const isLoading = useSelector((state) => state.ui.loaderIsVisible);
+    const alertMessage = useSelector((state) => state.ui.alertMessage);
+    const maxPR = useSelector((state) => state.lift.pr);
 
-    useEffect( () => {
-        const fetchRecords = async () => {
-            const response = await fetch("https://powerlifting-react-default-rtdb.firebaseio.com/lifts/"+props.id+".json");
-            if(!response.ok) {
-                throw new Error("Something wrong happened!");
-            }
-            const responseData = await response.json();
-    
-            let loadedRecords = [];
-            
-            for(let key in responseData) {
-                loadedRecords.push(
-                    responseData[key].weight
-                );
-            }
-            const recordsWeight = loadedRecords.map(Number);
-            setRecords(recordsWeight);
-            setIsLoading(false);
-        }
-        fetchRecords().catch((error) => {
-            setError(error.message);
-            setIsLoading(false);
-        });
-    }, [props.id]);
+    useEffect(() => {
+        dispatch(fetchRecordByMovement(props.id))
+    },[props.id, dispatch]);
 
-    const loader = <Spinner size="sm" />;
+    const loader = isLoading && <Spinner size="sm" />;
 
-    const errorMessage = <Alert type="error" 
-                            className="error">
-                            {error}
+    const errorMessage = alertMessage && <Alert type={alertMessage.type} 
+                            className={alertMessage.class}>
+                            {alertMessage.message}
                         </Alert>;
 
-    const maxPR = (records.length) ? Math.max(...records) : 0;
 
     return(
         <Grid item xs={12} md={4}>
@@ -63,13 +44,13 @@ const PersonalRecordItem = (props) => {
                                 variant="h5" 
                                 component="div" 
                                 className="recordMov" >
-                            { !isLoading && !error && <CountUp start={0} 
+                            { <CountUp start={0} 
                                                     end={maxPR} 
                                                     suffix=" kg." 
                                                     decimals="2" 
                                                     duration={3}/> } 
-                            { isLoading && loader }
-                            { !isLoading && error && errorMessage }
+                            { loader }
+                            { errorMessage }
                         </Typography>
                     </CardContent>
                 </Card>

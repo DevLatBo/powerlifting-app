@@ -73,3 +73,61 @@ export const fetchMovementsData = () => {
         dispatch(uiActions.hideLoader());
     }
 };
+
+export const fetchRecordByMovement = (movement) => {
+    return async(dispatch) => {
+        const fetchData = async() => {
+            const response = await fetch(
+                "https://powerlifting-react-default-rtdb.firebaseio.com/lifts/"+movement+".json");
+            if(!response.ok) {
+                throw new Error("Something wrong happened!");
+            }
+            const data = await response.json();
+            
+            return data;
+        }
+        try {
+            const recordsData = await fetchData();
+            dispatch(
+                liftActions.getMaxPR({liftsData: recordsData})
+            );
+
+        }catch(error) {
+            dispatch(uiActions.setError({error: error.message}));
+            dispatch(uiActions.showAlert({
+                type: 'error',
+                class: 'error',
+                message: error.message,
+            }));
+        }
+    }
+};
+
+export const fetchLiftHistory = () => {
+    return async(dispatch) => {
+        const fetchData = async () => {
+            const response = await fetch(
+                "https://powerlifting-react-default-rtdb.firebaseio.com/lifts.json"
+            );
+            if(!response.ok) {
+                throw new Error("Something wrong happened!");
+            }
+            const data = await response.json();
+            
+            return data;
+        }
+        try {
+            const historyData = await fetchData();
+            dispatch(
+                liftActions.getLastLifts({history: historyData})
+            );
+        } catch(error) {
+            dispatch(uiActions.setError({error: error.message}));
+            dispatch(uiActions.showAlert({
+                type: 'error',
+                class: 'error',
+                message: error.message,
+            }));
+        }
+    }
+}

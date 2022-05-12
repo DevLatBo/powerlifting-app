@@ -1,41 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Table from '@mui/material/Table';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-import useHttp from '../../../hooks/use-http';
 import { StyledTableCell } from '../../UI/Styling/Section/PR-styling';
 import LastRecordItems from './LastRecordItems/LastRecordItems';
+import { fetchLiftHistory } from '../../../store/mov-actions';
 
 const LastRecords = (props) => {
-    const [records, setRecords] = useState([]);
-    const { isLoading, error, sendRequest: fetchLiftsData} = useHttp();
+    const dispatch = useDispatch();
+    const isLoading = useSelector((state) => state.ui.loaderIsVisible);
+    const alertMessage = useSelector((state) => state.ui.alertMessage);
+    const history = useSelector((state) => state.lift.history);
+    
     useEffect(() => {
-        const obtainLiftsData = (lifts) => {
-            const loadedLifts = [];
-            for(let movement in lifts) {
-                Object.entries(lifts[movement]).forEach( ([key, data]) => {
-                    loadedLifts.push({
-                        movement: movement,
-                        date: data.date,
-                        time: data.time,
-                        repetition: data.repetition,
-                        weight: data.weight,
-                    });
-                });
-            }
-            setRecords(loadedLifts);
-        };
-        fetchLiftsData(
-            {url: "https://powerlifting-react-default-rtdb.firebaseio.com/lifts.json"},
-            obtainLiftsData
-        );
-
-    }, [fetchLiftsData]);
-    records.sort((a,b) => (a.time < b.time) ? 1:-1);
-    const lastRecords = (records.length >=5) ? records.slice(0,5) : records;
+        dispatch(fetchLiftHistory());
+    }, [dispatch]);
 
     return (
         <TableContainer component={Paper} 
@@ -59,9 +42,9 @@ const LastRecords = (props) => {
                     </TableRow>
                 </TableHead>
                 <LastRecordItems 
-                    error={error} 
+                    error={alertMessage} 
                     flagLoader={isLoading}
-                    recordItems={lastRecords}
+                    recordItems={history}
                 />
             </Table>
         </TableContainer>
