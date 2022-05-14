@@ -27,9 +27,6 @@ const uiSlice = createSlice({
         },
         hideLoader(state) {
             state.loaderIsVisible = false;
-            if(!state.error) {
-                state.alertMessage = null;
-            }
         },
         removeAlert(state) {
             state.alertMessage = null;

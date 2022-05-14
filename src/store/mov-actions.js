@@ -55,12 +55,11 @@ export const fetchMovementsData = () => {
               return data;
         }
         try {
+            dispatch(movActions.cleanMovementsData());
             dispatch(uiActions.clearError());
             dispatch(uiActions.showLoader());
             const movementsData = await fetchData();
-            dispatch(
-                movActions.replaceMovementsData({ movements: movementsData })
-            );
+            dispatch(movActions.replaceMovementsData({ movements: movementsData }));
 
         } catch(error) {
             dispatch(uiActions.setError({error: error.message}));
@@ -83,14 +82,14 @@ export const fetchRecordByMovement = (movement) => {
                 throw new Error("Something wrong happened!");
             }
             const data = await response.json();
-            
             return data;
         }
         try {
+            dispatch(liftActions.restartPR());
+            dispatch(uiActions.clearError());
+            dispatch(uiActions.showLoader());
             const recordsData = await fetchData();
-            dispatch(
-                liftActions.getMaxPR({liftsData: recordsData})
-            );
+            dispatch(liftActions.getMaxPR({liftsData: recordsData}));
 
         }catch(error) {
             dispatch(uiActions.setError({error: error.message}));
@@ -100,6 +99,7 @@ export const fetchRecordByMovement = (movement) => {
                 message: error.message,
             }));
         }
+        dispatch(uiActions.hideLoader());
     }
 };
 
@@ -117,10 +117,11 @@ export const fetchLiftHistory = () => {
             return data;
         }
         try {
+            dispatch(liftActions.clearHistory());
+            dispatch(uiActions.clearError());
+            dispatch(uiActions.showLoader());
             const historyData = await fetchData();
-            dispatch(
-                liftActions.getLastLifts({history: historyData})
-            );
+            dispatch(liftActions.getLastLifts({ history: historyData }));
         } catch(error) {
             dispatch(uiActions.setError({error: error.message}));
             dispatch(uiActions.showAlert({
@@ -129,5 +130,6 @@ export const fetchLiftHistory = () => {
                 message: error.message,
             }));
         }
+        dispatch(uiActions.hideLoader());
     }
 }

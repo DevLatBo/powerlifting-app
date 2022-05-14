@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { v4 as uuidv4 } from 'uuid';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
@@ -37,7 +37,7 @@ const LastRecordItems = (props) => {
     if(recordItems.length) {
         items = recordItems.map((recordItem) => {
             return (
-                <TableRow key={recordItem.id}>
+                <TableRow key={uuidv4()}>
                     <TableCell align="center">
                         <strong>{obtainMovementName(recordItem.movement)}</strong>
                     </TableCell>
@@ -51,6 +51,7 @@ const LastRecordItems = (props) => {
             );
         })
     }
+
     return(
         <TableBody>
             { !props.flagLoader && !props.error && items }

@@ -64,6 +64,12 @@ const liftSlice = createSlice({
             state.submitted = false;
             state.processed = true;
         },
+        clearHistory(state) {
+            state.history = [];
+        },
+        restartPR(state) {
+            state.pr = 0;
+        },
         getMaxPR(state, action){
             const lifts = action.payload.liftsData;
             const liftsArray = [];

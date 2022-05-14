@@ -19,15 +19,13 @@ const PersonalRecordItem = (props) => {
 
     useEffect(() => {
         dispatch(fetchRecordByMovement(props.id))
-    },[props.id, dispatch]);
-
+    },[dispatch, props.id]);
     const loader = isLoading && <Spinner size="sm" />;
 
     const errorMessage = alertMessage && <Alert type={alertMessage.type} 
                             className={alertMessage.class}>
                             {alertMessage.message}
                         </Alert>;
-
 
     return(
         <Grid item xs={12} md={4}>
@@ -44,11 +42,13 @@ const PersonalRecordItem = (props) => {
                                 variant="h5" 
                                 component="div" 
                                 className="recordMov" >
-                            { <CountUp start={0} 
-                                                    end={maxPR} 
-                                                    suffix=" kg." 
-                                                    decimals="2" 
-                                                    duration={3}/> } 
+                            { 
+                                <CountUp start={0} 
+                                    end={maxPR} 
+                                    suffix=" kg." 
+                                    decimals="2" 
+                                    duration={3}/> 
+                            } 
                             { loader }
                             { errorMessage }
                         </Typography>

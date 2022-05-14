@@ -6,6 +6,9 @@ const movSlice = createSlice({
         movements: [],
     },
     reducers: {
+        cleanMovementsData(state) {
+            state.movements = [];
+        },
         replaceMovementsData(state, action) {
             const movements = action.payload.movements;
             const movementsArray = [];

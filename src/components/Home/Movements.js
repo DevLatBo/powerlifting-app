@@ -14,9 +14,8 @@ const Movements = (props) => {
     const alertMessage = useSelector((state) => state.ui.alertMessage);
 
     useEffect(() => {
-        if(!movements.length)
-            dispatch(fetchMovementsData());
-    }, [dispatch, movements]);
+        dispatch(fetchMovementsData());
+    }, [dispatch]);
 
     const movementsInfo = movements.map((mov) => {
       return (
@@ -34,6 +33,7 @@ const Movements = (props) => {
     });
 
     const loader = isLoading && <Spinner size="lg"/>;
+    
     const errorMessage = alertMessage && <Alert type={alertMessage.type} 
                             className={alertMessage.class}>
                             {alertMessage.message}

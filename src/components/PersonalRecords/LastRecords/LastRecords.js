@@ -19,7 +19,7 @@ const LastRecords = (props) => {
     useEffect(() => {
         dispatch(fetchLiftHistory());
     }, [dispatch]);
-
+    
     return (
         <TableContainer component={Paper} 
             sx={{width: {xs: "100%", md:"70%"},margin:'40px auto'}}>

@@ -14,12 +14,9 @@ const Movements = (props) => {
     const alertMessage = useSelector((state) => state.ui.alertMessage);
     const dispatch = useDispatch();
 
-    console.log(isLoading);
-    console.log(alertMessage);
     useEffect(() => {
-        if(!movements.length)
-            dispatch(fetchMovementsData());
-    }, [dispatch, movements]);
+        dispatch(fetchMovementsData());
+    }, [dispatch]);
     
     const movementLinks = movements.map((movement) => {
         return (
