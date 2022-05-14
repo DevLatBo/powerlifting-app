@@ -39,6 +39,7 @@ const uiSlice = createSlice({
         },
         clearError(state) {
             state.error = null;
+            state.alertMessage = null;
         },
     }
 })

@@ -43,10 +43,8 @@ export const addLifting = (movement, lift) => {
 export const fetchMovementsData = () => {
     return async(dispatch) => {
         const fetchData = async() => {
-            dispatch(uiActions.clearError());
-            dispatch(uiActions.showLoader());
             const response = await fetch(
-                'https://powerlifting-react-default-rtdb.firebaseio.com//movements.json'
+                'https://powerlifting-react-default-rtdb.firebaseio.com/movements.json'
               );
         
               if (!response.ok) {
@@ -57,6 +55,8 @@ export const fetchMovementsData = () => {
               return data;
         }
         try {
+            dispatch(uiActions.clearError());
+            dispatch(uiActions.showLoader());
             const movementsData = await fetchData();
             dispatch(
                 movActions.replaceMovementsData({ movements: movementsData })

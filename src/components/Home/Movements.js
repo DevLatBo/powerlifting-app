@@ -12,10 +12,11 @@ const Movements = (props) => {
     const movements = useSelector((state) => state.mov.movements);
     const isLoading = useSelector((state) => state.ui.loaderIsVisible);
     const alertMessage = useSelector((state) => state.ui.alertMessage);
-    
+
     useEffect(() => {
-        dispatch(fetchMovementsData());
-    }, [dispatch]);
+        if(!movements.length)
+            dispatch(fetchMovementsData());
+    }, [dispatch, movements]);
 
     const movementsInfo = movements.map((mov) => {
       return (
