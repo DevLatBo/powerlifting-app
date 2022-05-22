@@ -8,7 +8,7 @@ import Paper from '@mui/material/Paper';
 
 import { StyledTableCell } from '../../UI/Styling/Section/PR-styling';
 import LastRecordItems from './LastRecordItems/LastRecordItems';
-import { fetchLiftHistory } from '../../../store/mov-actions';
+import { fetchLiftsData } from '../../../store/mov-actions';
 
 const LastRecords = (props) => {
     const dispatch = useDispatch();
@@ -17,7 +17,7 @@ const LastRecords = (props) => {
     const history = useSelector((state) => state.lift.history);
     
     useEffect(() => {
-        dispatch(fetchLiftHistory());
+        dispatch(fetchLiftsData("lastLifts"));
     }, [dispatch]);
     
     return (

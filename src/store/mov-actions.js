@@ -73,37 +73,7 @@ export const fetchMovementsData = () => {
     }
 };
 
-export const fetchRecordByMovement = (movement) => {
-    return async(dispatch) => {
-        const fetchData = async() => {
-            const response = await fetch(
-                "https://powerlifting-react-default-rtdb.firebaseio.com/lifts/"+movement+".json");
-            if(!response.ok) {
-                throw new Error("Something wrong happened!");
-            }
-            const data = await response.json();
-            return data;
-        }
-        try {
-            dispatch(liftActions.restartPR());
-            dispatch(uiActions.clearError());
-            dispatch(uiActions.showLoader());
-            const recordsData = await fetchData();
-            dispatch(liftActions.getMaxPR({liftsData: recordsData}));
-
-        }catch(error) {
-            dispatch(uiActions.setError({error: error.message}));
-            dispatch(uiActions.showAlert({
-                type: 'error',
-                class: 'error',
-                message: error.message,
-            }));
-        }
-        dispatch(uiActions.hideLoader());
-    }
-};
-
-export const fetchLiftHistory = () => {
+export const fetchLiftsData = (request) => {
     return async(dispatch) => {
         const fetchData = async () => {
             const response = await fetch(
@@ -118,10 +88,20 @@ export const fetchLiftHistory = () => {
         }
         try {
             dispatch(liftActions.clearHistory());
+            dispatch(liftActions.clearPRs());
             dispatch(uiActions.clearError());
             dispatch(uiActions.showLoader());
-            const historyData = await fetchData();
-            dispatch(liftActions.getLastLifts({ history: historyData }));
+            const liftsData = await fetchData();
+            switch(request) {
+                case "lastLifts": 
+                    dispatch(liftActions.getLastLifts({ lifts: liftsData }));
+                    break;
+                case "PRs":
+                    dispatch(liftActions.getPRs({ lifts: liftsData }))
+                    break;
+                default:
+                    break;
+            }
         } catch(error) {
             dispatch(uiActions.setError({error: error.message}));
             dispatch(uiActions.showAlert({

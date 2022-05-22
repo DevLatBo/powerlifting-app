@@ -1,5 +1,6 @@
 import { useEffect, Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 import Grid from '@mui/material/Grid';
 
 import PersonalRecordItem from './PersonalRecordItem/PersonalRecordItem';
@@ -7,17 +8,16 @@ import LastRecords from './LastRecords/LastRecords';
 import Spinner from '../UI/Loader/Loader';
 import Alert from '../UI/Alert/Alert';
 import { StyledTitlePage, StyledBlock } from '../UI/Styling/General-styling';
-import { fetchMovementsData } from '../../store/mov-actions';
+import { fetchLiftsData } from '../../store/mov-actions';
 
 const PersonalRecords = (props) => {
-
     const dispatch = useDispatch();
     const isLoading = useSelector((state) => state.ui.loaderIsVisible);
     const alertMessage = useSelector((state) => state.ui.alertMessage);
-    const movements = useSelector((state) => state.mov.movements);
+    const prMovments = useSelector((state) => state.lift.prs);
 
     useEffect(() => {
-        dispatch(fetchMovementsData());
+        dispatch(fetchLiftsData("PRs"));
     }, [dispatch]);
 
     const loader = isLoading && <Spinner size="lg"/>;
@@ -27,11 +27,10 @@ const PersonalRecords = (props) => {
                             {alertMessage.message}
                         </Alert>
     
-
-    const prs = movements.map((movement) => {
-        return <PersonalRecordItem key={movement.id} 
-                id={movement.id}
-                movement={movement.name}/>
+    const prs = prMovments.map((lift) => {
+        return <PersonalRecordItem key={uuidv4()} 
+            movement={lift.movement}
+            weight={lift.pr} />
     });
 
     return (

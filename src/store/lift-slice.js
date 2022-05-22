@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const liftSlice = createSlice({
     name: 'lift',
     initialState: {
-        pr: 0,
+        prs: [],
         history: [],
         formIsValid: false,
         submitted: false,
@@ -67,23 +67,30 @@ const liftSlice = createSlice({
         clearHistory(state) {
             state.history = [];
         },
-        restartPR(state) {
-            state.pr = 0;
+        clearPRs(state) {
+            state.prs = [];
         },
-        getMaxPR(state, action){
-            const lifts = action.payload.liftsData;
-            const liftsArray = [];
-            for(let key in lifts) {
-                liftsArray.push(
-                    lifts[key].weight
-                );
+        getPRs(state, action) {
+            const lifts = action.payload.lifts;
+            let personalRecords = [];
+            let allWeights = [];
+            for(let movement in lifts) {
+                Object.entries(lifts[movement]).forEach(([key, data])=> {
+                    allWeights.push(data.weight);
+                });
+                let weights = allWeights.map(Number);
+                let maxPR = (weights.length) ? Math.max(...weights) : 0;
+                personalRecords.push({
+                    "movement": movement,
+                    "pr": maxPR
+                });
+                allWeights.splice(0, allWeights.length);
+                maxPR = 0;
             }
-            const allLifts = liftsArray.map(Number);
-            const maxPR = (allLifts.length) ? Math.max(...allLifts) : 0;
-            state.pr = maxPR;
+            state.prs = personalRecords;
         },
         getLastLifts(state, action) {
-            const lifts = action.payload.history;
+            const lifts = action.payload.lifts;
             const loadedLifts = [];
             for(let movement in lifts) {
                 Object.entries(lifts[movement]).forEach( ([key, data]) => {
