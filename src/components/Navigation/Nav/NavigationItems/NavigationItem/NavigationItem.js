@@ -6,6 +6,7 @@ const NavigationItem = (props) => {
     return (
         <NavItem>
             <NavLinkStyled
+                activeClassName='active'
                 to = {props.link}
                 exact = {props.exact}>
                     {props.children}

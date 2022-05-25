@@ -2,10 +2,12 @@ import { liftActions } from "./lift-slice";
 import { movActions } from "./mov-slice";
 import { uiActions } from "./ui-slice";
 
+const FIREBASE_DOMAIN = "https://powerlifting-react-default-rtdb.firebaseio.com";
+
 export const addLifting = (movement, lift) => {
     return async(dispatch) => {
         const sendRequest = async () => {
-            await fetch("https://powerlifting-react-default-rtdb.firebaseio.com/lifts/"+movement+".json", {
+            await fetch(`${FIREBASE_DOMAIN}/lifts/${movement}/.json`,{
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
@@ -44,7 +46,7 @@ export const fetchMovementsData = () => {
     return async(dispatch) => {
         const fetchData = async() => {
             const response = await fetch(
-                'https://powerlifting-react-default-rtdb.firebaseio.com/movements.json'
+                `${FIREBASE_DOMAIN}/movements.json`
               );
         
               if (!response.ok) {
@@ -77,7 +79,7 @@ export const fetchLiftsData = (request) => {
     return async(dispatch) => {
         const fetchData = async () => {
             const response = await fetch(
-                "https://powerlifting-react-default-rtdb.firebaseio.com/lifts.json"
+                `${FIREBASE_DOMAIN}/lifts.json`
             );
             if(!response.ok) {
                 throw new Error("Something wrong happened!");
