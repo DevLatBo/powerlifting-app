@@ -8,6 +8,7 @@ import { StyledTitlePage, StyledBlock } from '../../../UI/Styling/General-stylin
 import Alert from '../../../UI/Alert/Alert';
 import { addLifting } from '../../../../store/mov-actions';
 import { uiActions } from '../../../../store/ui-slice';
+import Popup from '../../../UI/Popup/Popup';
 
 const MovementItem = (props) => {
     const alert = useSelector((state) => state.ui.alertMessage);
@@ -41,6 +42,7 @@ const MovementItem = (props) => {
                 <h3>Ingrese número de repeticiones y peso a levantar.</h3>
             </StyledTitlePage>
             <StyledBlock>
+                <Popup/>
                 { alert && (
                         <Alert type={alert.type} 
                             className={alert.class}
