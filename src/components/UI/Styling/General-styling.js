@@ -52,12 +52,16 @@ export const NavItem = styled.li`
 `;
 
 export const NavLinkStyled = styled(NavLink)`
-    font-size: 17px;
+    font-size: 1rem;
     display: block;
     color: #FFFFFF;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    &.${props => props.activeClassName} {
+        font-weight: bold;
+        font-size: 1.25rem;
+    }
 `;
 
 export const StyledBlock = styled.div`
