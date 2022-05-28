@@ -19,7 +19,7 @@ const MovementItem = (props) => {
     useEffect(() => {
         let timer = null;
         timer = setTimeout(() => {
-            dispatch(uiActions.removeAlert());
+            dispatch(uiActions.clearAlert());
         }, 1500);
     
         return () => {
@@ -32,7 +32,7 @@ const MovementItem = (props) => {
     };
 
     const clearAlert = () => {
-        dispatch(uiActions.removeAlert());
+        dispatch(uiActions.clearAlert());
     }
     
     return (
@@ -42,7 +42,6 @@ const MovementItem = (props) => {
                 <h3>Ingrese número de repeticiones y peso a levantar.</h3>
             </StyledTitlePage>
             <StyledBlock>
-                <Popup/>
                 { alert && (
                         <Alert type={alert.type} 
                             className={alert.class}

@@ -28,15 +28,14 @@ const uiSlice = createSlice({
         hideLoader(state) {
             state.loaderIsVisible = false;
         },
-        removeAlert(state) {
+        clearAlert(state) {
             state.alertMessage = null;
+            if(state.error) {
+                state.error = null;
+            }
         },
         setError(state, action) {
             state.error = action.payload.error
-        },
-        clearError(state) {
-            state.error = null;
-            state.alertMessage = null;
         },
     }
 })

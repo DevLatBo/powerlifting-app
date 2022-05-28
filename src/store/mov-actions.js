@@ -2,12 +2,18 @@ import { liftActions } from "./lift-slice";
 import { movActions } from "./mov-slice";
 import { uiActions } from "./ui-slice";
 
-const FIREBASE_DOMAIN = "https://powerlifting-react-default-rtdb.firebaseio.com";
+const FIREBASE_DOMAIN = "https://powerlifting-react-default-rtdb.firebaseio.com/";
 
 export const addLifting = (movement, lift) => {
     return async(dispatch) => {
+        dispatch(liftActions.setSubmitOn());
+        dispatch(uiActions.showAlert({
+            type: "info",
+            class: "form-alert",
+            message: "Registrando levantamiento...",
+        }));
         const sendRequest = async () => {
-            await fetch(`${FIREBASE_DOMAIN}/lifts/${movement}/.json`,{
+            const response = await fetch(`${FIREBASE_DOMAIN}/lifts/${movement}/.json`,{
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
@@ -16,16 +22,13 @@ export const addLifting = (movement, lift) => {
                     lift
                 ),
             });
-        }
+            if(!response.ok) {
+                throw new Error('Sending lift data failed');
+            }
+        };
         try {
-            dispatch(liftActions.setSubmitOn());
-            dispatch(uiActions.showAlert({
-                type: "info",
-                class: "form-alert",
-                message: "Registrando levantamiento...",
-            }));
             await sendRequest();
-            dispatch(liftActions.confirmSuccessFul);
+            dispatch(liftActions.confirmSuccessfull());
             dispatch(uiActions.showAlert({
                 type: "success",
                 class: "form-alert",
@@ -36,7 +39,7 @@ export const addLifting = (movement, lift) => {
             dispatch(uiActions.showAlert({
                 type: "error",
                 class: "form-alert",
-                message: error,
+                message: error.message,
             }));
         }
     };
@@ -50,7 +53,7 @@ export const fetchMovementsData = () => {
               );
         
               if (!response.ok) {
-                throw new Error('Could not fetch cart data!');
+                throw new Error('Could not fetch movements data!');
               }
         
               const data = await response.json();
@@ -58,7 +61,7 @@ export const fetchMovementsData = () => {
         }
         try {
             dispatch(movActions.cleanMovementsData());
-            dispatch(uiActions.clearError());
+            dispatch(uiActions.clearAlert());
             dispatch(uiActions.showLoader());
             const movementsData = await fetchData();
             dispatch(movActions.replaceMovementsData({ movements: movementsData }));

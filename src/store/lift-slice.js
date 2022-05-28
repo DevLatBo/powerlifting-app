@@ -59,8 +59,9 @@ const liftSlice = createSlice({
         },
         setSubmitOn(state) {
             state.submitted = true;
+            state.processed = false;
         },
-        confirmSuccessFul(state) {
+        confirmSuccessfull(state) {
             state.submitted = false;
             state.processed = true;
         },

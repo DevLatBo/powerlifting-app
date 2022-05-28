@@ -41,7 +41,7 @@ const MovementItemForm = (props) => {
 
         if(formIsValid) {
             const defaultState = {
-                value: "0",
+                value: "",
                 valid: false,
             };
             const updatedWeight = updateObject(liftForm.weight, defaultState);
