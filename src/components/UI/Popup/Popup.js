@@ -6,8 +6,8 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-const Popup = () => {
-    const [open, setOpen] = React.useState(false);
+const Popup = (props) => {
+    /*const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -15,31 +15,31 @@ const Popup = () => {
 
     const handleClose = () => {
         setOpen(false);
-    };
+    };*/
 
   return (
     <div>
-        <Button variant="outlined" onClick={handleClickOpen}>
+        {/*<Button variant="outlined" onClick={handleClickOpen}>
             Open alert dialog
-        </Button>
+        </Button>*/}
         <Dialog
-            open={open}
-            onClose={handleClose}
+            open={true}
+            onClose={props.onClose}
             aria-labelledby="alert-dialog-title"
             aria-describedby="alert-dialog-description"
         >
-        <DialogTitle id="alert-dialog-title">
-            {"Registro de Levantamiento"}
-        </DialogTitle>
-        <DialogContent>
-            <DialogContentText id="alert-dialog-description">
-                Levantamiento registrado con exito.
-            </DialogContentText>
-            </DialogContent>
-            <DialogActions>
-                <Button onClick={handleClose}>Disagree</Button>
+            <DialogTitle id="alert-dialog-title">
+                {props.title}
+            </DialogTitle>
+            <DialogContent>
+                <DialogContentText id="alert-dialog-description">
+                    {props.children}
+                </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={props.onClose}>Cerrar</Button>
             </DialogActions>
-      </Dialog>
+        </Dialog>
     </div>
   );
 }

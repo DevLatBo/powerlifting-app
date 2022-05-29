@@ -5,6 +5,7 @@ const uiSlice = createSlice({
     initialState: {
         sdIsVisible: false, 
         alertMessage: null,
+        popupData: null,
         loaderIsVisible: null,
         error: null,
     },
@@ -14,6 +15,15 @@ const uiSlice = createSlice({
         },
         closeSideDrawer(state) {
             state.sdIsVisible = false;
+        },
+        showPopup(state, action) {
+            state.popupData = {
+                title: action.payload.title,
+                message: action.payload.message,
+            };
+        },
+        closePopup(state) {
+            state.popupData = null;
         },
         showAlert(state, action) {
             state.alertMessage = {

@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
@@ -12,20 +12,10 @@ import Popup from '../../../UI/Popup/Popup';
 
 const MovementItem = (props) => {
     const alert = useSelector((state) => state.ui.alertMessage);
+    const popup = useSelector((state) => state.ui.popupData);
     const dispatch = useDispatch();
     let { movement } = useParams();
     const movementName = obtainMovementName(movement);
-
-    useEffect(() => {
-        let timer = null;
-        timer = setTimeout(() => {
-            dispatch(uiActions.clearAlert());
-        }, 1500);
-    
-        return () => {
-            clearTimeout(timer);
-        }
-    }, [alert, dispatch]);
 
     const addLiftHandler =  async (liftData) => {
         dispatch(addLifting(movement, liftData));
@@ -34,7 +24,11 @@ const MovementItem = (props) => {
     const clearAlert = () => {
         dispatch(uiActions.clearAlert());
     }
-    
+
+    const closePopup = () => {
+        dispatch(uiActions.closePopup());
+    }    
+    console.log(popup);
     return (
         <Fragment>
             <StyledTitlePage imageBackground={`/assets/images/title-background.jpg`}>
@@ -48,6 +42,12 @@ const MovementItem = (props) => {
                             onClose={clearAlert}>
                             {alert.message}
                         </Alert>
+                )}
+                { popup && (
+                    <Popup title={popup.title} 
+                        onClose={closePopup}>
+                        {popup.message}
+                    </Popup>
                 )}
                 <MovementItemForm 
                     movement={movement} 

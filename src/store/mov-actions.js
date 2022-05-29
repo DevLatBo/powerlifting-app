@@ -29,9 +29,9 @@ export const addLifting = (movement, lift) => {
         try {
             await sendRequest();
             dispatch(liftActions.confirmSuccessfull());
-            dispatch(uiActions.showAlert({
-                type: "success",
-                class: "form-alert",
+            dispatch(uiActions.clearAlert());
+            dispatch(uiActions.showPopup({
+                title: "Levantamiento",
                 message: "Levantamiento registrado con exito!",
             }));
 
