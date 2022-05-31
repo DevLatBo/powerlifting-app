@@ -12,7 +12,7 @@ const NavigationItems = (props) => {
     if(showLinks){
         nItems = (
             <NavItems>
-                <NavigationItem link="/prs">PRs</NavigationItem>
+                <NavigationItem link="/personalrecord">Record Personales</NavigationItem>
                 <NavigationItem link="/movements">Movimientos</NavigationItem>
                 <NavigationItem link="/author">Autor</NavigationItem>
             </NavItems>

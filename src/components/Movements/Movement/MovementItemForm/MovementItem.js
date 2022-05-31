@@ -28,7 +28,7 @@ const MovementItem = (props) => {
     const closePopup = () => {
         dispatch(uiActions.closePopup());
     }    
-    console.log(popup);
+    
     return (
         <Fragment>
             <StyledTitlePage imageBackground={`/assets/images/title-background.jpg`}>

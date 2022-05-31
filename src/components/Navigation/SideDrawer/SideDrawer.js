@@ -45,9 +45,9 @@ const SideDrawer = (props) => {
                         <ListItemIcon><HomeIcon className={classes.drawerIcon}/></ListItemIcon>
                         <ListItemText primary="Inicio" />
                     </ListItem>
-                    <ListItem button component={Link} to="/prs">
+                    <ListItem button component={Link} to="/personalrecord">
                         <ListItemIcon><MilitaryTechIcon className={classes.drawerIcon}/></ListItemIcon>
-                        <ListItemText primary="PRs" />
+                        <ListItemText primary="Records Personales" />
                     </ListItem>
                     <ListItem button component={Link} to="/movements">
                         <ListItemIcon><AccessibilityNewIcon className={classes.drawerIcon}/></ListItemIcon>

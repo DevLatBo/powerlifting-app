@@ -13,7 +13,7 @@ function App() {
   let routes = (
       <Switch>
           <Route path="/" exact component={Home}/>
-          <Route path="/prs" component={PersonalRecords}/>
+          <Route path="/personalrecord" component={PersonalRecords}/>
           <Route path="/movements" exact component={Movements}/>
           <Route path="/movements/:movement" component={MovementItem}/>
           <Route path="/author" component={Author}/>
