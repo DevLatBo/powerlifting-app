@@ -94,7 +94,7 @@ export const fetchLiftsData = (request) => {
         try {
             dispatch(liftActions.clearHistory());
             dispatch(liftActions.clearPRs());
-            dispatch(uiActions.clearError());
+            dispatch(uiActions.clearAlert());
             dispatch(uiActions.showLoader());
             const liftsData = await fetchData();
             switch(request) {
