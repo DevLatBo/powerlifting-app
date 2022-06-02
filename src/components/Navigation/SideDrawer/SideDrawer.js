@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import HomeIcon from '@mui/icons-material/Home';
 import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
-import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew';
+import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import AttributionIcon from '@mui/icons-material/Attribution';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -50,8 +51,12 @@ const SideDrawer = (props) => {
                         <ListItemText primary="Records Personales" />
                     </ListItem>
                     <ListItem button component={Link} to="/movements">
-                        <ListItemIcon><AccessibilityNewIcon className={classes.drawerIcon}/></ListItemIcon>
+                        <ListItemIcon><FitnessCenterIcon className={classes.drawerIcon}/></ListItemIcon>
                         <ListItemText primary="Movimientos" />
+                    </ListItem>
+                    <ListItem button component={Link} to="/history">
+                        <ListItemIcon><LibraryBooksIcon className={classes.drawerIcon}/></ListItemIcon>
+                        <ListItemText primary="Historial" />
                     </ListItem>
                     <ListItem button component={Link} to="/author">
                         <ListItemIcon><AttributionIcon className={classes.drawerIcon}/></ListItemIcon>

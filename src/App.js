@@ -6,6 +6,7 @@ import Layout from './hoc/Layout/Layout';
 import Movements from './components/Movements/Movements';
 import MovementItem from './components/Movements/Movement/MovementItemForm/MovementItem';
 import PersonalRecords from './components/PersonalRecords/PersonalRecords';
+import History from './components/History/History';
 import Author from './components/Author/Author';
 import NotFound from './components/NotFound/NotFound';
 
@@ -13,6 +14,7 @@ function App() {
   let routes = (
       <Switch>
           <Route path="/" exact component={Home}/>
+          <Route path="/history" component={History}/>
           <Route path="/personalrecord" component={PersonalRecords}/>
           <Route path="/movements" exact component={Movements}/>
           <Route path="/movements/:movement" component={MovementItem}/>
