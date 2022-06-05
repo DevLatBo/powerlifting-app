@@ -4,11 +4,11 @@ import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 
-import Spinner from '../../../UI/Loader/Loader';
-import Alert from '../../../UI/Alert/Alert';
-import { obtainMovementName } from '../../../../shared/utility'; 
+import Spinner from '../../UI/Loader/Loader';
+import Alert from '../../UI/Alert/Alert';
+import { obtainMovementName } from '../../../shared/utility'; 
 
-const LastRecordItems = (props) => {
+const HistoryItems = (props) => {
     let items = 
         <TableRow>
             <TableCell align="center" colSpan={3}>
@@ -61,4 +61,4 @@ const LastRecordItems = (props) => {
     )
 }
 
-export default LastRecordItems;
+export default HistoryItems;

@@ -4,7 +4,6 @@ import { v4 as uuidv4 } from 'uuid';
 import Grid from '@mui/material/Grid';
 
 import PersonalRecordItem from './PersonalRecordItem/PersonalRecordItem';
-import LastRecords from './LastRecords/LastRecords';
 import Spinner from '../UI/Loader/Loader';
 import Alert from '../UI/Alert/Alert';
 import { StyledTitlePage, StyledBlock } from '../UI/Styling/General-styling';
@@ -35,9 +34,11 @@ const PersonalRecords = (props) => {
 
     return (
         <Fragment>
-            <StyledTitlePage type="title-page" imageBackground={`/assets/images/title-background.jpg`}>
+            <StyledTitlePage type="title-page" 
+                imageBackground={`/assets/images/title-background.jpg`}
+            >
                 <h2>Records Personales</h2>
-                <h3>PR & Historial</h3>
+                <h3>Vista del maximo de cada uno de los movimientos.</h3>
             </StyledTitlePage>
             <StyledBlock>
                 <Grid container 
@@ -49,9 +50,6 @@ const PersonalRecords = (props) => {
                         {loader}
                         {errorMessage}
                 </Grid>
-            </StyledBlock>
-            <StyledBlock>
-                <LastRecords/>
             </StyledBlock>
         </Fragment>
     );
