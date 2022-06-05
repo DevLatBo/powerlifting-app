@@ -5,7 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 
 import { obtainMovementName } from '../../../shared/utility';
-import { StyledBox } from '../../UI/Styling/Section/History-styling';
+import { StyledBox } from '../../UI/Styling/Section/PR-styling';
 
 const PersonalRecordItem = (props) => {
     return(

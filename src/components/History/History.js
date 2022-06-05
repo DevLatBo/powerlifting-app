@@ -7,7 +7,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 import { StyledBlock, StyledTitlePage } from '../UI/Styling/General-styling'; 
-import { StyledTableCell } from '../UI/Styling/Section/History-styling';
+import { StyledHeaderCell } from '../UI/Styling/Section/History-styling';
 import HistoryItems from './HistoryItems/HistoryItems';
 import { fetchLiftsData } from '../../store/mov-actions';
 
@@ -31,23 +31,29 @@ const History = (props) => {
             </StyledTitlePage>
             <StyledBlock>
                 <TableContainer component={Paper} 
-                sx={{width: {xs: "100%", md:"70%"},margin:'40px auto'}}>
+                sx={{width: {xs: "100%", md:"90%"},margin:'40px auto'}}>
                     <Table sx={{ minWidth: {lg: 700, xs: 100} }} 
                         aria-label="PRs Table">
                         <TableHead>
                             <TableRow>
-                                <StyledTableCell align="center" 
-                                    sx={{color: '#FFFFFF',fontWeight:'bold'}}>
+                                <StyledHeaderCell align="center" 
+                                    sx={{color: '#FFFFFF',fontWeight:'bold'}}
+                                    width="15%"
+                                >
                                         Movimiento
-                                </StyledTableCell>
-                                <StyledTableCell align="center" 
-                                    sx={{color: '#FFFFFF',fontWeight:'bold'}}>
+                                </StyledHeaderCell>
+                                <StyledHeaderCell align="center" 
+                                    sx={{color: '#FFFFFF',fontWeight:'bold'}}
+                                    width="35%"
+                                >
                                         Peso (kg) [Reps]
-                                </StyledTableCell>
-                                <StyledTableCell align="center" 
-                                    sx={{color: '#FFFFFF',fontWeight:'bold'}}>
-                                        Fecha
-                                </StyledTableCell>
+                                </StyledHeaderCell>
+                                <StyledHeaderCell align="center" 
+                                    sx={{color: '#FFFFFF',fontWeight:'bold'}}
+                                    width="50%"
+                                >
+                                        Fecha - Hora
+                                </StyledHeaderCell>
                             </TableRow>
                         </TableHead>
                         <HistoryItems 
