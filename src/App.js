@@ -1,14 +1,16 @@
 import React, {Suspense} from 'react';
 import {Route, Switch} from 'react-router-dom';
 
-import Home from './components/Home/Home';
 import Layout from './hoc/Layout/Layout';
-import Movements from './components/Movements/Movements';
-import MovementItem from './components/Movements/Movement/MovementItemForm/MovementItem';
-import PersonalRecords from './components/PersonalRecords/PersonalRecords';
-import History from './components/History/History';
-import Author from './components/Author/Author';
-import NotFound from './components/NotFound/NotFound';
+import Spinner from './components/UI/Loader/Loader';
+
+const Home = React.lazy(() => import('./components/Home/Home'));
+const History = React.lazy(() => import('./components/History/History'));
+const PersonalRecords = React.lazy(() => import('./components/PersonalRecords/PersonalRecords'));
+const Movements = React.lazy(() => import('./components/Movements/Movements'));
+const MovementItem = React.lazy(() => import('./components/Movements/Movement/MovementItemForm/MovementItem'));
+const Author = React.lazy(() => import('./components/Author/Author'));
+const NotFound = React.lazy(() => import('./components/NotFound/NotFound'));
 
 function App() {
   let routes = (
@@ -24,7 +26,7 @@ function App() {
   );
   return (
     <Layout>
-      <Suspense fallback={<p>Loading...</p>}>{routes}</Suspense>
+      <Suspense fallback={<Spinner size="lg"/>}>{routes}</Suspense>
     </Layout>
   );
 }
