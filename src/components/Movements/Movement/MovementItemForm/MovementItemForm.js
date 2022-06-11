@@ -35,7 +35,8 @@ const MovementItemForm = (props) => {
         for(let formElementIdentifier in liftForm) {
             formData[formElementIdentifier] = liftForm[formElementIdentifier].value;
             formData['date'] = today.toISOString().split('T')[0];
-            formData['time'] = today.getHours() + ":" + today.getMinutes();
+            formData['time'] = ((today.getHours() < 10) ? '0' + today.getHours() : today.getHours()) + ":" + 
+                ((today.getMinutes() < 10) ? '0' + today.getMinutes() : today.getMinutes());
         }
         props.onAddLift(formData);
 
