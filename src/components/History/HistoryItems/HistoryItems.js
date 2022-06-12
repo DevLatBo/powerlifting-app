@@ -1,4 +1,5 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
@@ -6,9 +7,11 @@ import TableRow from '@mui/material/TableRow';
 import Spinner from '../../UI/Loader/Loader';
 import Alert from '../../UI/Alert/Alert';
 import Button from '../../UI/Button/Button'
+import { removeLifting } from '../../../store/mov-actions';
 import { obtainMovementName } from '../../../shared/utility'; 
 
 const HistoryItems = (props) => {
+    const dispatch = useDispatch();
     let items = 
         <TableRow>
             <TableCell align="center" colSpan={4}>
@@ -33,6 +36,10 @@ const HistoryItems = (props) => {
             </TableCell>
         </TableRow>;
 
+    const onRemoveLiftHandler = (id, movement) => {
+        dispatch(removeLifting(id, movement));
+    };
+
     const recordItems = props.recordItems;
     if(recordItems.length) {
         items = recordItems.map((recordItem) => {
@@ -50,7 +57,7 @@ const HistoryItems = (props) => {
                     <TableCell align="center">
                         <Button 
                             title="Eliminar"
-                            clicked={props.onRemoveLift}
+                            clicked={onRemoveLiftHandler.bind(null, recordItem.id, recordItem.movement)}
                         >
                             X
                         </Button>

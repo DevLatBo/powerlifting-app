@@ -21,10 +21,6 @@ const History = (props) => {
         dispatch(fetchLiftsData("lastLifts"));
     }, [dispatch]);
 
-    const removeLiftHandler = () => {
-        console.log("test");
-    }
-
     return (
         <Fragment>
             <StyledTitlePage type="title-page"
@@ -69,7 +65,6 @@ const History = (props) => {
                             error={alertMessage} 
                             flagLoader={isLoading}
                             recordItems={history}
-                            onRemoveLift={removeLiftHandler}
                         />
                     </Table>
                 </TableContainer>

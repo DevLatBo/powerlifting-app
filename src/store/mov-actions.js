@@ -45,6 +45,32 @@ export const addLifting = (movement, lift) => {
     };
 };
 
+export const removeLifting = (id, movement) => {
+    return async(dispatch) => {
+        const sendRequest = async() =>  {
+            const response = await fetch(`${FIREBASE_DOMAIN}/lifts/${movement}/${id}.json`, {
+                method: "DELETE",
+            });
+
+            if(!response.ok) {
+                throw new Error('Sending lift data failed');
+            }
+        }
+        
+        try {
+            await sendRequest();
+        }
+        catch(error) {
+            /*dispatch(uiActions.showAlert({
+                type: "error",
+                class: "form-alert",
+                message: error.message
+            }));*/
+            console.log(error.message);
+        }
+    }
+}
+
 export const fetchMovementsData = () => {
     return async(dispatch) => {
         const fetchData = async() => {
