@@ -4,7 +4,8 @@ const button = (props) => {
     return(
         <StyledButton className={["Btn", props.btnType].join(' ')}
                 disabled={props.disabled}
-                onClick={props.clicked}>
+                onClick={props.clicked}
+                title={props.title}>
             {props.children}
         </StyledButton>
     );

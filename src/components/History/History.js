@@ -21,6 +21,10 @@ const History = (props) => {
         dispatch(fetchLiftsData("lastLifts"));
     }, [dispatch]);
 
+    const removeLiftHandler = () => {
+        console.log("test");
+    }
+
     return (
         <Fragment>
             <StyledTitlePage type="title-page"
@@ -50,9 +54,14 @@ const History = (props) => {
                                 </StyledHeaderCell>
                                 <StyledHeaderCell align="center" 
                                     sx={{color: '#FFFFFF',fontWeight:'bold'}}
-                                    width="50%"
+                                    width="40%"
                                 >
                                         Fecha - Hora
+                                </StyledHeaderCell>
+                                <StyledHeaderCell align="center" 
+                                    sx={{color: '#FFFFFF',fontWeight:'bold'}}
+                                    width="10%">
+                                    Accion
                                 </StyledHeaderCell>
                             </TableRow>
                         </TableHead>
@@ -60,6 +69,7 @@ const History = (props) => {
                             error={alertMessage} 
                             flagLoader={isLoading}
                             recordItems={history}
+                            onRemoveLift={removeLiftHandler}
                         />
                     </Table>
                 </TableContainer>

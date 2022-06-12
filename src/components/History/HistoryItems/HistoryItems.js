@@ -1,31 +1,31 @@
 import React from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 
 import Spinner from '../../UI/Loader/Loader';
 import Alert from '../../UI/Alert/Alert';
+import Button from '../../UI/Button/Button'
 import { obtainMovementName } from '../../../shared/utility'; 
 
 const HistoryItems = (props) => {
     let items = 
         <TableRow>
-            <TableCell align="center" colSpan={3}>
+            <TableCell align="center" colSpan={4}>
                 <strong>No existen marcas registradas que mostrar.</strong>
             </TableCell>
         </TableRow>
     ;
     const loader = 
         <TableRow>
-            <TableCell align="center" colSpan={3}>
+            <TableCell align="center" colSpan={4}>
                 <Spinner size="lg" />
             </TableCell>
         </TableRow>;
 
     const errorMessage = 
         <TableRow>
-            <TableCell align="center" colSpan={3}>
+            <TableCell align="center" colSpan={4}>
                 <Alert type="error"
                     className="error">
                     {props.error}
@@ -37,7 +37,7 @@ const HistoryItems = (props) => {
     if(recordItems.length) {
         items = recordItems.map((recordItem) => {
             return (
-                <TableRow key={uuidv4()}>
+                <TableRow key={recordItem.id}>
                     <TableCell align="center">
                         <strong>{obtainMovementName(recordItem.movement)}</strong>
                     </TableCell>
@@ -46,6 +46,14 @@ const HistoryItems = (props) => {
                     </TableCell>
                     <TableCell align="center">
                         {recordItem.date} - {recordItem.time}
+                    </TableCell>
+                    <TableCell align="center">
+                        <Button 
+                            title="Eliminar"
+                            clicked={props.onRemoveLift}
+                        >
+                            X
+                        </Button>
                     </TableCell>
                 </TableRow>
             );

@@ -96,6 +96,7 @@ const liftSlice = createSlice({
             for(let movement in lifts) {
                 Object.entries(lifts[movement]).forEach( ([key, data]) => {
                     loadedLifts.push({
+                        id: key,
                         movement: movement,
                         date: data.date,
                         time: data.time,
