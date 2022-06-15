@@ -21,6 +21,8 @@ const History = (props) => {
         dispatch(fetchLiftsData("lastLifts"));
     }, [dispatch]);
 
+    console.log(history);
+
     return (
         <Fragment>
             <StyledTitlePage type="title-page"

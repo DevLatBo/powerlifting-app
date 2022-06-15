@@ -56,9 +56,10 @@ export const removeLifting = (id, movement) => {
                 throw new Error('Sending lift data failed');
             }
         }
-        
+
         try {
             await sendRequest();
+            dispatch(liftActions.removeLift({ liftId: id }));
         }
         catch(error) {
             /*dispatch(uiActions.showAlert({

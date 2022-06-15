@@ -106,8 +106,13 @@ const liftSlice = createSlice({
                 });
             }
             loadedLifts.sort((a,b) => (a.time < b.time) ? 1:-1);
-            const updatedHistory = (loadedLifts.length >=5) ? loadedLifts.slice(0,5) : loadedLifts;
+            const updatedHistory = (loadedLifts.length >= 10) ? loadedLifts.slice(0,10) : loadedLifts;
             state.history = updatedHistory;
+        },
+        removeLift(state, action) {
+            const id = action.payload.liftId;
+            const newHistory = state.history.filter((h) => h.id !== id);
+            state.history = newHistory;
         },
     }
 });
