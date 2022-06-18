@@ -12,6 +12,7 @@ import { obtainMovementName } from '../../../shared/utility';
 
 const HistoryItems = (props) => {
     const dispatch = useDispatch();
+    const {page, rowsPerPage, recordItems} = props;
     let items = 
         <TableRow>
             <TableCell align="center" colSpan={4}>
@@ -40,24 +41,24 @@ const HistoryItems = (props) => {
         dispatch(removeLifting(id, movement));
     };
 
-    const recordItems = props.recordItems;
     if(recordItems.length) {
-        items = recordItems.map((recordItem) => {
+        const lifts = recordItems.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
+        items = lifts.map((lift) => {
             return (
-                <TableRow key={recordItem.id}>
+                <TableRow key={lift.id}>
                     <TableCell align="center">
-                        <strong>{obtainMovementName(recordItem.movement)}</strong>
+                        <strong>{obtainMovementName(lift.movement)}</strong>
                     </TableCell>
                     <TableCell align="center">
-                        {recordItem.weight} [{recordItem.repetition}]
+                        {lift.weight} [{lift.repetition}]
                     </TableCell>
                     <TableCell align="center">
-                        {recordItem.date} - {recordItem.time}
+                        {lift.date} - {lift.time}
                     </TableCell>
                     <TableCell align="center">
                         <Button 
                             title="Eliminar"
-                            clicked={onRemoveLiftHandler.bind(null, recordItem.id, recordItem.movement)}
+                            clicked={onRemoveLiftHandler.bind(null, lift.id, lift.movement)}
                         >
                             X
                         </Button>

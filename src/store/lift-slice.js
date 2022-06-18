@@ -49,8 +49,16 @@ const liftSlice = createSlice({
                 },
             },
         },
+        table: {
+            rowsPerPageOptions: [3],
+            page: 0,
+            rowsPerPage: 3,
+        },
     },
     reducers: {
+        setPage(state, action) {
+            state.table.page = action.payload.page;
+        },
         setFormValidation(state, action) {
             state.formIsValid = action.payload.valid;
         },
@@ -90,7 +98,7 @@ const liftSlice = createSlice({
             }
             state.prs = personalRecords;
         },
-        getLastLifts(state, action) {
+        getAllLifts(state, action) {
             const lifts = action.payload.lifts;
             const loadedLifts = [];
             for(let movement in lifts) {
@@ -106,8 +114,8 @@ const liftSlice = createSlice({
                 });
             }
             loadedLifts.sort((a,b) => (a.time < b.time) ? 1:-1);
-            const updatedHistory = (loadedLifts.length >= 10) ? loadedLifts.slice(0,10) : loadedLifts;
-            state.history = updatedHistory;
+            //const updatedHistory = (loadedLifts.length >= 10) ? loadedLifts.slice(0,10) : loadedLifts;
+            state.history = loadedLifts;
         },
         removeLift(state, action) {
             const id = action.payload.liftId;

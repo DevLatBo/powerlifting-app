@@ -125,8 +125,8 @@ export const fetchLiftsData = (request) => {
             dispatch(uiActions.showLoader());
             const liftsData = await fetchData();
             switch(request) {
-                case "lastLifts": 
-                    dispatch(liftActions.getLastLifts({ lifts: liftsData }));
+                case "allLifts": 
+                    dispatch(liftActions.getAllLifts({ lifts: liftsData }));
                     break;
                 case "PRs":
                     dispatch(liftActions.getPRs({ lifts: liftsData }))

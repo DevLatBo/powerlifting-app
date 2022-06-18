@@ -2,6 +2,7 @@ import React, { Fragment, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Table from '@mui/material/Table';
 import TableContainer from '@mui/material/TableContainer';
+import TablePagination from '@mui/material/TablePagination';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
@@ -10,18 +11,24 @@ import { StyledBlock, StyledTitlePage } from '../UI/Styling/General-styling';
 import { StyledHeaderCell } from '../UI/Styling/Section/History-styling';
 import HistoryItems from './HistoryItems/HistoryItems';
 import { fetchLiftsData } from '../../store/mov-actions';
+import { liftActions } from '../../store/lift-slice';
 
 const History = (props) => {
     const dispatch = useDispatch();
     const isLoading = useSelector((state) => state.ui.loaderIsVisible);
     const alertMessage = useSelector((state) => state.ui.alertMessage);
     const history = useSelector((state) => state.lift.history);
-    
+    const liftTable = useSelector((state) => state.lift.table);
+
+    const historyLength = history.length;
+
     useEffect(() => {
-        dispatch(fetchLiftsData("lastLifts"));
+        dispatch(fetchLiftsData("allLifts"));
     }, [dispatch]);
 
-    console.log(history);
+    const handleChangePage = (event, newPage) => {
+        dispatch(liftActions.setPage({page: newPage}));
+    }
 
     return (
         <Fragment>
@@ -64,12 +71,22 @@ const History = (props) => {
                             </TableRow>
                         </TableHead>
                         <HistoryItems 
+                            page={liftTable.page}
+                            rowsPerPage={liftTable.rowsPerPage}
                             error={alertMessage} 
                             flagLoader={isLoading}
                             recordItems={history}
                         />
                     </Table>
                 </TableContainer>
+                <TablePagination
+                    rowsPerPageOptions={liftTable.rowsPerPageOptions}
+                    component="div"
+                    count={historyLength}
+                    rowsPerPage={liftTable.rowsPerPage}
+                    page={liftTable.page}
+                    onPageChange={handleChangePage}
+                />
             </StyledBlock>
         </Fragment>
     );
