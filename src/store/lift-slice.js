@@ -50,9 +50,9 @@ const liftSlice = createSlice({
             },
         },
         table: {
-            rowsPerPageOptions: [3],
+            rowsPerPageOptions: [10],
             page: 0,
-            rowsPerPage: 3,
+            rowsPerPage: 10,
         },
     },
     reducers: {
@@ -114,7 +114,6 @@ const liftSlice = createSlice({
                 });
             }
             loadedLifts.sort((a,b) => (a.time < b.time) ? 1:-1);
-            //const updatedHistory = (loadedLifts.length >= 10) ? loadedLifts.slice(0,10) : loadedLifts;
             state.history = loadedLifts;
         },
         removeLift(state, action) {

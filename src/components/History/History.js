@@ -78,15 +78,15 @@ const History = (props) => {
                             recordItems={history}
                         />
                     </Table>
+                    <TablePagination
+                        rowsPerPageOptions={liftTable.rowsPerPageOptions}
+                        component="div"
+                        count={historyLength}
+                        rowsPerPage={liftTable.rowsPerPage}
+                        page={liftTable.page}
+                        onPageChange={handleChangePage}
+                    />
                 </TableContainer>
-                <TablePagination
-                    rowsPerPageOptions={liftTable.rowsPerPageOptions}
-                    component="div"
-                    count={historyLength}
-                    rowsPerPage={liftTable.rowsPerPage}
-                    page={liftTable.page}
-                    onPageChange={handleChangePage}
-                />
             </StyledBlock>
         </Fragment>
     );

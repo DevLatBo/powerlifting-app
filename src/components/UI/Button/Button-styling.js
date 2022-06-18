@@ -14,6 +14,13 @@ export const StyledButton = styled.button`
         margin-left: 0;
         padding-left: 0;
     }
+    &.btnLiftRemove {
+        width: 40px;
+        text-align: center;
+        border-radius: 50%;
+        background-color: #FF0000;
+        color: #FFFFFF;
+    }
     @media (min-width: 768px) {
         &.btnLift, &.btnLiftDisabled{
             font-size: 50px;

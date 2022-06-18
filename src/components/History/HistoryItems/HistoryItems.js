@@ -58,6 +58,7 @@ const HistoryItems = (props) => {
                     <TableCell align="center">
                         <Button 
                             title="Eliminar"
+                            btnType="btnLiftRemove"
                             clicked={onRemoveLiftHandler.bind(null, lift.id, lift.movement)}
                         >
                             X
