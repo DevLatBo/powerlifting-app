@@ -2,13 +2,13 @@ import React, { Fragment, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Table from '@mui/material/Table';
 import TableContainer from '@mui/material/TableContainer';
+import TableCell from '@mui/material/TableCell';
 import TablePagination from '@mui/material/TablePagination';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-import { StyledBlock, StyledTitlePage } from '../UI/Styling/General-styling'; 
-import { StyledHeaderCell } from '../UI/Styling/Section/History-styling';
+import { StyledBlock, StyledTitlePage } from '../UI/Styling/General-styling';
 import HistoryItems from './HistoryItems/HistoryItems';
 import { fetchLiftsData } from '../../store/mov-actions';
 import { liftActions } from '../../store/lift-slice';
@@ -45,29 +45,50 @@ const History = (props) => {
                         aria-label="PRs Table">
                         <TableHead>
                             <TableRow>
-                                <StyledHeaderCell align="center" 
-                                    sx={{color: '#FFFFFF',fontWeight:'bold'}}
-                                    width="15%"
+                                <TableCell align="center" 
+                                    sx={{
+                                        color: '#FFFFFF',
+                                        fontWeight:'bold',
+                                        backgroundColor:'#FF0000',
+                                        fontSize: {xs: '0.6rem', md: '1rem'}
+                                    }}
+                                    width="10%"
                                 >
                                         Movimiento
-                                </StyledHeaderCell>
-                                <StyledHeaderCell align="center" 
-                                    sx={{color: '#FFFFFF',fontWeight:'bold'}}
-                                    width="35%"
+                                </TableCell>
+                                <TableCell align="center" 
+                                    sx={{
+                                        color: '#FFFFFF',
+                                        fontWeight:'bold',
+                                        backgroundColor:'#FF0000',
+                                        fontSize: {xs: '0.6rem', md: '1rem'}
+                                    }}
+                                    width="30%"
                                 >
                                         Peso (kg) [Reps]
-                                </StyledHeaderCell>
-                                <StyledHeaderCell align="center" 
-                                    sx={{color: '#FFFFFF',fontWeight:'bold'}}
-                                    width="40%"
+                                </TableCell>
+                                <TableCell align="center" 
+                                    sx={{
+                                        color: '#FFFFFF',
+                                        fontWeight:'bold',
+                                        backgroundColor:'#FF0000',
+                                        fontSize: {xs: '0.6rem', md: '1rem'}
+                                    }}
+                                    width="45%"
                                 >
                                         Fecha - Hora
-                                </StyledHeaderCell>
-                                <StyledHeaderCell align="center" 
-                                    sx={{color: '#FFFFFF',fontWeight:'bold'}}
-                                    width="10%">
+                                </TableCell>
+                                <TableCell align="center" 
+                                    sx={{
+                                        color: '#FFFFFF',
+                                        fontWeight:'bold',
+                                        backgroundColor:'#FF0000',
+                                        fontSize: {xs: '0.6rem', md: '1rem'}
+                                    }}
+                                    width="15%"
+                                >
                                     Accion
-                                </StyledHeaderCell>
+                                </TableCell>
                             </TableRow>
                         </TableHead>
                         <HistoryItems 

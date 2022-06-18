@@ -46,16 +46,33 @@ const HistoryItems = (props) => {
         items = lifts.map((lift) => {
             return (
                 <TableRow key={lift.id}>
-                    <TableCell align="center">
+                    <TableCell 
+                        sx={{
+                            fontSize: {xs: '0.6rem', md: '1rem'}
+                        }}
+                        align="center"
+                    >
                         <strong>{obtainMovementName(lift.movement)}</strong>
                     </TableCell>
-                    <TableCell align="center">
+                    <TableCell 
+                        sx={{
+                            fontSize: {xs: '0.6rem', md: '1rem'}
+                        }}
+                        align="center"
+                    >
                         {lift.weight} [{lift.repetition}]
                     </TableCell>
-                    <TableCell align="center">
+                    <TableCell 
+                        sx={{
+                            fontSize: {xs: '0.6rem', md: '1rem'}
+                        }}
+                        align="center"
+                    >
                         {lift.date} - {lift.time}
                     </TableCell>
-                    <TableCell align="center">
+                    <TableCell 
+                        align="center"
+                    >
                         <Button 
                             title="Eliminar"
                             btnType="btnLiftRemove"
