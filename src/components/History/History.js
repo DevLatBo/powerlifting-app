@@ -21,6 +21,7 @@ const History = (props) => {
     const liftTable = useSelector((state) => state.lift.table);
 
     const historyLength = history.length;
+    const error = alertMessage ? alertMessage.error : null;
 
     useEffect(() => {
         dispatch(fetchLiftsData("allLifts"));
@@ -101,7 +102,7 @@ const History = (props) => {
                         <HistoryItems 
                             page={liftTable.page}
                             rowsPerPage={liftTable.rowsPerPage}
-                            error={alertMessage} 
+                            error={error} 
                             flagLoader={isLoading}
                             recordItems={history}
                         />

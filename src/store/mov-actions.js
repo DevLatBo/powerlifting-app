@@ -29,10 +29,11 @@ export const addLifting = (movement, lift) => {
         try {
             await sendRequest();
             dispatch(liftActions.confirmSuccessfull());
-            dispatch(uiActions.clearAlert());
-            dispatch(uiActions.showPopup({
-                title: "Levantamiento",
-                message: "Levantamiento registrado con exito!",
+            //dispatch(uiActions.clearAlert());
+            dispatch(uiActions.showAlert({
+                type: "success",
+                class: "form-alert",
+                message: "Levantamiento registrado con exito.",
             }));
 
         }catch(error) {
@@ -60,13 +61,18 @@ export const removeLifting = (id, movement) => {
         try {
             await sendRequest();
             dispatch(liftActions.removeLift({ liftId: id }));
+            dispatch(uiActions.showAlert({
+                type: "success",
+                class: "form-alert",
+                message: "Levantamiento eliminado con exito",
+            }));
         }
         catch(error) {
-            /*dispatch(uiActions.showAlert({
+            dispatch(uiActions.showAlert({
                 type: "error",
                 class: "form-alert",
                 message: error.message
-            }));*/
+            }));
             console.log(error.message);
         }
     }

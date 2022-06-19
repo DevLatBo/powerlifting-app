@@ -8,11 +8,9 @@ import { StyledTitlePage, StyledBlock } from '../../../UI/Styling/General-stylin
 import Alert from '../../../UI/Alert/Alert';
 import { addLifting } from '../../../../store/mov-actions';
 import { uiActions } from '../../../../store/ui-slice';
-import Popup from '../../../UI/Popup/Popup';
 
 const MovementItem = (props) => {
     const alert = useSelector((state) => state.ui.alertMessage);
-    const popup = useSelector((state) => state.ui.popupData);
     const dispatch = useDispatch();
     let { movement } = useParams();
     const movementName = obtainMovementName(movement);
@@ -24,10 +22,6 @@ const MovementItem = (props) => {
     const clearAlert = () => {
         dispatch(uiActions.clearAlert());
     }
-
-    const closePopup = () => {
-        dispatch(uiActions.closePopup());
-    }    
     
     return (
         <Fragment>
@@ -42,12 +36,6 @@ const MovementItem = (props) => {
                             onClose={clearAlert}>
                             {alert.message}
                         </Alert>
-                )}
-                { popup && (
-                    <Popup title={popup.title} 
-                        onClose={closePopup}>
-                        {popup.message}
-                    </Popup>
                 )}
                 <MovementItemForm 
                     movement={movement} 
