@@ -1,15 +1,20 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const initialState = {
+    sdIsVisible: false, 
+    alertMessage: null,
+    popupData: null,
+    loaderIsVisible: null,
+    error: null,
+};
+
 const uiSlice = createSlice({
     name: 'ui',
-    initialState: {
-        sdIsVisible: false, 
-        alertMessage: null,
-        popupData: null,
-        loaderIsVisible: null,
-        error: null,
-    },
+    initialState,
     reducers: {
+        reset(state) {
+            Object.assign(state, initialState);
+        },
         openSideDrawer(state) {
             state.sdIsVisible = true;
         },

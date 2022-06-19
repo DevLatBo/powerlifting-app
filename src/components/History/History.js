@@ -26,6 +26,13 @@ const History = (props) => {
         dispatch(fetchLiftsData("allLifts"));
     }, [dispatch]);
 
+    // ComponentWillUnmount
+    useEffect(() => {
+        return() => {
+            dispatch(liftActions.reset());
+        }
+    },[])
+
     const handleChangePage = (event, newPage) => {
         dispatch(liftActions.setPage({page: newPage}));
     }
