@@ -6,7 +6,6 @@ const FIREBASE_DOMAIN = "https://powerlifting-react-default-rtdb.firebaseio.com/
 
 export const addLifting = (movement, lift) => {
     return async(dispatch) => {
-        dispatch(liftActions.setSubmitOn());
         dispatch(uiActions.showAlert({
             type: "info",
             class: "form-alert",
@@ -28,8 +27,6 @@ export const addLifting = (movement, lift) => {
         };
         try {
             await sendRequest();
-            dispatch(liftActions.confirmSuccessfull());
-            //dispatch(uiActions.clearAlert());
             dispatch(uiActions.showAlert({
                 type: "success",
                 class: "form-alert",

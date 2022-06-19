@@ -4,8 +4,6 @@ const initialState = {
     prs: [],
     history: [],
     formIsValid: false,
-    submitted: false,
-    processed: false,
     form: {
         weight: {
             elementType: 'number',
@@ -68,14 +66,6 @@ const liftSlice = createSlice({
         },
         setFormElements(state, action) {
             state.form = action.payload.form;
-        },
-        setSubmitOn(state) {
-            state.submitted = true;
-            state.processed = false;
-        },
-        confirmSuccessfull(state) {
-            state.submitted = false;
-            state.processed = true;
         },
         clearHistory(state) {
             state.history = [];
