@@ -32,12 +32,21 @@ const History = (props) => {
         return() => {
             dispatch(liftActions.reset());
         }
-    },[])
+    },[dispatch])
 
     const handleChangePage = (event, newPage) => {
         dispatch(liftActions.setPage({page: newPage}));
     }
 
+    const pagination = historyLength ? (
+        <TablePagination
+            rowsPerPageOptions={liftTable.rowsPerPageOptions}
+            component="div"
+            count={historyLength}
+            rowsPerPage={liftTable.rowsPerPage}
+            page={liftTable.page}
+            onPageChange={handleChangePage}
+        />) : null;
     return (
         <Fragment>
             <StyledTitlePage type="title-page"
@@ -107,14 +116,7 @@ const History = (props) => {
                             recordItems={history}
                         />
                     </Table>
-                    <TablePagination
-                        rowsPerPageOptions={liftTable.rowsPerPageOptions}
-                        component="div"
-                        count={historyLength}
-                        rowsPerPage={liftTable.rowsPerPage}
-                        page={liftTable.page}
-                        onPageChange={handleChangePage}
-                    />
+                    { pagination }
                 </TableContainer>
             </StyledBlock>
         </Fragment>
