@@ -1,6 +1,5 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import { useDispatch } from 'react-redux';
-import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 
@@ -12,7 +11,8 @@ import { obtainMovementName } from '../../../shared/utility';
 
 const HistoryItems = (props) => {
     const dispatch = useDispatch();
-    const {page, rowsPerPage, recordItems} = props;
+    const {page, rowsPerPage, recordItems, error, flagLoader} = props;
+    
     let items = 
         <TableRow>
             <TableCell align="center" colSpan={4}>
@@ -32,7 +32,7 @@ const HistoryItems = (props) => {
             <TableCell align="center" colSpan={4}>
                 <Alert type="error"
                     className="error">
-                    {props.error}
+                    {error}
                 </Alert>
             </TableCell>
         </TableRow>;
@@ -86,13 +86,14 @@ const HistoryItems = (props) => {
         })
     }
 
-    return(
-        <TableBody>
-            { !props.flagLoader && !props.error && items }
-            { props.flagLoader && loader }
-            { !props.flagLoader && props.error && errorMessage }
-        </TableBody>
+    return (
+        <Fragment>
+            { !flagLoader && !error && items }
+            { flagLoader && loader }
+            { !flagLoader && error && errorMessage }
+        </Fragment>
     )
+    
 }
 
 export default HistoryItems;

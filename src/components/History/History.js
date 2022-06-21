@@ -5,6 +5,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableCell from '@mui/material/TableCell';
 import TablePagination from '@mui/material/TablePagination';
 import TableHead from '@mui/material/TableHead';
+import TableBody from '@mui/material/TableBody';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
@@ -21,7 +22,7 @@ const History = (props) => {
     const liftTable = useSelector((state) => state.lift.table);
 
     const historyLength = history.length;
-    const error = alertMessage ? alertMessage.error : null;
+    const error = alertMessage ? alertMessage.message : null;
 
     useEffect(() => {
         dispatch(fetchLiftsData("allLifts"));
@@ -47,6 +48,7 @@ const History = (props) => {
             page={liftTable.page}
             onPageChange={handleChangePage}
         />) : null;
+        
     return (
         <Fragment>
             <StyledTitlePage type="title-page"
@@ -108,13 +110,15 @@ const History = (props) => {
                                 </TableCell>
                             </TableRow>
                         </TableHead>
-                        <HistoryItems 
-                            page={liftTable.page}
-                            rowsPerPage={liftTable.rowsPerPage}
-                            error={error} 
-                            flagLoader={isLoading}
-                            recordItems={history}
-                        />
+                        <TableBody>
+                            <HistoryItems 
+                                page={liftTable.page}
+                                rowsPerPage={liftTable.rowsPerPage}
+                                error={error} 
+                                flagLoader={isLoading}
+                                recordItems={history}
+                            />
+                        </TableBody>
                     </Table>
                     { pagination }
                 </TableContainer>

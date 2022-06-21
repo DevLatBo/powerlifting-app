@@ -58,11 +58,6 @@ export const removeLifting = (id, movement) => {
         try {
             await sendRequest();
             dispatch(liftActions.removeLift({ liftId: id }));
-            dispatch(uiActions.showAlert({
-                type: "success",
-                class: "form-alert",
-                message: "Levantamiento eliminado con exito",
-            }));
         }
         catch(error) {
             dispatch(uiActions.showAlert({
