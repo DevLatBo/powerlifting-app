@@ -48,7 +48,7 @@ const HistoryItems = (props) => {
                 <TableRow key={lift.id}>
                     <TableCell 
                         sx={{
-                            fontSize: {xs: '0.6rem', md: '1rem'}
+                            fontSize: {xs: '0.5rem', md: '1rem'}
                         }}
                         align="center"
                     >
@@ -56,7 +56,7 @@ const HistoryItems = (props) => {
                     </TableCell>
                     <TableCell 
                         sx={{
-                            fontSize: {xs: '0.6rem', md: '1rem'}
+                            fontSize: {xs: '0.5rem', md: '1rem'}
                         }}
                         align="center"
                     >
@@ -64,7 +64,7 @@ const HistoryItems = (props) => {
                     </TableCell>
                     <TableCell 
                         sx={{
-                            fontSize: {xs: '0.6rem', md: '1rem'}
+                            fontSize: {xs: '0.5rem', md: '1rem'}
                         }}
                         align="center"
                     >

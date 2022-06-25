@@ -69,9 +69,9 @@ const History = (props) => {
                                         color: '#FFFFFF',
                                         fontWeight:'bold',
                                         backgroundColor:'#FF0000',
-                                        fontSize: {xs: '0.6rem', md: '1rem'}
+                                        fontSize: {xs: '0.5rem', md: '1rem'}
                                     }}
-                                    width="10%"
+                                    width="5%"
                                 >
                                         Movimiento
                                 </TableCell>
@@ -80,9 +80,9 @@ const History = (props) => {
                                         color: '#FFFFFF',
                                         fontWeight:'bold',
                                         backgroundColor:'#FF0000',
-                                        fontSize: {xs: '0.6rem', md: '1rem'}
+                                        fontSize: {xs: '0.5rem', md: '1rem'}
                                     }}
-                                    width="30%"
+                                    width="25%"
                                 >
                                         Peso (kg) [Reps]
                                 </TableCell>
@@ -91,9 +91,9 @@ const History = (props) => {
                                         color: '#FFFFFF',
                                         fontWeight:'bold',
                                         backgroundColor:'#FF0000',
-                                        fontSize: {xs: '0.6rem', md: '1rem'}
+                                        fontSize: {xs: '0.5rem', md: '1rem'}
                                     }}
-                                    width="45%"
+                                    width="60%"
                                 >
                                         Fecha - Hora
                                 </TableCell>
@@ -102,9 +102,9 @@ const History = (props) => {
                                         color: '#FFFFFF',
                                         fontWeight:'bold',
                                         backgroundColor:'#FF0000',
-                                        fontSize: {xs: '0.6rem', md: '1rem'}
+                                        fontSize: {xs: '0.5rem', md: '1rem'}
                                     }}
-                                    width="15%"
+                                    width="10%"
                                 >
                                     Accion
                                 </TableCell>

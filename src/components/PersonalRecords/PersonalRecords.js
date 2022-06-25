@@ -38,7 +38,7 @@ const PersonalRecords = (props) => {
                 imageBackground={`/assets/images/title-background.jpg`}
             >
                 <h2>Records Personales</h2>
-                <h3>Vista del maximo de cada uno de los movimientos.</h3>
+                <h3>Levantamiento máximo de cada uno de los movimientos.</h3>
             </StyledTitlePage>
             <StyledBlock>
                 <Grid container 
