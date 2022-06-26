@@ -13,7 +13,7 @@ const PersonalRecords = (props) => {
     const dispatch = useDispatch();
     const isLoading = useSelector((state) => state.ui.loaderIsVisible);
     const alertMessage = useSelector((state) => state.ui.alertMessage);
-    const prMovments = useSelector((state) => state.lift.prs);
+    const prMovments = useSelector((state) => state.history.prs);
 
     useEffect(() => {
         dispatch(fetchLiftsData("PRs"));

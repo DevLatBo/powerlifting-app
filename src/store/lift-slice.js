@@ -1,8 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    prs: [],
-    history: [],
     formIsValid: false,
     form: {
         weight: {
@@ -58,62 +56,11 @@ const liftSlice = createSlice({
         reset(state) {
             Object.assign(state, initialState);
         },
-        setPage(state, action) {
-            state.table.page = action.payload.page;
-        },
         setFormValidation(state, action) {
             state.formIsValid = action.payload.valid;
         },
         setFormElements(state, action) {
             state.form = action.payload.form;
-        },
-        clearHistory(state) {
-            state.history = [];
-        },
-        clearPRs(state) {
-            state.prs = [];
-        },
-        getPRs(state, action) {
-            const lifts = action.payload.lifts;
-            let personalRecords = [];
-            let allWeights = [];
-            for(let movement in lifts) {
-                Object.entries(lifts[movement]).forEach(([key, data])=> {
-                    allWeights.push(data.weight);
-                });
-                let weights = allWeights.map(Number);
-                let maxPR = (weights.length) ? Math.max(...weights) : 0;
-                personalRecords.push({
-                    "movement": movement,
-                    "pr": maxPR
-                });
-                allWeights.splice(0, allWeights.length);
-                maxPR = 0;
-            }
-            state.prs = personalRecords;
-        },
-        getAllLifts(state, action) {
-            const lifts = action.payload.lifts;
-            const loadedLifts = [];
-            for(let movement in lifts) {
-                Object.entries(lifts[movement]).forEach( ([key, data]) => {
-                    loadedLifts.push({
-                        id: key,
-                        movement: movement,
-                        date: data.date,
-                        time: data.time,
-                        repetition: data.repetition,
-                        weight: data.weight,
-                    });
-                });
-            }
-            loadedLifts.sort((a,b) => (a.time < b.time) ? 1:-1);
-            state.history = loadedLifts;
-        },
-        removeLift(state, action) {
-            const id = action.payload.liftId;
-            const newHistory = state.history.filter((h) => h.id !== id);
-            state.history = newHistory;
         },
     }
 });

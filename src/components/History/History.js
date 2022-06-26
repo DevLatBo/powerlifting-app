@@ -13,13 +13,14 @@ import { StyledBlock, StyledTitlePage } from '../UI/Styling/General-styling';
 import HistoryItems from './HistoryItems/HistoryItems';
 import { fetchLiftsData } from '../../store/mov-actions';
 import { liftActions } from '../../store/lift-slice';
+import { historyActions } from '../../store/history-slice';
 
 const History = (props) => {
     const dispatch = useDispatch();
     const isLoading = useSelector((state) => state.ui.loaderIsVisible);
     const alertMessage = useSelector((state) => state.ui.alertMessage);
-    const history = useSelector((state) => state.lift.history);
-    const liftTable = useSelector((state) => state.lift.table);
+    const history = useSelector((state) => state.history.data);
+    const liftTable = useSelector((state) => state.history.table);
 
     const historyLength = history.length;
     const error = alertMessage ? alertMessage.message : null;
@@ -31,12 +32,12 @@ const History = (props) => {
     // ComponentWillUnmount
     useEffect(() => {
         return() => {
-            dispatch(liftActions.reset());
+            dispatch(historyActions.reset());
         }
     },[dispatch])
 
     const handleChangePage = (event, newPage) => {
-        dispatch(liftActions.setPage({page: newPage}));
+        dispatch(historyActions.setPage({page: newPage}));
     }
 
     const pagination = historyLength ? (

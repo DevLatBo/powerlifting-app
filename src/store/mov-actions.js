@@ -1,4 +1,4 @@
-import { liftActions } from "./lift-slice";
+import { historyActions } from "./history-slice";
 import { movActions } from "./mov-slice";
 import { uiActions } from "./ui-slice";
 
@@ -57,7 +57,7 @@ export const removeLifting = (id, movement) => {
 
         try {
             await sendRequest();
-            dispatch(liftActions.removeLift({ liftId: id }));
+            dispatch(historyActions.removeHistoryItem({ liftId: id }));
         }
         catch(error) {
             dispatch(uiActions.showAlert({
@@ -117,17 +117,15 @@ export const fetchLiftsData = (request) => {
             return data;
         }
         try {
-            dispatch(liftActions.clearHistory());
-            dispatch(liftActions.clearPRs());
             dispatch(uiActions.clearAlert());
             dispatch(uiActions.showLoader());
             const liftsData = await fetchData();
             switch(request) {
                 case "allLifts": 
-                    dispatch(liftActions.getAllLifts({ lifts: liftsData }));
+                    dispatch(historyActions.getAllLifts({ lifts: liftsData }));
                     break;
                 case "PRs":
-                    dispatch(liftActions.getPRs({ lifts: liftsData }))
+                    dispatch(historyActions.getPRs({ lifts: liftsData }))
                     break;
                 default:
                     break;
