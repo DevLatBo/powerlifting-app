@@ -7,6 +7,7 @@ import Spinner from '../UI/Loader/Loader';
 import Alert from '../UI/Alert/Alert';
 import { StyledBlock, StyledTitlePage } from '../UI/Styling/General-styling';
 import { fetchMovementsData } from '../../store/mov-actions';
+import { movActions } from '../../store/mov-slice';
 
 const Movements = (props) => {
     const isLoading = useSelector((state) => state.ui.loaderIsVisible);
@@ -14,6 +15,12 @@ const Movements = (props) => {
     const alertMessage = useSelector((state) => state.ui.alertMessage);
     const dispatch = useDispatch();
 
+    useEffect(() => {
+        return () => {
+            dispatch(movActions.reset());
+        }
+    }, [dispatch]);
+    
     useEffect(() => {
         dispatch(fetchMovementsData());
     }, [dispatch]);

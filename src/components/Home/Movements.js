@@ -6,12 +6,19 @@ import { StyledHome } from '../UI/Styling/Section/Home-styling';
 import Spinner from '../UI/Loader/Loader';
 import Alert from '../UI/Alert/Alert';
 import { fetchMovementsData } from '../../store/mov-actions';
+import { movActions } from '../../store/mov-slice';
 
 const Movements = (props) => {
     const dispatch = useDispatch();
     const movements = useSelector((state) => state.mov.movements);
     const isLoading = useSelector((state) => state.ui.loaderIsVisible);
     const alertMessage = useSelector((state) => state.ui.alertMessage);
+
+    useEffect(() => {
+        return () => {
+            dispatch(movActions.reset());
+        }
+    }, [dispatch]);
 
     useEffect(() => {
         dispatch(fetchMovementsData());

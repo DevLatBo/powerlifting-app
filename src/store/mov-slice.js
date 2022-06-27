@@ -1,13 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const initialState = {
+    movements: [],
+};
+
 const movSlice = createSlice({
     name: 'movement',
-    initialState: {
-        movements: [],
-    },
+    initialState,
     reducers: {
-        cleanMovementsData(state) {
-            state.movements = [];
+        reset(state) {
+            Object.assign(state, initialState);
         },
         replaceMovementsData(state, action) {
             const movements = action.payload.movements;

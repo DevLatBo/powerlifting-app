@@ -85,7 +85,6 @@ export const fetchMovementsData = () => {
               return data;
         }
         try {
-            dispatch(movActions.cleanMovementsData());
             dispatch(uiActions.clearAlert());
             dispatch(uiActions.showLoader());
             const movementsData = await fetchData();
