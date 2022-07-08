@@ -7,7 +7,7 @@ import PersonalRecordItem from './PersonalRecordItem/PersonalRecordItem';
 import Spinner from '../UI/Loader/Loader';
 import Alert from '../UI/Alert/Alert';
 import { StyledTitlePage, StyledBlock } from '../UI/Styling/General-styling';
-import { fetchLiftsData } from '../../store/mov-actions';
+import { fetchPRsData } from '../../store/mov-actions';
 
 const PersonalRecords = (props) => {
     const dispatch = useDispatch();
@@ -16,7 +16,7 @@ const PersonalRecords = (props) => {
     const prMovments = useSelector((state) => state.history.prs);
 
     useEffect(() => {
-        dispatch(fetchLiftsData("PRs"));
+        dispatch(fetchPRsData());
     }, [dispatch]);
 
     const loader = isLoading && <Spinner size="lg"/>;
@@ -25,7 +25,7 @@ const PersonalRecords = (props) => {
                         className={alertMessage.class}>
                             {alertMessage.message}
                         </Alert>
-    
+
     const prs = prMovments.map((lift) => {
         return <PersonalRecordItem key={uuidv4()} 
             movement={lift.movement}

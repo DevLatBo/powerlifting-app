@@ -11,8 +11,7 @@ import Paper from '@mui/material/Paper';
 
 import { StyledBlock, StyledTitlePage } from '../UI/Styling/General-styling';
 import HistoryItems from './HistoryItems/HistoryItems';
-import { fetchLiftsData } from '../../store/mov-actions';
-import { liftActions } from '../../store/lift-slice';
+import { fetchHistoryData } from '../../store/mov-actions';
 import { historyActions } from '../../store/history-slice';
 
 const History = (props) => {
@@ -26,7 +25,7 @@ const History = (props) => {
     const error = alertMessage ? alertMessage.message : null;
 
     useEffect(() => {
-        dispatch(fetchLiftsData("allLifts"));
+        dispatch(fetchHistoryData("allLifts"));
     }, [dispatch]);
 
     // ComponentWillUnmount

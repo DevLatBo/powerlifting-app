@@ -22,21 +22,22 @@ const historySlice = createSlice({
         },
         getPRs(state, action) {
             const lifts = action.payload.lifts;
+            const movements = action.payload.movements;
             let personalRecords = [];
             let allWeights = [];
-            for(let movement in lifts) {
-                Object.entries(lifts[movement]).forEach(([key, data])=> {
-                    allWeights.push(data.weight);
-                });
-                let weights = allWeights.map(Number);
-                let maxPR = (weights.length) ? Math.max(...weights) : 0;
+            Object.entries(movements).forEach(([movement]) => {
+                let maxPR = 0;
+                if(typeof lifts[movement] !== 'undefined') {
+                    Object.entries(lifts[movement]).forEach(([key, data]) => allWeights.push(data.weight));
+                    let weights = allWeights.map(Number);
+                    maxPR = (weights.length) ? Math.max(...weights) : 0;
+                    personalRecords[movement] = maxPR;
+                }
                 personalRecords.push({
                     "movement": movement,
                     "pr": maxPR
                 });
-                allWeights.splice(0, allWeights.length);
-                maxPR = 0;
-            }
+            });
             state.prs = personalRecords;
         },
         getAllLifts(state, action) {

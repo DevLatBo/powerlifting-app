@@ -102,7 +102,7 @@ export const fetchMovementsData = () => {
     }
 };
 
-export const fetchLiftsData = (request) => {
+export const fetchHistoryData = () => {
     return async(dispatch) => {
         const fetchData = async () => {
             const response = await fetch(
@@ -119,16 +119,43 @@ export const fetchLiftsData = (request) => {
             dispatch(uiActions.clearAlert());
             dispatch(uiActions.showLoader());
             const liftsData = await fetchData();
-            switch(request) {
-                case "allLifts": 
-                    dispatch(historyActions.getAllLifts({ lifts: liftsData }));
-                    break;
-                case "PRs":
-                    dispatch(historyActions.getPRs({ lifts: liftsData }))
-                    break;
-                default:
-                    break;
-            }
+            dispatch(historyActions.getAllLifts({ lifts: liftsData }));
+        } catch(error) {
+            dispatch(uiActions.setError({error: error.message}));
+            dispatch(uiActions.showAlert({
+                type: 'error',
+                class: 'error',
+                message: error.message,
+            }));
+        }
+        dispatch(uiActions.hideLoader());
+    }
+}
+
+export const fetchPRsData = () => {
+    return async(dispatch) => {
+        const fetchData = async () => {
+            const responses = await Promise.all([
+                fetch(`${FIREBASE_DOMAIN}/lifts.json`),
+                fetch(`${FIREBASE_DOMAIN}/movements.json`)
+            ]).then(([liftsResponse, movementsResponse]) =>  {
+                if(!liftsResponse.ok || !movementsResponse.ok) {
+                    throw new Error("Something wrong happened!");
+                }
+                return Promise.all([liftsResponse.json(), movementsResponse.json()])
+            });
+            
+
+            const data = responses;
+            
+            return data;
+        }
+        try {
+            dispatch(uiActions.clearAlert());
+            dispatch(uiActions.showLoader());
+            const information = await fetchData();
+            const [lifts, movements] = information;
+            dispatch(historyActions.getPRs({ lifts: lifts, movements: movements }));
         } catch(error) {
             dispatch(uiActions.setError({error: error.message}));
             dispatch(uiActions.showAlert({
