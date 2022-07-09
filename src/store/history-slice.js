@@ -27,7 +27,7 @@ const historySlice = createSlice({
             let allWeights = [];
             Object.entries(movements).forEach(([movement]) => {
                 let maxPR = 0;
-                if(typeof lifts[movement] !== 'undefined') {
+                if(lifts !== null && typeof lifts[movement] !== 'undefined') {
                     Object.entries(lifts[movement]).forEach(([key, data]) => allWeights.push(data.weight));
                     let weights = allWeights.map(Number);
                     maxPR = (weights.length) ? Math.max(...weights) : 0;
@@ -37,6 +37,8 @@ const historySlice = createSlice({
                     "movement": movement,
                     "pr": maxPR
                 });
+                allWeights = [];
+                maxPR = 0;
             });
             state.prs = personalRecords;
         },
