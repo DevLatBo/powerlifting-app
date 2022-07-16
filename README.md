@@ -9,7 +9,7 @@
 - [🎛️ API](#api)
 - [:pushpin: Versiones](#versiones)
 
-## [:information_source: Acerca del Proyecto](#acercade)
+## :information_source: Acerca del Proyecto
 
 Web app para la practica del deporte **Powerlifting** o llamado tambien **Levantamiento en Potencia**.
 Esta aplicacion que es de uso personal lo que se busca es obtener y guardar los registros personales del usuario y considerar 
@@ -24,11 +24,11 @@ del momento que se esta realizando la accion.
 Tambien tiene una secciòn en donde se da informaciòn de lo que se trata el Powerlifting y una breve descripciòn de cada uno de lso 3 movimientos.
 ***
 
-## [:keyboard: Tecnologías](#tecnologias)
+## :keyboard: Tecnologías
 Para este proyecto se tiene trabajado con Javascript bajo el estandar de ES6.
 ***
 
-## [:desktop_computer: Framework/Dependencias](#librerias)
+## :desktop_computer: Framework/Dependencias
 Se utiliza la libreria de React.js V17 en base a componentes funcionales, con esta libreria las dependencias que se estan actualizando son las siguientes:
 * React-CountUp
 * React-Redux
@@ -44,18 +44,18 @@ Se utiliza la libreria de React.js V17 en base a componentes funcionales, con es
 
 ***
 
-## [💾 Instalacion](#instalacion)
+## 💾 Instalacion
 Para instalar en tu local el unico que necesitas para instalar el proyecto es el siguiente comando:
 
 `>> npm install --save`
 ***
 
-## [🎛️ API](#api)
+## 🎛️ API
 Los datos para esta web app son obtenidos directamente desde Firebase, para la api desde firebase dirijase a la url: https://console.firebase.google.com
 y una vez creado, se obtiene la base url para poder almacenar todos los datos que se guardan desde esta web-app.
 ***
 
-## [:pushpin: Versiones](#versiones)
+## :pushpin: Versiones
 Para el caso de las versiones con futuros cambios que consistirian en mejoras, correcciòn de errores y observaciones se definira de la siguiente manera la version del sistema:
 Version A.B.C
 Donde:
