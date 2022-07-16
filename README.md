@@ -1,5 +1,16 @@
 # POWERLIFTING-APP
 
+## 📖 Contenido
+
+- [:information_source: Acerca del Proyecto](#acercade)
+- [:keyboard: Tecnologías](#tecnologias)
+- [:desktop_computer: Framework/Dependencias](#librerias)
+- [💾 Instalacion](#instalacion)
+- [🎛️ API](#api)
+- [:pushpin: Versiones](#versiones)
+
+## [:information_source: Acerca del Proyecto](#acercade)
+
 Web app para la practica del deporte **Powerlifting** o llamado tambien **Levantamiento en Potencia**.
 Esta aplicacion que es de uso personal lo que se busca es obtener y guardar los registros personales del usuario y considerar 
 tambien sus levantamientos maximos en cada uno de los movimientos del Powelifting que son:
@@ -10,18 +21,41 @@ tambien sus levantamientos maximos en cada uno de los movimientos del Poweliftin
 
 Se toma en cuenta en el registro el numero de repeticiones, el peso total de la barra, y la fecha y tiempo 
 del momento que se esta realizando la accion.
-
 Tambien tiene una secciòn en donde se da informaciòn de lo que se trata el Powerlifting y una breve descripciòn de cada uno de lso 3 movimientos.
 ***
-## Aspectos Tècnicos
- - Esta web app en hecho con react.js version 17.
- - Todos los componentes fueron desarrollados en base a componentes funcionales
- - Para los estilos fue tomado en cuenta la libreria styled component.
- - Se utilizo tambien una libreria para la interfaz llamada react MUI (Material UI) para facilitar el desarrollo del frontend y poder darle mejor customizacion a los componentes de esta misma libreria.
- - Todos los gifs  e mimagenes se encuentran en directorio aseets.
- - Todos los datos son guardados y obtenidos de Firebase (API).
+
+## [:keyboard: Tecnologías](#tecnologias)
+Para este proyecto se tiene trabajado con Javascript bajo el estandar de ES6.
 ***
-## Versiones
+
+## [:desktop_computer: Framework/Dependencias](#librerias)
+Se utiliza la libreria de React.js V17 en base a componentes funcionales, con esta libreria las dependencias que se estan actualizando son las siguientes:
+* React-CountUp
+* React-Redux
+* React-Router-Dom
+* Redux-Thunk
+* ReduxJS/toolkit
+* Styled-Components
+* Uuid
+* Material-UI/core (4.12.3)
+* Material-UI/icons
+
+**Nota:** Todos los gifs  e mimagenes se encuentran en directorio aseets.
+
+***
+
+## [💾 Instalacion](#instalacion)
+Para instalar en tu local el unico que necesitas para instalar el proyecto es el siguiente comando:
+
+`>> npm install --save`
+***
+
+## [🎛️ API](#api)
+Los datos para esta web app son obtenidos directamente desde Firebase, para la api desde firebase dirijase a la url: https://console.firebase.google.com
+y una vez creado, se obtiene la base url para poder almacenar todos los datos que se guardan desde esta web-app.
+***
+
+## [:pushpin: Versiones](#versiones)
 Para el caso de las versiones con futuros cambios que consistirian en mejoras, correcciòn de errores y observaciones se definira de la siguiente manera la version del sistema:
 Version A.B.C
 Donde:
@@ -29,4 +63,5 @@ Donde:
  - B = Modificacion, correcciones o mejoras en funcionalidades.
  - C = Pequeño ajustes con tal de que no afecte en funcionalidad.
 ***
-**05K4R1N**
+
+**Ing. Oscar Rolando Gamboa A.**
