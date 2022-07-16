@@ -2,12 +2,12 @@
 
 ## 📖 Contenido
 
-- [:information_source: Acerca del Proyecto](#acercade)
-- [:keyboard: Tecnologías](#tecnologias)
-- [:desktop_computer: Framework/Dependencias](#librerias)
-- [💾 Instalacion](#instalacion)
-- [🎛️ API](#api)
-- [:pushpin: Versiones](#versiones)
+- :information_source:[Acerca del Proyecto](#acerca-del-proyecto)
+- :keyboard:[Tecnologías](#tecnologias)
+- :desktop_computer:[Framework/Dependencias](#framework-dependencias)
+- 💾[Instalacion](#instalacion)
+- 🎛️[API](#api)
+- :pushpin:[Versiones](#versiones)
 
 ## :information_source: Acerca del Proyecto
 
