@@ -8,7 +8,7 @@ const Header = (props) => {
         <StyledHomeTitle image={`/assets/images/page-heading-background.jpg`}>
             <Grid container>
                 <Grid item xs={12}>
-                    <h1>POWERLIFTING</h1>
+                    <h1>DEVLIFT</h1>
                     <span>Levantamiento de potencia</span>
                 </Grid>
             </Grid>
