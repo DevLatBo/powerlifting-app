@@ -2,6 +2,8 @@ import React, {Fragment} from 'react';
 import { useDispatch } from 'react-redux';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import EditIcon from '@mui/icons-material/Edit';
 
 import Spinner from '../../UI/Loader/Loader';
 import Alert from '../../UI/Alert/Alert';
@@ -78,7 +80,13 @@ const HistoryItems = (props) => {
                             btnType="btnLiftRemove"
                             clicked={onRemoveLiftHandler.bind(null, lift.id, lift.movement)}
                         >
-                            X
+                            <HighlightOffIcon />
+                        </Button>
+                        <Button 
+                            title="Editar"
+                            btnType="btnLiftEdit"
+                        >
+                            <EditIcon />
                         </Button>
                     </TableCell>
                 </TableRow>

@@ -82,7 +82,7 @@ const History = (props) => {
                                         backgroundColor:'#FF0000',
                                         fontSize: {xs: '0.5rem', md: '1rem'}
                                     }}
-                                    width="25%"
+                                    width="20%"
                                 >
                                         Peso (kg) [Reps]
                                 </TableCell>
@@ -93,7 +93,7 @@ const History = (props) => {
                                         backgroundColor:'#FF0000',
                                         fontSize: {xs: '0.5rem', md: '1rem'}
                                     }}
-                                    width="60%"
+                                    width="50%"
                                 >
                                         Fecha - Hora
                                 </TableCell>
@@ -104,7 +104,7 @@ const History = (props) => {
                                         backgroundColor:'#FF0000',
                                         fontSize: {xs: '0.5rem', md: '1rem'}
                                     }}
-                                    width="10%"
+                                    width="25%"
                                 >
                                     Accion
                                 </TableCell>

@@ -20,6 +20,7 @@ function App() {
           <Route path="/personalrecord" component={PersonalRecords}/>
           <Route path="/movements" exact component={Movements}/>
           <Route path="/movements/:movement" component={MovementItem}/>
+          <Route path="/movements/:movement/:id" component={MovementItem} />
           <Route path="/author" component={Author}/>
           <Route component={NotFound}/>
       </Switch>
