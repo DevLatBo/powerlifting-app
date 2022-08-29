@@ -3,9 +3,9 @@ import { useDispatch } from 'react-redux';
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
-import EditIcon from '@mui/icons-material/Edit';
 
 import Spinner from '../../UI/Loader/Loader';
+import Link from '../../UI/LInk/Link';
 import Alert from '../../UI/Alert/Alert';
 import Button from '../../UI/Button/Button'
 import { removeLifting } from '../../../store/mov-actions';
@@ -82,12 +82,11 @@ const HistoryItems = (props) => {
                         >
                             <HighlightOffIcon />
                         </Button>
-                        <Button 
-                            title="Editar"
-                            btnType="btnLiftEdit"
-                        >
-                            <EditIcon />
-                        </Button>
+                        <Link
+                            class="edit-lifting"
+                            route={`/movements/${lift.movement}/${lift.id}`}
+                            icon="edit"
+                            />
                     </TableCell>
                 </TableRow>
             );
