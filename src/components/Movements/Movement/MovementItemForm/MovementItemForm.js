@@ -31,14 +31,18 @@ const MovementItemForm = (props) => {
     const liftHandler = (event) => {
         event.preventDefault();
         const formData = {};
+        const isEdit = props.isEdit;
         const today = new Date();
         for(let formElementIdentifier in liftForm) {
             formData[formElementIdentifier] = liftForm[formElementIdentifier].value;
             formData['date'] = today.toISOString().split('T')[0];
-            formData['time'] = ((today.getHours() < 10) ? '0' + today.getHours() : today.getHours()) + ":" + 
+            if(!isEdit) {
+                formData['time'] = ((today.getHours() < 10) ? '0' + today.getHours() : today.getHours()) + ":" + 
                 ((today.getMinutes() < 10) ? '0' + today.getMinutes() : today.getMinutes());
+            }
         }
-        props.onAddLift(formData);
+        
+        props.onActionLift(formData) ;
 
         if(formIsValid) {
             const defaultState = {

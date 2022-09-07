@@ -84,7 +84,7 @@ const HistoryItems = (props) => {
                         </Button>
                         <Link
                             class="edit-lifting"
-                            route={`/movements/${lift.movement}/${lift.id}`}
+                            route={`/movements/${lift.movement}/edit/${lift.id}`}
                             icon="edit"
                             />
                     </TableCell>

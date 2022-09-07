@@ -6,17 +6,24 @@ import { obtainMovementName } from '../../../../shared/utility';
 import MovementItemForm from './MovementItemForm';
 import { StyledTitlePage, StyledBlock } from '../../../UI/Styling/General-styling';
 import Alert from '../../../UI/Alert/Alert';
-import { addLifting } from '../../../../store/mov-actions';
+import { addLifting, editLifting } from '../../../../store/mov-actions';
 import { uiActions } from '../../../../store/ui-slice';
 
 const MovementItem = (props) => {
     const alert = useSelector((state) => state.ui.alertMessage);
     const dispatch = useDispatch();
-    let { movement } = useParams();
+    let { movement, movementId } = useParams();
+    let isEdit = false;
+    if(movementId !== undefined) {
+        isEdit = "true";
+    }
     const movementName = obtainMovementName(movement);
 
-    const addLiftHandler =  async (liftData) => {
-        dispatch(addLifting(movement, liftData));
+    const actionLiftHandler =  async (liftData) => {
+        if(!isEdit)
+            dispatch(addLifting(movement, liftData));
+        else
+            dispatch(editLifting(movementId, movement, liftData));
     };
 
     const clearAlert = () => {
@@ -38,8 +45,8 @@ const MovementItem = (props) => {
                         </Alert>
                 )}
                 <MovementItemForm 
-                    movement={movement} 
-                    onAddLift={addLiftHandler} />
+                    onActionLift={actionLiftHandler}
+                    edit={isEdit} />
             </StyledBlock>
         </Fragment>
     )

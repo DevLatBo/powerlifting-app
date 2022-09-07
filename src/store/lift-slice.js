@@ -8,7 +8,7 @@ const initialState = {
             elementClass: 'InputLift',
             elementConfig: {
                 variant: "outlined",
-                label: "Peso a Levantar",
+                label: "Peso",
                 type: "number",
                 placeholder: "Inserte Peso",
             },

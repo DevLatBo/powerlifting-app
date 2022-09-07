@@ -43,6 +43,41 @@ export const addLifting = (movement, lift) => {
     };
 };
 
+export const editLifting = (id, movement, lift) => {
+    return async(dispatch) => {
+        const sendRequest = async() => {
+            const response = await fetch(`${FIREBASE_DOMAIN}/lifts/${movement}/${id}.json`, {
+                method: "PUT",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-access-token': 'token-value'
+                },
+                body: JSON.stringify(
+                    {}
+                ),
+            });
+            if(!response.ok) {
+                throw new Error('Updating lift data failed');
+            }
+        }
+        try {
+            await sendRequest();
+            dispatch(uiActions.showAlert({
+                type: "success",
+                class: "form-alert",
+                message: "Levantamiento actualizado con exito.",
+            }));
+
+        }catch(error) {
+            dispatch(uiActions.showAlert({
+                type: "error",
+                class: "form-alert",
+                message: error.message,
+            }));
+        }
+    }
+}
+
 export const removeLifting = (id, movement) => {
     return async(dispatch) => {
         const sendRequest = async() =>  {
