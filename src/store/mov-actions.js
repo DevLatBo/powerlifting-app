@@ -53,7 +53,7 @@ export const editLifting = (id, movement, lift) => {
                     'x-access-token': 'token-value'
                 },
                 body: JSON.stringify(
-                    {}
+                    lift
                 ),
             });
             if(!response.ok) {

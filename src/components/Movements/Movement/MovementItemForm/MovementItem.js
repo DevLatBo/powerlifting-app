@@ -46,7 +46,7 @@ const MovementItem = (props) => {
                 )}
                 <MovementItemForm 
                     onActionLift={actionLiftHandler}
-                    edit={isEdit} />
+                    isEdit={isEdit} />
             </StyledBlock>
         </Fragment>
     )
