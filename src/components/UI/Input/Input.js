@@ -10,7 +10,8 @@ const input = (props) => {
                             {...props.elementConfig}
                             className={props.elementClass}
                             value={props.value} 
-                            onChange={props.changed} 
+                            onChange={props.changed}
+                            onLoad={props.loaded}
                             InputProps={{inputProps: props.elementProperties}}
                             />;
             break;

@@ -8,8 +8,10 @@ import { updateObject, checkValidity } from '../../../../shared/utility';
 import { StyledForm } from '../../../UI/Styling/Section/Movements-styling';
 
 const MovementItemForm = (props) => {
+    const isEdit = props.isEdit;
     const formIsValid = useSelector((state) => state.lift.formIsValid);
     const liftForm = useSelector((state) => state.lift.form);
+    const liftData = useSelector((state) => state.lift.data);
     const dispatch = useDispatch();
 
     const inputChangeHandler = (event, inputIdentifier) => {
@@ -31,14 +33,15 @@ const MovementItemForm = (props) => {
     const liftHandler = (event) => {
         event.preventDefault();
         const formData = {};
-        const isEdit = props.isEdit;
         const today = new Date();
         for(let formElementIdentifier in liftForm) {
             formData[formElementIdentifier] = liftForm[formElementIdentifier].value;
-            if(!isEdit) {
-                formData['date'] = today.toISOString().split('T')[0];
-                formData['time'] = ((today.getHours() < 10) ? '0' + today.getHours() : today.getHours()) + ":" + 
+            formData['date'] = today.toISOString().split('T')[0];
+            formData['time'] = ((today.getHours() < 10) ? '0' + today.getHours() : today.getHours()) + ":" + 
                 ((today.getMinutes() < 10) ? '0' + today.getMinutes() : today.getMinutes());
+            if(isEdit) {
+                formData['date'] = liftData.date;
+                formData['time'] = liftData.time;
             }
         }
         
@@ -64,12 +67,14 @@ const MovementItemForm = (props) => {
     };
 
     const formElementsArray = [];
-    for( let key in liftForm) {
+
+    for( let key in liftForm ) {
         formElementsArray.push({
             id: key,
             config: liftForm[key]
         });
     }
+    
     const btnStyle = (formIsValid)?"btnLift":"btnLiftDisabled";
     let form = (
         <form onSubmit={liftHandler}>

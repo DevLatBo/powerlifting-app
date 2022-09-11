@@ -12,7 +12,7 @@ const initialState = {
                 type: "number",
                 placeholder: "Inserte Peso",
             },
-            value: "",
+            value: "0",
             control: {
                 isEmpty: true,
                 isPositive: "true"
@@ -31,7 +31,7 @@ const initialState = {
                 type: "number",
                 placeholder: "Inserte Repeticiones",
             },
-            value: "",
+            value: "0",
             control: {
                 isEmpty: true,
                 isPositive: true,
@@ -41,6 +41,12 @@ const initialState = {
                 "step": "1",
             },
         },
+    },
+    data: {
+        weight: 0,
+        repetition: 0,
+        date: "",
+        time: "",
     },
     table: {
         rowsPerPageOptions: [10],
@@ -61,6 +67,9 @@ const liftSlice = createSlice({
         },
         setFormElements(state, action) {
             state.form = action.payload.form;
+        },
+        getLiftData(state, action) {
+            state.data = action.payload.lift;
         },
     }
 });

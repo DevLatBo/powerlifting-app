@@ -1,6 +1,7 @@
 import { historyActions } from "./history-slice";
 import { movActions } from "./mov-slice";
 import { uiActions } from "./ui-slice";
+import { liftActions } from "./lift-slice";
 
 const FIREBASE_DOMAIN = "https://powerlifting-react-default-rtdb.firebaseio.com/";
 
@@ -100,7 +101,6 @@ export const removeLifting = (id, movement) => {
                 class: "form-alert",
                 message: error.message
             }));
-            console.log(error.message);
         }
     }
 }
@@ -200,5 +200,34 @@ export const fetchPRsData = () => {
             }));
         }
         dispatch(uiActions.hideLoader());
+    }
+}
+
+export const fetchLiftById = (movement, liftId) => {
+    return async(dispatch) => {
+        const fetchData = async () => {
+            const response = await fetch(
+                `${FIREBASE_DOMAIN}/lifts/${movement}/${liftId}.json`
+            );
+            if(!response.ok) {
+                throw new Error("Something wrong happened!");
+            }
+            const data = await response.json();
+            return data;
+        }
+        try {
+            dispatch(uiActions.clearAlert());
+            dispatch(uiActions.showLoader());
+            const liftData = await fetchData();
+            dispatch(liftActions.getLiftData({lift: liftData}));
+
+        } catch(error) {
+            dispatch(uiActions.setError({error: error.message}));
+            dispatch(uiActions.showAlert({
+                type: 'error',
+                class: 'error',
+                message: error.message,
+            }));
+        }
     }
 }
