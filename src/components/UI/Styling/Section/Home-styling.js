@@ -58,13 +58,19 @@ export const StyledHome = styled.div`
 
 export const StyledHomeTitle = styled.div`
     text-align: center;
-    background-image: url(${props => props.image});
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 40vh 0px 40vh 0px;
     color: #FFF;
-    & h1 {
+    position: relative;
+    top: 17px;
+    & video {
+        width: 100%;
+        position: relative;
+    }
+    & .title {
+        position: absolute;
+        top: 35%;
+        width: 100%;
+    }
+    & .title h1 {
         text-transform: capitalize;
         font-size: 3.5rem;
         font-weight: 700;
@@ -72,7 +78,7 @@ export const StyledHomeTitle = styled.div`
         margin-bottom: 18px;
     }
 
-    & span {
+    & .title span {
         font-size: 1.5rem;
         text-transform: uppercase;
         letter-spacing: 0.125rem;
@@ -81,10 +87,10 @@ export const StyledHomeTitle = styled.div`
     }
 
     @media (max-width: 767px) {
-        & h1 { 
+        & .title h1 { 
             font-size: 1.75rem;
         }
-        & span {
+        & .title span {
             font-size: 1rem;
         }
     }

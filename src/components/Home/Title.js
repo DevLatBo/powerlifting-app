@@ -5,11 +5,16 @@ import { StyledHomeTitle } from '../UI/Styling/Section/Home-styling';
 
 const Header = (props) => {
     return (
-        <StyledHomeTitle image={`/assets/images/page-heading-background.jpg`}>
+        <StyledHomeTitle>
             <Grid container>
                 <Grid item xs={12}>
-                    <h1>DEVLIFT</h1>
-                    <span>Levantamiento de potencia</span>
+                    <video autoPlay loop muted>
+                        <source src={`assets/video/devlifthome.mp4`} type='video/mp4' />
+                    </video>
+                    <div className="title">
+                        <h1>DEVLIFT</h1>
+                        <span>Levantamiento de potencia</span>
+                    </div>
                 </Grid>
             </Grid>
         </StyledHomeTitle>
