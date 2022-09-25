@@ -31,7 +31,7 @@ const Nav = (props) => {
                 <NavLink 
                     className="home-link"
                     to = "/">
-                        <strong>Powerlifting</strong>
+                        <strong>DevLift</strong>
                 </NavLink>
             </Typography>
             <section className="right-links">
