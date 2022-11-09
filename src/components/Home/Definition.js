@@ -7,9 +7,9 @@ const Definition = (props) => {
             backgroundColor="#FF0000"
             fontColor="#FFFFFF">
             <h2>¿Qué es el Powerlifting?</h2>
-            <p>Es una disciplina de fuerza, que consiste en levantar el mayor peso posible en tres ejercicios diferentes. 
-                Para realizar esta disciplina, el atleta debe tener un entrenamiento físico y mental compuesto 
-                por los siguientes ejercicios: <strong>Sentadillas, press de banca y peso muerto.</strong></p>
+            <p>El powerlifting, también conocido como levantamiento de potencia es una de las modalidades del deporte de fuerza que consiste 
+                <strong>en levantar el mayor peso posible mediante tres movimientos básicos</strong>: peso muerto, sentadilla y press de banca. 
+                En cada uno de ellos, el powerlifter trabajará con un grupo muscular diferente.</p>
         </StyledHome>
     );
 }
