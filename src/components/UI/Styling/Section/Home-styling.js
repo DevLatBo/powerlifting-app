@@ -61,9 +61,21 @@ export const StyledHomeTitle = styled.div`
     color: #FFF;
     position: relative;
     top: 17px;
-    & video {
-        width: 100%;
-        position: relative;
+    @media (min-width: 767px) {
+        & video {
+            width: 100%;
+            position: relative;
+        }
+    }
+    @media (max-width: 768px) {
+        background-image: url(${props => props.image});
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 40vh 0px 40vh 0px;
+        & video {
+            display: none;
+        }
     }
     & .title {
         position: absolute;

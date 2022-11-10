@@ -5,7 +5,7 @@ import { StyledHomeTitle } from '../UI/Styling/Section/Home-styling';
 
 const Header = (props) => {
     return (
-        <StyledHomeTitle>
+        <StyledHomeTitle image={`/assets/images/page-heading-background.jpg`}>
             <Grid container>
                 <Grid item xs={12}>
                     <video autoPlay loop muted>
