@@ -45,7 +45,7 @@ const Movements = (props) => {
     return (
         <Fragment>
             <Title 
-                mainTitle="MOVIMIENTOS"
+                mainTitle="Movimientos"
                 description="Registro de levantamientos."
             />
             <StyledBlock>

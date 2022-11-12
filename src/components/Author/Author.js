@@ -8,7 +8,7 @@ const Author = (props) => {
     return (
         <Fragment>
             <Title 
-                mainTitle="AUTOR"
+                mainTitle="Autor"
                 description="Ing. Oscar Rolando Gamboa Acho"
             />
             <Profile/>

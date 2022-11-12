@@ -53,7 +53,7 @@ const History = (props) => {
     return (
         <Fragment>
             <Title 
-                mainTitle="HISTORIAL"
+                mainTitle="Historial"
                 description="Ultimos levantamientos."
             />
             <StyledBlock>

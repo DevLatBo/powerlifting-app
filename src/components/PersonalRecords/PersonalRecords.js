@@ -36,7 +36,7 @@ const PersonalRecords = (props) => {
     return (
         <Fragment>
             <Title
-                mainTitle="RECORDS PERSONALES"
+                mainTitle="Records Personales"
                 description="Levantamiento máximo en cada uno de los movimientos."
             />
             <StyledBlock>
