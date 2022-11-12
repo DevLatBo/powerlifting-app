@@ -5,7 +5,8 @@ import Grid from "@material-ui/core/Grid";
 import MovementLink from './Movement/MovementLink';
 import Spinner from '../UI/Loader/Loader';
 import Alert from '../UI/Alert/Alert';
-import { StyledBlock, StyledTitlePage } from '../UI/Styling/General-styling';
+import Title from '../UI/Title/Title';
+import { StyledBlock } from '../UI/Styling/General-styling';
 import { fetchMovementsData } from '../../store/mov-actions';
 import { movActions } from '../../store/mov-slice';
 
@@ -43,9 +44,10 @@ const Movements = (props) => {
 
     return (
         <Fragment>
-            <StyledTitlePage imageBackground={`/assets/images/title-background.jpg`}>
-                <h2>Movimientos del Powerlifting</h2>
-            </StyledTitlePage>
+            <Title 
+                mainTitle="MOVIMIENTOS"
+                description="Registro de levantamientos."
+            />
             <StyledBlock>
                 <Grid container 
                     direction="row"

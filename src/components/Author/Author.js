@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { StyledTitlePage } from '../UI/Styling/General-styling';
+import Title from '../UI/Title/Title';
 
 import Profile from './Profile/Profile';
 
@@ -7,10 +7,10 @@ import Profile from './Profile/Profile';
 const Author = (props) => {
     return (
         <Fragment>
-            <StyledTitlePage imageBackground={`/assets/images/title-background.jpg`}>
-                <h2>PERFIL</h2>
-                <h3>Ing. Oscar Rolando Gamboa Acho</h3>
-            </StyledTitlePage>
+            <Title 
+                mainTitle="AUTOR"
+                description="Ing. Oscar Rolando Gamboa Acho"
+            />
             <Profile/>
         </Fragment>
     );

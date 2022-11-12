@@ -4,7 +4,8 @@ import { useParams } from 'react-router-dom';
 
 import { obtainMovementName } from '../../../../shared/utility';
 import MovementItemForm from './MovementItemForm';
-import { StyledTitlePage, StyledBlock } from '../../../UI/Styling/General-styling';
+import { StyledBlock } from '../../../UI/Styling/General-styling';
+import Title from '../../../UI/Title/Title';
 import Alert from '../../../UI/Alert/Alert';
 import { addLifting, editLifting, fetchLiftById } from '../../../../store/mov-actions';
 import { uiActions } from '../../../../store/ui-slice';
@@ -37,10 +38,10 @@ const MovementItem = (props) => {
     
     return (
         <Fragment>
-            <StyledTitlePage imageBackground={`/assets/images/title-background.jpg`}>
-                <h2>{movementName}</h2>
-                <h3>Ingrese número de repeticiones y peso a levantar.</h3>
-            </StyledTitlePage>
+            <Title 
+                mainTitle={movementName}
+                description="Ingrese número de repeticiones y peso a levantar."
+            />
             <StyledBlock>
                 { alert && (
                         <Alert type={alert.type} 

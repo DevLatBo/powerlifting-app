@@ -9,7 +9,8 @@ import TableBody from '@mui/material/TableBody';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-import { StyledBlock, StyledTitlePage } from '../UI/Styling/General-styling';
+import { StyledBlock } from '../UI/Styling/General-styling';
+import Title from '../UI/Title/Title';
 import HistoryItems from './HistoryItems/HistoryItems';
 import { fetchHistoryData } from '../../store/mov-actions';
 import { historyActions } from '../../store/history-slice';
@@ -51,12 +52,10 @@ const History = (props) => {
         
     return (
         <Fragment>
-            <StyledTitlePage type="title-page"
-                imageBackground={`/assets/images/title-background.jpg`}
-            >
-                <h2>Historial</h2>
-                <h3>Ultimos levantamientos.</h3>
-            </StyledTitlePage>
+            <Title 
+                mainTitle="HISTORIAL"
+                description="Ultimos levantamientos."
+            />
             <StyledBlock>
                 <TableContainer component={Paper} 
                 sx={{width: {xs: "100%", md:"90%"},margin:'40px auto'}}>

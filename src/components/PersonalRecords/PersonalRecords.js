@@ -6,7 +6,8 @@ import Grid from '@mui/material/Grid';
 import PersonalRecordItem from './PersonalRecordItem/PersonalRecordItem';
 import Spinner from '../UI/Loader/Loader';
 import Alert from '../UI/Alert/Alert';
-import { StyledTitlePage, StyledBlock } from '../UI/Styling/General-styling';
+import Title from '../UI/Title/Title';
+import { StyledBlock } from '../UI/Styling/General-styling';
 import { fetchPRsData } from '../../store/mov-actions';
 
 const PersonalRecords = (props) => {
@@ -34,12 +35,10 @@ const PersonalRecords = (props) => {
 
     return (
         <Fragment>
-            <StyledTitlePage type="title-page" 
-                imageBackground={`/assets/images/title-background.jpg`}
-            >
-                <h2>Records Personales</h2>
-                <h3>Levantamiento máximo de cada uno de los movimientos.</h3>
-            </StyledTitlePage>
+            <Title
+                mainTitle="RECORDS PERSONALES"
+                description="Levantamiento máximo en cada uno de los movimientos."
+            />
             <StyledBlock>
                 <Grid container 
                     direction="row"
