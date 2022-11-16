@@ -70,7 +70,7 @@ const HistoryItems = (props) => {
                         }}
                         align="center"
                     >
-                        {lift.date} - {lift.time}
+                        {lift.date} | {lift.time}
                     </TableCell>
                     <TableCell 
                         align="center"

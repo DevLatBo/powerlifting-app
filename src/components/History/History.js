@@ -94,7 +94,7 @@ const History = (props) => {
                                     }}
                                     width="50%"
                                 >
-                                        Fecha - Hora
+                                        Fecha | Hora
                                 </TableCell>
                                 <TableCell align="center" 
                                     sx={{
@@ -105,7 +105,7 @@ const History = (props) => {
                                     }}
                                     width="25%"
                                 >
-                                    Accion
+                                    Acción
                                 </TableCell>
                             </TableRow>
                         </TableHead>
