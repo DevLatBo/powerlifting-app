@@ -26,7 +26,7 @@ const History = (props) => {
     const error = alertMessage ? alertMessage.message : null;
 
     useEffect(() => {
-        dispatch(fetchHistoryData("allLifts"));
+        dispatch(fetchHistoryData());
     }, [dispatch]);
 
     // ComponentWillUnmount
@@ -58,7 +58,7 @@ const History = (props) => {
             />
             <StyledBlock>
                 <TableContainer component={Paper} 
-                sx={{width: {xs: "100%", md:"90%"},margin:'40px auto'}}>
+                    sx={{width: {xs: "100%", md:"90%"},margin:'40px auto'}}>
                     <Table sx={{ minWidth: {lg: 700, xs: 100} }} 
                         aria-label="PRs Table">
                         <TableHead>

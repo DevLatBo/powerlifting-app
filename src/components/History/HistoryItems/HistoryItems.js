@@ -1,11 +1,12 @@
 import React, {Fragment} from 'react';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom'; 
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import EditIcon from '@mui/icons-material/Edit';
 
 import Spinner from '../../UI/Loader/Loader';
-import Link from '../../UI/LInk/Link';
 import Alert from '../../UI/Alert/Alert';
 import Button from '../../UI/Button/Button'
 import { removeLifting } from '../../../store/mov-actions';
@@ -13,6 +14,7 @@ import { obtainMovementName } from '../../../shared/utility';
 
 const HistoryItems = (props) => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const {page, rowsPerPage, recordItems, error, flagLoader} = props;
     
     let items = 
@@ -42,6 +44,10 @@ const HistoryItems = (props) => {
     const onRemoveLiftHandler = (id, movement) => {
         dispatch(removeLifting(id, movement));
     };
+
+    const onEditLiftHandler = (id, movement) => {
+        history.push(`/movements/${movement}/edit/${id}`);
+    }
 
     if(recordItems.length) {
         const lifts = recordItems.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
@@ -82,11 +88,13 @@ const HistoryItems = (props) => {
                         >
                             <HighlightOffIcon />
                         </Button>
-                        <Link
-                            class="edit-lifting"
-                            route={`/movements/${lift.movement}/edit/${lift.id}`}
-                            icon="edit"
-                            />
+                        <Button 
+                            title="Editar"
+                            btnType="btnLiftEdit"
+                            clicked={onEditLiftHandler.bind(null, lift.id, lift.movement)}
+                        >
+                            <EditIcon />
+                        </Button>
                     </TableCell>
                 </TableRow>
             );
