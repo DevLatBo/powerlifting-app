@@ -13,7 +13,7 @@ const PersonalRecordItem = (props) => {
             <StyledBox>
                 <Card variant="outlined" className="cardMov">
                     <CardContent>
-                        <Typography sx={{ fontSize: 18 }} 
+                        <Typography sx={{ fontSize: 18, textAlign: "center" }} 
                                 color="white" 
                                 gutterBottom 
                                 className="subtitleMov">
@@ -28,7 +28,7 @@ const PersonalRecordItem = (props) => {
                                 end={props.weight} 
                                 suffix=" Kg." 
                                 decimals="2" 
-                                duration={3}
+                                duration={2}
                             />
                         </Typography>
                     </CardContent>
