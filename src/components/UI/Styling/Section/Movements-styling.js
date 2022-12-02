@@ -1,7 +1,7 @@
 import Grid from "@material-ui/core/Grid";
 import styled from 'styled-components';
 
-export const StyledLinks = styled(Grid)`
+export const StyledGrid = styled(Grid)`
     display: inherit;
     & .movement {
         background: linear-gradient(90deg, rgba(70,24,24,1) 0%, rgba(255,6,6,1) 75%);
@@ -27,12 +27,7 @@ export const StyledLinks = styled(Grid)`
             width: 25vw;
         }
     }
-    @media (min-width: 481px) and (max-width: 767px) {
-        & .movement {
-            width: 55vw;
-        }
-    }
-    @media (min-width: 320px) and (max-width: 480px) {
+    @media (min-width: 320px) and (max-width: 767px) {
         & .movement {
             width: 55vw;
         }
