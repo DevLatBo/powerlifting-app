@@ -15,7 +15,7 @@ const initialState = {
             value: "0",
             control: {
                 isEmpty: true,
-                isPositive: "true"
+                isPositive: true,
             },
             valid: false,
             properties: {

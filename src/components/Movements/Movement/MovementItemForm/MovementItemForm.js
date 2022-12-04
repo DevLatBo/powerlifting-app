@@ -10,23 +10,23 @@ import { StyledForm } from '../../../UI/Styling/Section/Movements-styling';
 const MovementItemForm = (props) => {
     const isEdit = props.isEdit;
     const formIsValid = useSelector((state) => state.lift.formIsValid);
-    const liftForm = useSelector((state) => state.lift.form);
-    const liftData = useSelector((state) => state.lift.data);
+    const form = useSelector((state) => state.lift.form);
+    const data = useSelector((state) => state.lift.data);
     const dispatch = useDispatch();
 
     const inputChangeHandler = (event, inputIdentifier) => {
-        const updatedFormElement = updateObject(liftForm[inputIdentifier], {
+        const updatedFormElement = updateObject(form[inputIdentifier], {
             value: event.target.value,
-            valid: checkValidity(event.target.value, liftForm[inputIdentifier].control),
+            valid: checkValidity(event.target.value, form[inputIdentifier].control),
         });
-        const updatedLiftForm = updateObject(liftForm, {
+        const updatedForm = updateObject(form, {
             [inputIdentifier]:  updatedFormElement
         });
         let formIsValid = true;
-        for(let inputIdentifier in updatedLiftForm){
-            formIsValid = updatedLiftForm[inputIdentifier].valid && formIsValid;
+        for(let inputIdentifier in updatedForm){
+            formIsValid = updatedForm[inputIdentifier].valid && formIsValid;
         };
-        dispatch(liftActions.setFormElements({form:updatedLiftForm}));
+        dispatch(liftActions.setFormElements({form:updatedForm}));
         dispatch(liftActions.setFormValidation({valid: formIsValid}));
     };
 
@@ -34,15 +34,16 @@ const MovementItemForm = (props) => {
         event.preventDefault();
         const formData = {};
         const today = new Date();
-        for(let formElementIdentifier in liftForm) {
-            formData[formElementIdentifier] = liftForm[formElementIdentifier].value;
-            formData['date'] = today.toISOString().split('T')[0];
+        for(let formElementIdentifier in form) {
+            formData[formElementIdentifier] = form[formElementIdentifier].value;
+            if(isEdit) {
+                formData['date'] = data.date;
+                formData['time'] = data.time;
+                continue;
+            }
+            formData['date'] = today.toISOString().split('T')[0]; // [YY-mm-dd]
             formData['time'] = ((today.getHours() < 10) ? '0' + today.getHours() : today.getHours()) + ":" + 
                 ((today.getMinutes() < 10) ? '0' + today.getMinutes() : today.getMinutes());
-            if(isEdit) {
-                formData['date'] = liftData.date;
-                formData['time'] = liftData.time;
-            }
         }
         
         props.onActionLift(formData) ;
@@ -52,39 +53,39 @@ const MovementItemForm = (props) => {
                 value: "",
                 valid: false,
             };
-            const updatedWeight = updateObject(liftForm.weight, defaultState);
-            const updatedRepetition = updateObject(liftForm.repetition, defaultState);
+            const updatedWeight = updateObject(form.weight, defaultState);
+            const updatedRepetition = updateObject(form.repetition, defaultState);
             
             
-            const updatedLiftForm = updateObject(liftForm, {
+            const updatedForm = updateObject(form, {
                 "weight": updatedWeight,
                 "repetition":updatedRepetition,
             });
 
-            dispatch(liftActions.setFormElements({form: updatedLiftForm}));
+            dispatch(liftActions.setFormElements({form: updatedForm}));
             dispatch(liftActions.setFormValidation({valid: false}));
         }
     };
 
     const formElementsArray = [];
 
-    for( let key in liftForm ) {
+    for( let key in form ) {
         formElementsArray.push({
             id: key,
-            config: liftForm[key]
+            config: form[key]
         });
     }
     
     const btnStyle = (formIsValid)?"btnLift":"btnLiftDisabled";
-    let form = (
+    let formSection = (
         <form onSubmit={liftHandler}>
             {formElementsArray.map(formElement => (
                 <Input
                     key={formElement.id} 
                     label={formElement.config.label}
-                    elementType={formElement.config.elementType} 
-                    elementClass={formElement.config.elementClass}
+                    elementType={formElement.config.elementType}
                     elementConfig={formElement.config.elementConfig}
+                    elementClass={formElement.config.elementClass}
                     elementProperties={formElement.config.properties}
                     value={formElement.config.value}
                     changed={(event) => inputChangeHandler(event, formElement.id)} 
@@ -95,7 +96,7 @@ const MovementItemForm = (props) => {
     );
     return (
         <StyledForm>
-            {form}
+            {formSection}
         </StyledForm>
     );
 }
