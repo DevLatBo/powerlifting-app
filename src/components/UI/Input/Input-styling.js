@@ -1,4 +1,5 @@
 import TextField from '@material-ui/core/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
 import styled from 'styled-components';
 
 export const StyledInputLift = styled(TextField)`
@@ -32,3 +33,9 @@ export const StyledInputLift = styled(TextField)`
         }
     }
 `;
+
+export const StyledCheckbox = styled(FormControlLabel)`
+    &.InputFlag {
+        margin: 0 auto;
+    }
+`; 

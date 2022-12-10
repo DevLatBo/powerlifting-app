@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { liftActions } from '../../../../store/lift-slice';
 import Button from '../../../UI/Button/Button';
 import Input from '../../../UI/Input/Input';
-import { updateObject, checkValidity } from '../../../../shared/utility';
+import { updateObject, checkValidity, getValueInput } from '../../../../shared/utility';
 import { StyledForm } from '../../../UI/Styling/Section/Movements-styling';
 
 const MovementItemForm = (props) => {
@@ -15,8 +15,9 @@ const MovementItemForm = (props) => {
     const dispatch = useDispatch();
 
     const inputChangeHandler = (event, inputIdentifier) => {
+        const inputValue = getValueInput(event, form[inputIdentifier].elementType);
         const updatedFormElement = updateObject(form[inputIdentifier], {
-            value: event.target.value,
+            value: inputValue,
             valid: checkValidity(event.target.value, form[inputIdentifier].control),
         });
         const updatedForm = updateObject(form, {
@@ -49,17 +50,15 @@ const MovementItemForm = (props) => {
         props.onActionLift(formData) ;
 
         if(formIsValid) {
-            const defaultState = {
-                value: "",
-                valid: false,
-            };
-            const updatedWeight = updateObject(form.weight, defaultState);
-            const updatedRepetition = updateObject(form.repetition, defaultState);
-            
-            
+
+            const updatedWeight = updateObject(form.weight, {value: 0, valid: false});
+            const updatedRepetition = updateObject(form.repetition, {value: 0, valid: false});
+            const updatedFlag = updateObject(form.flag, {value: false, valid: true})
+
             const updatedForm = updateObject(form, {
                 "weight": updatedWeight,
                 "repetition":updatedRepetition,
+                "flag": updatedFlag,
             });
 
             dispatch(liftActions.setFormElements({form: updatedForm}));

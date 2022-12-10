@@ -1,6 +1,10 @@
 import React, { Fragment} from 'react';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
 
-import { StyledInputLift } from './Input-styling';
+import { StyledInputLift, StyledCheckbox } from './Input-styling';
+
 
 const input = (props) => {
     let inputElement = null;
@@ -11,9 +15,22 @@ const input = (props) => {
                             className={props.elementClass}
                             value={props.value} 
                             onChange={props.changed}
-                            onLoad={props.loaded}
                             InputProps={{inputProps: props.elementProperties}}
                             />;
+            break;
+        case 'checkbox':
+            inputElement = <FormGroup><StyledCheckbox
+                className={props.elementClass}
+                value={props.value}
+                control={
+                    <Checkbox
+                        color='default' 
+                        onChange={props.changed}
+                        checked={props.value}
+                    />
+                }
+                {...props.elementConfig}
+            /></FormGroup>;
             break;
         default:
             inputElement = <input { ...props.elementConfig} 

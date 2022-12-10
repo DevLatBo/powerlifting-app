@@ -12,7 +12,7 @@ const initialState = {
                 type: "number",
                 placeholder: "Inserte Peso",
             },
-            value: "0",
+            value: 0,
             control: {
                 isEmpty: true,
                 isPositive: true,
@@ -31,7 +31,7 @@ const initialState = {
                 type: "number",
                 placeholder: "Inserte Repeticiones",
             },
-            value: "0",
+            value: 0,
             control: {
                 isEmpty: true,
                 isPositive: true,
@@ -41,6 +41,17 @@ const initialState = {
                 "step": "1",
             },
         },
+        flag: {
+            elementType: "checkbox",
+            elementClass: "InputFlag",
+            elementConfig: {
+                label: "Valido",
+                labelPlacement: "start",
+            },
+            value: false,
+            control: {},
+            valid: true,
+        }
     },
     data: {
         weight: 0,
