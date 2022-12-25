@@ -17,6 +17,13 @@ const HistoryItems = (props) => {
     const history = useHistory();
     const {page, rowsPerPage, recordItems, error, flagLoader} = props;
     
+    const sxRowInvalid = {
+        backgroundColor: "#F59F9F"
+    };
+    const sxRowValid = {
+        backgroundColor: "#9FF59F"
+    };
+
     let items = 
         <TableRow>
             <TableCell align="center" colSpan={4}>
@@ -53,7 +60,13 @@ const HistoryItems = (props) => {
         const lifts = recordItems.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
         items = lifts.map((lift) => {
             return (
-                <TableRow key={lift.id}>
+                <TableRow key={lift.id} 
+                    sx={
+                        { 
+                            ...(!lift.flag && sxRowInvalid), 
+                            ...(lift.flag && sxRowValid)
+                        }
+                    }>
                     <TableCell 
                         sx={{
                             fontSize: {xs: '0.5rem', md: '1rem'}

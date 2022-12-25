@@ -83,7 +83,7 @@ const History = (props) => {
                                     }}
                                     width="20%"
                                 >
-                                        Peso (kg) [Reps]
+                                        Peso [Reps]
                                 </TableCell>
                                 <TableCell align="center" 
                                     sx={{

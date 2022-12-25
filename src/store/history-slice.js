@@ -50,6 +50,7 @@ const historySlice = createSlice({
                     loadedLifts.push({
                         id: key,
                         movement: movement,
+                        flag: data.flag,
                         date: data.date,
                         time: data.time,
                         repetition: data.repetition,
