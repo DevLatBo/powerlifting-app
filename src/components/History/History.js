@@ -24,11 +24,11 @@ const History = (props) => {
 
     const historyLength = history.length;
     const error = alertMessage ? alertMessage.message : null;
-
+    
     useEffect(() => {
         dispatch(fetchHistoryData());
     }, [dispatch]);
-
+    
     // ComponentWillUnmount
     useEffect(() => {
         return() => {
@@ -36,9 +36,9 @@ const History = (props) => {
         }
     },[dispatch])
 
-    const handleChangePage = (event, newPage) => {
+    const handleChangePage = (newPage) => {
         dispatch(historyActions.setPage({page: newPage}));
-    }
+    };
 
     const pagination = historyLength ? (
         <TablePagination
@@ -126,4 +126,4 @@ const History = (props) => {
     );
 }
 
-export default History;
+export default React.memo(History);

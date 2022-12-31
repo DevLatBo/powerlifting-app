@@ -4,7 +4,7 @@ const initialState = {
     sdIsVisible: false, 
     alertMessage: null,
     popupData: null,
-    loaderIsVisible: null,
+    loaderIsVisible: false,
     error: null,
 };
 

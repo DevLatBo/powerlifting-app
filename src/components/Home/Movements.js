@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
@@ -13,7 +14,7 @@ const Movements = (props) => {
     const movements = useSelector((state) => state.mov.movements);
     const isLoading = useSelector((state) => state.ui.loaderIsVisible);
     const alertMessage = useSelector((state) => state.ui.alertMessage);
-
+    
     useEffect(() => {
         return () => {
             dispatch(movActions.reset());
@@ -64,4 +65,4 @@ const Movements = (props) => {
     );
 }
 
-export default Movements;
+export default React.memo(Movements);

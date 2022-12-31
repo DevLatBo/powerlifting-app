@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 
 import { StyledHomeTitle } from '../UI/Styling/Section/Home-styling';
 
-const Header = (props) => {
+const Title = (props) => {
     return (
         <StyledHomeTitle image={`/assets/images/page-heading-background.jpg`}>
             <Grid container>
@@ -21,4 +21,4 @@ const Header = (props) => {
     );
 }
 
-export default Header;
+export default Title;
