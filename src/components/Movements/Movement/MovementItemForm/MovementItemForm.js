@@ -50,7 +50,6 @@ const MovementItemForm = (props) => {
         props.onActionLift(formData) ;
 
         if(formIsValid) {
-
             const updatedWeight = updateObject(form.weight, {value: 0, valid: false});
             const updatedRepetition = updateObject(form.repetition, {value: 0, valid: false});
             const updatedFlag = updateObject(form.flag, {value: false, valid: true})
@@ -100,4 +99,4 @@ const MovementItemForm = (props) => {
     );
 }
 
-export default MovementItemForm;
+export default React.memo(MovementItemForm);

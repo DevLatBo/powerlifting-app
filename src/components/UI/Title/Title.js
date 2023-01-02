@@ -1,3 +1,4 @@
+import React from 'react';
 import { StyledTitlePage } from "./Title-styling";
 
 const Title = (props) => {
@@ -9,4 +10,4 @@ const Title = (props) => {
     );
 }
 
-export default Title;
+export default React.memo(Title);

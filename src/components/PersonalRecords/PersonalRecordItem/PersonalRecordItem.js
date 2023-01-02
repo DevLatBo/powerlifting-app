@@ -1,3 +1,4 @@
+import React from 'react';
 import CountUp from 'react-countup';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
@@ -38,4 +39,4 @@ const PersonalRecordItem = (props) => {
     )
 }
 
-export default PersonalRecordItem;
+export default React.memo(PersonalRecordItem);

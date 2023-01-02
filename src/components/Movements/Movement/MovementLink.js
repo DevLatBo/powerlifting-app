@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { StyledGrid } from '../../UI/Styling/Section/Movements-styling';
@@ -13,4 +14,4 @@ const MovementLink = (props) => {
     );
 }
 
-export default MovementLink;
+export default React.memo(MovementLink);

@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
@@ -25,12 +25,12 @@ const MovementItem = (props) => {
             dispatch(fetchLiftById(movement,movementId));
     }, [dispatch, isEdit, movement, movementId])
 
-    const actionLiftHandler =  async (liftData) => {
+    const actionLiftHandler =  useCallback(async (liftData) => {
         if(!isEdit)
             dispatch(addLifting(movement, liftData));
         else
             dispatch(editLifting(movementId, movement, liftData));
-    };
+    }, [isEdit, movementId, movement, dispatch]);
 
     const clearAlert = () => {
         dispatch(uiActions.clearAlert());
@@ -57,4 +57,4 @@ const MovementItem = (props) => {
         </Fragment>
     )
 };
-export default MovementItem;
+export default React.memo(MovementItem);

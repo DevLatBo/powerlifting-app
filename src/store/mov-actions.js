@@ -185,7 +185,6 @@ export const fetchPRsData = () => {
             return data;
         }
         try {
-            dispatch(uiActions.clearAlert());
             dispatch(uiActions.showLoader());
             const information = await fetchData();
             const [lifts, movements] = information;

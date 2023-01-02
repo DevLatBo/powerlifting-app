@@ -1,6 +1,5 @@
-import { useEffect, Fragment } from 'react';
+import React, { useEffect, Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { v4 as uuidv4 } from 'uuid';
 import Grid from '@mui/material/Grid';
 
 import PersonalRecordItem from './PersonalRecordItem/PersonalRecordItem';
@@ -14,8 +13,8 @@ const PersonalRecords = (props) => {
     const dispatch = useDispatch();
     const isLoading = useSelector((state) => state.ui.loaderIsVisible);
     const alertMessage = useSelector((state) => state.ui.alertMessage);
-    const prMovments = useSelector((state) => state.history.prs);
-
+    const prMovements = useSelector((state) => state.history.prs);
+    
     useEffect(() => {
         dispatch(fetchPRsData());
     }, [dispatch]);
@@ -27,8 +26,8 @@ const PersonalRecords = (props) => {
                             {alertMessage.message}
                         </Alert>
 
-    const prs = prMovments.map((lift) => {
-        return <PersonalRecordItem key={uuidv4()} 
+    const prs = prMovements.map((lift) => {
+        return <PersonalRecordItem key={lift.movement} 
             movement={lift.movement}
             weight={lift.pr} />
     });

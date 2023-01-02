@@ -14,7 +14,7 @@ const Movements = (props) => {
     const movements = useSelector((state) => state.mov.movements);
     const isLoading = useSelector((state) => state.ui.loaderIsVisible);
     const alertMessage = useSelector((state) => state.ui.alertMessage);
-    
+
     useEffect(() => {
         return () => {
             dispatch(movActions.reset());
@@ -65,4 +65,4 @@ const Movements = (props) => {
     );
 }
 
-export default React.memo(Movements);
+export default Movements;

@@ -36,7 +36,7 @@ const History = (props) => {
         }
     },[dispatch])
 
-    const handleChangePage = (newPage) => {
+    const handleChangePage = (event, newPage) => {
         dispatch(historyActions.setPage({page: newPage}));
     };
 
