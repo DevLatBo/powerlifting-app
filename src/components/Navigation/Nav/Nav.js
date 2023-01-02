@@ -1,3 +1,4 @@
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { uiActions } from '../../../store/ui-slice';
 import IconButton from '@material-ui/core/IconButton';
@@ -10,6 +11,7 @@ import NavigationItems from './NavigationItems/NavigationItems';
 
 const Nav = (props) => {
     const dispatch = useDispatch();
+ 
     const handlerSideDrawerOpen = () => {
         dispatch(uiActions.openSideDrawer());
     }
@@ -41,4 +43,4 @@ const Nav = (props) => {
     )
 }
 
-export default Nav;
+export default React.memo(Nav);

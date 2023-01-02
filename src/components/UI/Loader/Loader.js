@@ -1,3 +1,4 @@
+import React from 'react';
 import { Spinner } from './Loader-styling';
 
 const Loader = (props) => {
@@ -8,4 +9,4 @@ const Loader = (props) => {
 
 }
 
-export default Loader;
+export default React.memo(Loader);

@@ -1,9 +1,8 @@
-import React, { Fragment} from 'react';
+import React, { Fragment } from 'react';
 import FormGroup from '@mui/material/FormGroup';
 import Checkbox from '@mui/material/Checkbox';
 
 import { StyledInputLift, StyledCheckbox } from './Input-styling';
-
 
 const input = (props) => {
     let inputElement = null;

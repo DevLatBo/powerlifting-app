@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 import clsx from 'clsx';
 import {makeStyles} from '@material-ui/core/styles';
@@ -33,7 +32,6 @@ const Navigation = (props) => {
     const theme = useTheme();
     const showMenuIcon = useMediaQuery(theme.breakpoints.up('sm'));
     const sdVisible = useSelector((state) => state.ui.sdIsVisible);
-
     return (
         <AppBar position="absolute"
         className={clsx(classes.appBar, {

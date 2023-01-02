@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import { Fragment } from 'react';
 import { useTheme, useMediaQuery } from '@material-ui/core';
 
 import { NavItems } from '../../../UI/Styling/General-styling';
@@ -7,7 +7,6 @@ import NavigationItem from './NavigationItem/NavigationItem';
 const NavigationItems = (props) => {
     const theme = useTheme();
     const showLinks = useMediaQuery(theme.breakpoints.up('sm'));
-    
     let nItems = null;
     if(showLinks){
         nItems = (

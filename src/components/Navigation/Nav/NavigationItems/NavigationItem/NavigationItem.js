@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {NavItem, NavLinkStyled} from '../../../../UI/Styling/General-styling';
 
 const NavigationItem = (props) => {

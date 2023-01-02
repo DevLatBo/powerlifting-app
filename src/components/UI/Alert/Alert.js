@@ -1,3 +1,4 @@
+import React from 'react';
 import { StyledAlert } from './Alert-styling';
 
 const Alert = (props) => {
@@ -10,4 +11,4 @@ const Alert = (props) => {
     );
 }
 
-export default Alert;
+export default React.memo(Alert);
