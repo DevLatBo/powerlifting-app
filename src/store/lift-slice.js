@@ -58,6 +58,7 @@ const initialState = {
         repetition: 0,
         date: "",
         time: "",
+        flag: false,
     },
     table: {
         rowsPerPageOptions: [10],
@@ -81,7 +82,7 @@ const liftSlice = createSlice({
         },
         getLiftData(state, action) {
             state.data = action.payload.lift;
-        },
+        }
     }
 });
 

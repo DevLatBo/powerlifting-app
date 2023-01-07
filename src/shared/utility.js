@@ -8,7 +8,7 @@ export const updateObject = (oldObject, updatedProperties) => {
 export const getValueInput = (event, type) => {
     let value = null;
     if(type === "number") {
-        value = event.target.value;
+        value = parseFloat(event.target.value);
     }
     if(type === "checkbox") {
         value = event.target.checked;
