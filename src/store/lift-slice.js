@@ -80,8 +80,27 @@ const liftSlice = createSlice({
         setFormElements(state, action) {
             state.form = action.payload.form;
         },
-        getLiftData(state, action) {
+        setLiftData(state, action) {
             state.data = action.payload.lift;
+            const {weight, repetition, flag} = action.payload.lift;
+            state.form = {
+                ...state.form,
+                weight: {
+                    ...state.form.weight,
+                    value: weight,
+                    valid: true,
+                },
+                repetition: {
+                    ...state.form.repetition,
+                    value: repetition,
+                    valid: true,
+                },
+                flag: {
+                    ...state.form.flag,
+                    value: flag
+                }
+            };
+            state.formIsValid = true;
         }
     }
 });

@@ -13,6 +13,12 @@ const MovementItemForm = (props) => {
     const form = useSelector((state) => state.lift.form);
     const data = useSelector((state) => state.lift.data);
     const dispatch = useDispatch();
+    
+    useEffect(() => {
+        return () => {
+            dispatch(liftActions.reset());
+        }
+    }, [dispatch]);
 
     const inputChangeHandler = (event, inputIdentifier) => {
         const inputValue = getValueInput(event, form[inputIdentifier].elementType);
@@ -62,6 +68,7 @@ const MovementItemForm = (props) => {
 
             dispatch(liftActions.setFormElements({form: updatedForm}));
             dispatch(liftActions.setFormValidation({valid: false}));
+            
         }
     };
 

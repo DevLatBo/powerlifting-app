@@ -217,7 +217,8 @@ export const fetchLiftById = (movement, liftId) => {
             dispatch(uiActions.clearAlert());
             dispatch(uiActions.showLoader());
             const liftData = await fetchData();
-            dispatch(liftActions.getLiftData({lift: liftData}));
+            
+            dispatch(liftActions.setLiftData({lift: liftData}));
 
         } catch(error) {
             dispatch(uiActions.setError({error: error.message}));
