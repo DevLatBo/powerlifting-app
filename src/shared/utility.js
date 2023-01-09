@@ -6,20 +6,22 @@ export const updateObject = (oldObject, updatedProperties) => {
 };
 
 export const getValueInput = (event, type) => {
-    let value = null;
+    let res = null;
     if(type === "number") {
-        value = parseFloat(event.target.value);
+        const value = (event.target.value === null  || event.target.value === "") ? 0 : event.target.value;
+        res = parseFloat(value);
+        
     }
     if(type === "checkbox") {
-        value = event.target.checked;
+        res = event.target.checked;
     }
-    return value;
+    return res;
 };
 
 export const checkValidity = (value, rules) => {
     let isValid = true;
     if(rules.isEmpty) {
-        isValid = value.trim() !== '' && isValid;
+        isValid = value.length === 0 && isValid;
     }
     if(rules.isPositive) {
         isValid = parseFloat(value) > 0 && isValid;
