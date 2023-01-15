@@ -1,30 +1,26 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useCallback, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Table from '@mui/material/Table';
-import TableContainer from '@mui/material/TableContainer';
-import TableCell from '@mui/material/TableCell';
-import TablePagination from '@mui/material/TablePagination';
-import TableHead from '@mui/material/TableHead';
 import TableBody from '@mui/material/TableBody';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+import Grid from "@material-ui/core/Grid";
 
 import { StyledBlock } from '../UI/Styling/General-styling';
-import Title from '../UI/Title/Title';
+import Title  from '../UI/Title/Title';
 import HistoryItems from './HistoryItems/HistoryItems';
 import { fetchHistoryData } from '../../store/mov-actions';
 import { historyActions } from '../../store/history-slice';
+import Spinner from '../UI/Loader/Loader';
+import Alert from '../UI/Alert/Alert';
+import TableData from '../UI/TableData/TableData';
+import { uiActions } from '../../store/ui-slice';
 
 const History = (props) => {
     const dispatch = useDispatch();
     const isLoading = useSelector((state) => state.ui.loaderIsVisible);
     const alertMessage = useSelector((state) => state.ui.alertMessage);
     const history = useSelector((state) => state.history.data);
-    const liftTable = useSelector((state) => state.history.table);
+    const liftTable = useSelector((state) => state.ui.liftTable);
+    const dataSize = history.length;
 
-    const historyLength = history.length;
-    const error = alertMessage ? alertMessage.message : null;
-    
     useEffect(() => {
         dispatch(fetchHistoryData());
     }, [dispatch]);
@@ -33,23 +29,37 @@ const History = (props) => {
     useEffect(() => {
         return() => {
             dispatch(historyActions.reset());
+            dispatch(uiActions.reset());
         }
     },[dispatch])
 
-    const handleChangePage = (event, newPage) => {
-        dispatch(historyActions.setPage({page: newPage}));
-    };
+    const changePageTableHandler = useCallback((event, newPage) => {
+        dispatch(uiActions.setPage({page: newPage}));
+    }, [dispatch]);
 
-    const pagination = historyLength ? (
-        <TablePagination
-            rowsPerPageOptions={liftTable.rowsPerPageOptions}
-            component="div"
-            count={historyLength}
-            rowsPerPage={liftTable.rowsPerPage}
-            page={liftTable.page}
-            onPageChange={handleChangePage}
-        />) : null;
-        
+    const loader = isLoading && <Spinner size="lg"/>
+    
+    const errorMessage = alertMessage && <Alert type={alertMessage.type} 
+        className={alertMessage.class}>
+            {alertMessage.message}
+        </Alert>;
+
+
+    const table =  history.length && (
+        <TableData
+            onPageChange={changePageTableHandler}
+            size={dataSize}
+            pageConfig={liftTable}
+        >
+            <TableBody>
+                <HistoryItems 
+                    pageConfig={liftTable}
+                    recordItems={history}
+                />
+            </TableBody>
+        </TableData>
+    );
+     
     return (
         <Fragment>
             <Title 
@@ -57,73 +67,17 @@ const History = (props) => {
                 description="Ultimos levantamientos."
             />
             <StyledBlock>
-                <TableContainer component={Paper} 
-                    sx={{width: {xs: "100%", md:"90%"},margin:'40px auto'}}>
-                    <Table sx={{ minWidth: {lg: 700, xs: 100} }} 
-                        aria-label="PRs Table">
-                        <TableHead>
-                            <TableRow>
-                                <TableCell align="center" 
-                                    sx={{
-                                        color: '#FFFFFF',
-                                        fontWeight:'bold',
-                                        backgroundColor:'#FF0000',
-                                        fontSize: {xs: '0.5rem', md: '1rem'}
-                                    }}
-                                    width="5%"
-                                >
-                                        Movimiento
-                                </TableCell>
-                                <TableCell align="center" 
-                                    sx={{
-                                        color: '#FFFFFF',
-                                        fontWeight:'bold',
-                                        backgroundColor:'#FF0000',
-                                        fontSize: {xs: '0.5rem', md: '1rem'}
-                                    }}
-                                    width="20%"
-                                >
-                                        Peso [Reps]
-                                </TableCell>
-                                <TableCell align="center" 
-                                    sx={{
-                                        color: '#FFFFFF',
-                                        fontWeight:'bold',
-                                        backgroundColor:'#FF0000',
-                                        fontSize: {xs: '0.5rem', md: '1rem'}
-                                    }}
-                                    width="50%"
-                                >
-                                        Fecha | Hora
-                                </TableCell>
-                                <TableCell align="center" 
-                                    sx={{
-                                        color: '#FFFFFF',
-                                        fontWeight:'bold',
-                                        backgroundColor:'#FF0000',
-                                        fontSize: {xs: '0.5rem', md: '1rem'}
-                                    }}
-                                    width="25%"
-                                >
-                                    Acción
-                                </TableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            <HistoryItems 
-                                page={liftTable.page}
-                                rowsPerPage={liftTable.rowsPerPage}
-                                error={error} 
-                                flagLoader={isLoading}
-                                recordItems={history}
-                            />
-                        </TableBody>
-                    </Table>
-                    { pagination }
-                </TableContainer>
+                <Grid container 
+                        direction="row"
+                        justifyContent="center"
+                        alignItems="center">
+                    {table}
+                    {loader}
+                    {errorMessage}
+                </Grid>
             </StyledBlock>
         </Fragment>
-    );
+    )
 }
 
 export default React.memo(History);

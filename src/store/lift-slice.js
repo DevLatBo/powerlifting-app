@@ -60,11 +60,6 @@ const initialState = {
         time: "",
         flag: false,
     },
-    table: {
-        rowsPerPageOptions: [10],
-        page: 0,
-        rowsPerPage: 10,
-    },
 }
 
 const liftSlice = createSlice({

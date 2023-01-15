@@ -5,6 +5,11 @@ const initialState = {
     alertMessage: null,
     loaderIsVisible: false,
     error: null,
+    liftTable: {
+        rowsPerPageOptions: [5],
+        page: 0,
+        rowsPerPage: 5,
+    },
 };
 
 const uiSlice = createSlice({
@@ -41,6 +46,9 @@ const uiSlice = createSlice({
         },
         setError(state, action) {
             state.error = action.payload.error
+        },
+        setPage(state, action) {
+            state.liftTable.page = action.payload.page;
         },
     }
 })

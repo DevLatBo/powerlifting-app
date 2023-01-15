@@ -6,8 +6,6 @@ import TableRow from '@mui/material/TableRow';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import EditIcon from '@mui/icons-material/Edit';
 
-import Spinner from '../../UI/Loader/Loader';
-import Alert from '../../UI/Alert/Alert';
 import Button from '../../UI/Button/Button'
 import { removeLifting } from '../../../store/mov-actions';
 import { obtainMovementName } from '../../../shared/utility'; 
@@ -15,7 +13,8 @@ import { obtainMovementName } from '../../../shared/utility';
 const HistoryItems = (props) => {
     const dispatch = useDispatch();
     const history = useHistory();
-    const {page, rowsPerPage, recordItems, error, flagLoader} = props;
+    const { pageConfig, recordItems } = props;
+    const { page, rowsPerPage } = pageConfig
     
     const sxRowInvalid = {
         backgroundColor: "#F59F9F"
@@ -31,22 +30,6 @@ const HistoryItems = (props) => {
             </TableCell>
         </TableRow>
     ;
-    const loader = 
-        <TableRow>
-            <TableCell align="center" colSpan={4}>
-                <Spinner size="lg" />
-            </TableCell>
-        </TableRow>;
-
-    const errorMessage = 
-        <TableRow>
-            <TableCell align="center" colSpan={4}>
-                <Alert type="error"
-                    className="error">
-                    {error}
-                </Alert>
-            </TableCell>
-        </TableRow>;
 
     const onRemoveLiftHandler = (id, movement) => {
         dispatch(removeLifting(id, movement));
@@ -116,9 +99,7 @@ const HistoryItems = (props) => {
 
     return (
         <Fragment>
-            { !flagLoader && !error && items }
-            { flagLoader && loader }
-            { !flagLoader && error && errorMessage }
+            {items}
         </Fragment>
     )
     

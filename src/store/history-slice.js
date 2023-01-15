@@ -3,11 +3,6 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     data: [],
     prs: [],
-    table: {
-        rowsPerPageOptions: [10],
-        page: 0,
-        rowsPerPage: 10,
-    },
 };
 
 const historySlice = createSlice({
