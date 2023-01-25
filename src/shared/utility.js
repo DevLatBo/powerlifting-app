@@ -21,7 +21,7 @@ export const getValueInput = (event, type) => {
 export const checkValidity = (value, rules) => {
     let isValid = true;
     if(rules.isEmpty) {
-        isValid = value.length === 0 && isValid;
+        isValid = value.length !== 0 && isValid;
     }
     if(rules.isPositive) {
         isValid = parseFloat(value) > 0 && isValid;
