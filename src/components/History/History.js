@@ -71,9 +71,9 @@ const History = (props) => {
                         direction="row"
                         justifyContent="center"
                         alignItems="center">
+                    {errorMessage}
                     {table}
                     {loader}
-                    {errorMessage}
                 </Grid>
             </StyledBlock>
         </Fragment>

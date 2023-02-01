@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 import { liftActions } from '../../../../store/lift-slice';
 import Button from '../../../UI/Button/Button';
@@ -13,6 +14,7 @@ const MovementItemForm = (props) => {
     const form = useSelector((state) => state.lift.form);
     const data = useSelector((state) => state.lift.data);
     const dispatch = useDispatch();
+    const history = useHistory();
     
     useEffect(() => {
         return () => {
@@ -39,6 +41,7 @@ const MovementItemForm = (props) => {
 
     const liftHandler = (event) => {
         event.preventDefault();
+        console.log("test");
         const formData = {};
         const today = new Date();
         for(let formElementIdentifier in form) {
@@ -68,6 +71,13 @@ const MovementItemForm = (props) => {
 
             dispatch(liftActions.setFormElements({form: updatedForm}));
             dispatch(liftActions.setFormValidation({valid: false}));
+            
+            history.push({
+                pathname: '/history'
+            });
+            /*setTimeout(() => {
+                history.push('/history');
+            }, 500);*/
             
         }
     };
