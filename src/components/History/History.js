@@ -44,8 +44,7 @@ const History = (props) => {
             {alertMessage.message}
         </Alert>;
 
-
-    const table =  history.length && (
+    const table =  Object.keys(history).length !== 0 && (
         <TableData
             onPageChange={changePageTableHandler}
             size={dataSize}

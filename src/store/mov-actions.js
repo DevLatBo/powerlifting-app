@@ -7,226 +7,177 @@ const FIREBASE_DOMAIN = "https://powerlifting-react-default-rtdb.firebaseio.com/
 
 export const addLifting = (movement, lift) => {
     return async(dispatch) => {
-        dispatch(uiActions.showAlert({
-            type: "info",
-            class: "form-alert",
-            message: "Registrando levantamiento...",
-        }));
-        const sendRequest = async () => {
-            const response = await fetch(`${FIREBASE_DOMAIN}/lifts/${movement}/.json`,{
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(
-                    lift
-                ),
-            });
-            if(!response.ok) {
-                throw new Error('Sending lift data failed');
-            }
+        const options = {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(
+                lift
+            ),
         };
-        try {
-            await sendRequest();
+        await fetch(
+            `${FIREBASE_DOMAIN}/lifts/${movement}/.json`,
+            options
+        ).catch( (error) => {
+            dispatch(uiActions.showAlert({
+                type: "error",
+                class: "form-alert",
+                message: error.message,
+            }));
+        }).finally( () => {
             dispatch(uiActions.showAlert({
                 type: "success",
                 class: "form-alert",
                 message: "Levantamiento registrado con exito.",
             }));
-
-        }catch(error) {
-            dispatch(uiActions.showAlert({
-                type: "error",
-                class: "form-alert",
-                message: error.message,
-            }));
-        }
+        });
     };
 };
 
 export const editLifting = (id, movement, lift) => {
     return async(dispatch) => {
-        const sendRequest = async() => {
-            const response = await fetch(`${FIREBASE_DOMAIN}/lifts/${movement}/${id}.json`, {
-                method: "PUT",
-                headers: {
-                    'Content-Type': 'application/json',
-                    'x-access-token': 'token-value'
-                },
-                body: JSON.stringify(
-                    lift
-                ),
-            });
-            if(!response.ok) {
-                throw new Error('Updating lift data failed');
-            }
-        }
-        try {
-            await sendRequest();
+        const options = {
+            method: "PUT",
+            headers: {
+                'Content-Type': 'application/json',
+                'x-access-token': 'token-value'
+            },
+            body: JSON.stringify(
+                lift
+            ),
+        };
+        await fetch(
+            `${FIREBASE_DOMAIN}/lifts/${movement}/${id}.json`, 
+            options
+        ).catch( (error) => {
+            dispatch(uiActions.showAlert({
+                type: "error",
+                class: "form-alert",
+                message: error.message,
+            }));
+        }).finally( () => {
             dispatch(uiActions.showAlert({
                 type: "success",
                 class: "form-alert",
                 message: "Levantamiento actualizado con exito.",
             }));
-
-        }catch(error) {
-            dispatch(uiActions.showAlert({
-                type: "error",
-                class: "form-alert",
-                message: error.message,
-            }));
-        }
+        });
     }
 }
 
 export const removeLifting = (id, movement) => {
     return async(dispatch) => {
-        const sendRequest = async() =>  {
-            const response = await fetch(`${FIREBASE_DOMAIN}/lifts/${movement}/${id}.json`, {
-                method: "DELETE",
-            });
+        const options = {
+            method: "DELETE",
+        };
 
-            if(!response.ok) {
-                throw new Error('Sending lift data failed');
-            }
-        }
-
-        try {
-            await sendRequest();
+        await fetch(
+            `${FIREBASE_DOMAIN}/lifts/${movement}/${id}.json`,
+            options
+        ).then( () => {
             dispatch(historyActions.removeHistoryItem({ liftId: id }));
-        }
-        catch(error) {
+        }).catch( (error) => {
             dispatch(uiActions.showAlert({
                 type: "error",
                 class: "form-alert",
                 message: error.message
             }));
-        }
+        });
+        
     }
 }
 
 export const fetchMovementsData = () => {
     return async(dispatch) => {
-        const fetchData = async() => {
-            const response = await fetch(
-                `${FIREBASE_DOMAIN}/movements.json`
-              );
-        
-              if (!response.ok) {
-                throw new Error('Could not fetch movements data!');
-              }
-        
-              const data = await response.json();
-              return data;
-        }
-        try {
-            dispatch(uiActions.showLoader());
-            const movementsData = await fetchData();
+        dispatch(uiActions.showLoader());
+        await fetch(
+            `${FIREBASE_DOMAIN}/movements.json`
+        ).then( (response) => {
+            return response.json();
+        }).then( (data) => {
+            const movementsData = data;
             dispatch(movActions.replaceMovementsData({ movements: movementsData }));
-
-        } catch(error) {
-            dispatch(uiActions.setError({error: error.message}));
+        }).catch( (error) => {
             dispatch(uiActions.showAlert({
                 type: 'error',
                 class: 'error',
                 message: error.message,
             }));
-        }
-        dispatch(uiActions.hideLoader());
+        }).finally( () => {
+            dispatch(uiActions.hideLoader());
+        });
     }
 };
 
 export const fetchHistoryData = () => {
     return async(dispatch) => {
-        const fetchData = async () => {
-            const response = await fetch(
-                `${FIREBASE_DOMAIN}/lifts.json`
-            );
-            if(!response.ok) {
-                throw new Error("Something wrong happened!");
-            }
-            const data = await response.json();
-            
-            return data;
-        }
-        try {
-            dispatch(uiActions.clearAlert());
-            dispatch(uiActions.showLoader());
-            const liftsData = await fetchData();
+        dispatch(uiActions.showLoader());
+        await fetch(
+            `${FIREBASE_DOMAIN}/lifts.json`
+        ).then( (response) => {
+            return response.json();
+        }).then( (data) => {
+            const liftsData = data;
             dispatch(historyActions.getAllLifts({ lifts: liftsData }));
-        } catch(error) {
+        }).then( () => {
+
+        }).catch(error => {
             dispatch(uiActions.setError({error: error.message}));
             dispatch(uiActions.showAlert({
                 type: 'error',
                 class: 'error',
                 message: error.message,
             }));
-        }
-        dispatch(uiActions.hideLoader());
+        }).finally(() => {
+            dispatch(uiActions.hideLoader());
+        });
     }
 }
 
 export const fetchPRsData = () => {
     return async(dispatch) => {
-        const fetchData = async () => {
-            const responses = await Promise.all([
-                fetch(`${FIREBASE_DOMAIN}/lifts.json`),
-                fetch(`${FIREBASE_DOMAIN}/movements.json`)
-            ]).then(([liftsResponse, movementsResponse]) =>  {
-                if(!liftsResponse.ok || !movementsResponse.ok) {
-                    throw new Error("Something wrong happened!");
-                }
-                return Promise.all([liftsResponse.json(), movementsResponse.json()])
-            });
-            
-
-            const data = responses;
-            
-            return data;
-        }
-        try {
-            dispatch(uiActions.showLoader());
-            const information = await fetchData();
+        dispatch(uiActions.showLoader());
+        await Promise.all([
+            fetch(`${FIREBASE_DOMAIN}/lifts.json`),
+            fetch(`${FIREBASE_DOMAIN}/movements.json`)
+        ]).then(([liftsResponse, movementsResponse]) =>  {
+            if(!liftsResponse.ok || !movementsResponse.ok) {
+                throw new Error("Something wrong happened!");
+            }
+            return Promise.all([liftsResponse.json(), movementsResponse.json()])
+        }).then((information) => {
             const [lifts, movements] = information;
             dispatch(historyActions.getPRs({ lifts: lifts, movements: movements }));
-        } catch(error) {
+        }).catch( (error) => {
             dispatch(uiActions.setError({error: error.message}));
             dispatch(uiActions.showAlert({
                 type: 'error',
                 class: 'error',
                 message: error.message,
             }));
-        }
-        dispatch(uiActions.hideLoader());
+        }).finally( () => {
+            dispatch(uiActions.hideLoader());
+        });
     }
 }
 
 export const fetchLiftById = (movement, liftId) => {
     return async(dispatch) => {
-        const fetchData = async () => {
-            const response = await fetch(
-                `${FIREBASE_DOMAIN}/lifts/${movement}/${liftId}.json`
-            );
-            if(!response.ok) {
-                throw new Error("Something wrong happened!");
-            }
-            const data = await response.json();
-            return data;
-        }
-        try {
-            dispatch(uiActions.clearAlert());
-            dispatch(uiActions.showLoader());
-            const liftData = await fetchData();
-            
+        await fetch(
+            `${FIREBASE_DOMAIN}/lifts/${movement}/${liftId}.json`
+        ).then( (response) => {
+            return response.json();
+        }).then( (data) => {
+            const liftData = data;
             dispatch(liftActions.setLiftData({lift: liftData}));
-
-        } catch(error) {
+        }).catch( (error) => {
             dispatch(uiActions.setError({error: error.message}));
             dispatch(uiActions.showAlert({
                 type: 'error',
                 class: 'error',
                 message: error.message,
             }));
-        }
+        });
     }
 }

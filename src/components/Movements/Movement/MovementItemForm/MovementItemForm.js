@@ -41,7 +41,6 @@ const MovementItemForm = (props) => {
 
     const liftHandler = (event) => {
         event.preventDefault();
-        console.log("test");
         const formData = {};
         const today = new Date();
         for(let formElementIdentifier in form) {
@@ -72,12 +71,10 @@ const MovementItemForm = (props) => {
             dispatch(liftActions.setFormElements({form: updatedForm}));
             dispatch(liftActions.setFormValidation({valid: false}));
             
-            history.push({
-                pathname: '/history'
-            });
-            /*setTimeout(() => {
+            
+            setTimeout(() => {
                 history.push('/history');
-            }, 500);*/
+            }, 200);
             
         }
     };
