@@ -12,7 +12,7 @@ const initialState = {
                 type: "number",
                 placeholder: "Inserte Peso",
             },
-            value: 0,
+            value: "",
             control: {
                 isEmpty: true,
                 isPositive: true,
@@ -31,7 +31,7 @@ const initialState = {
                 type: "number",
                 placeholder: "Inserte Repeticiones",
             },
-            value: 0,
+            value: "",
             control: {
                 isEmpty: true,
                 isPositive: true,

@@ -42,7 +42,7 @@ export const StyledForm = styled.div`
     padding: 10px;
     box-sizing: border-box;
     @media (min-width: 768px) {
-        width: 45vw;
+        width: 30vw;
     }
     @media (max-width: 768px) {
         width: 60vw;

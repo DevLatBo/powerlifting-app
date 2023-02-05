@@ -37,7 +37,7 @@ export const StyledButton = styled.button`
     @media (min-width: 768px) {
         &.btnLift, &.btnLiftDisabled{
             font-size: 50px;
-            width: 30vw;
+            width: 20vw;
         }
         &.btnLiftRemove svg {
             font-size: 2rem;

@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 export const StyledInputLift = styled(TextField)`
     &.InputLift {
-        width: 30vw;
         margin: 20px 0px 20px 0px;
     }
     &.InputLift input {
@@ -17,6 +16,9 @@ export const StyledInputLift = styled(TextField)`
         margin: 0;
     }
     @media (min-width: 768px) {
+        &.InputLift {
+            width: 20vw;
+        }
         &.InputLift input {
             font-size: 2.5rem;
         }
@@ -25,6 +27,9 @@ export const StyledInputLift = styled(TextField)`
         }
     }
     @media (max-width: 768px) {
+        &.InputLift {
+            width: 30vw;
+        }
         &.InputLift input {
             font-size: 2.25rem;
         }
