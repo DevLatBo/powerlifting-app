@@ -94,6 +94,9 @@ export const fetchMovementsData = () => {
         await fetch(
             `${FIREBASE_DOMAIN}/movements.json`
         ).then( (response) => {
+            if(!response.ok) {
+                throw new Error("Something went wrong by getting movements data.");
+            }
             return response.json();
         }).then( (data) => {
             const movementsData = data;
@@ -116,6 +119,9 @@ export const fetchHistoryData = () => {
         await fetch(
             `${FIREBASE_DOMAIN}/lifts.json`
         ).then( (response) => {
+            if(!response.ok) {
+                throw new Error("Something went wrong by getting history data.");
+            }
             return response.json();
         }).then( (data) => {
             const liftsData = data;
@@ -143,7 +149,7 @@ export const fetchPRsData = () => {
             fetch(`${FIREBASE_DOMAIN}/movements.json`)
         ]).then(([liftsResponse, movementsResponse]) =>  {
             if(!liftsResponse.ok || !movementsResponse.ok) {
-                throw new Error("Something wrong happened!");
+                throw new Error("Something wrong happened by getting PRs Data.");
             }
             return Promise.all([liftsResponse.json(), movementsResponse.json()])
         }).then((information) => {
