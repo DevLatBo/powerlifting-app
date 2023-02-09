@@ -13,7 +13,7 @@
 
 ## Acerca del Proyecto
 
-<img align="right" alt="GIF" width="300px" src="https://media.giphy.com/media/MOZmiiI4wk4i7QDmHH/giphy-downsized-large.gif" />
+<img align="right" alt="GIF" width="300px" src="https://media.giphy.com/media/Ae9RmQOtH8vmXCMlc4/giphy.gif" />
 Web app para la práctica del deporte **Powerlifting** o llamado también **Levantamiento en Potencia**.
 Esta aplicación que es de uso personal tiene como objetivo obtener y guardar los registros personales del usuario y considerar 
 también sus levantamientos máximos en cada uno de los movimientos del Powelifting que son:
