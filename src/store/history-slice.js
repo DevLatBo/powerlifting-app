@@ -9,9 +9,6 @@ const historySlice = createSlice({
     name: 'history',
     initialState,
     reducers: {
-        reset(state) {
-            Object.assign(state, initialState);
-        },
         setPage(state, action) {
             state.table.page = action.payload.page;
         },

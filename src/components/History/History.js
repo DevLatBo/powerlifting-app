@@ -20,6 +20,11 @@ const History = (props) => {
     const history = useSelector((state) => state.history.data);
     const liftTable = useSelector((state) => state.ui.liftTable);
     const dataSize = history.length;
+    console.log(isLoading);
+    console.log(alertMessage);
+    console.log(history);
+    console.log(liftTable);
+    console.log("-------------");
 
     useEffect(() => {
         dispatch(fetchHistoryData());
@@ -28,7 +33,6 @@ const History = (props) => {
     // ComponentWillUnmount
     useEffect(() => {
         return() => {
-            dispatch(historyActions.reset());
             dispatch(uiActions.reset());
         }
     },[dispatch])
