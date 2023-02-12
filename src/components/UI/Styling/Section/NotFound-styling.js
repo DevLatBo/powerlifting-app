@@ -16,11 +16,19 @@ export const NotFoundImg = styled.div`
 
 export const NotFoundMsg = styled.div`
     padding: 60px;
-    text-align: justify;
     h2 {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
     p {
-        font-size: 2rem;
+        font-size: 1.5rem;
+    }
+    @media (max-width: 768px) {
+        text-align: center;
+        h2 {
+            font-size: 2rem;
+        }
+        p {
+            font-size: 1rem;
+        }
     }
 `;
