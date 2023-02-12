@@ -72,7 +72,7 @@ export const StyledHomeTitle = styled.div`
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
-        padding: 40vh 0px 40vh 0px;
+        padding: 50vh 0px 50vh 0px;
         & video {
             display: none;
         }
