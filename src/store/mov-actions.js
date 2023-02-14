@@ -123,11 +123,23 @@ export const fetchHistoryData = () => {
                 throw new Error("Something went wrong by getting history data.");
             }
             return response.json();
+        }).then((data) => {
+            const liftData = data;
+            let flag = true;
+            if(!liftData) {
+                flag = false;
+                dispatch(uiActions.showAlert({
+                    type: 'warning',
+                    class: 'warning',
+                    message: 'No hay levantamientos registrados.'
+                }));
+            }
+            return Promise.all([flag, liftData]);
         }).then( (data) => {
-            const liftsData = data;
-            dispatch(historyActions.getAllLifts({ lifts: liftsData }));
-        }).then( () => {
-
+            const [flag, liftsData] = data;
+            if(flag){
+                dispatch(historyActions.getAllLifts({ lifts: liftsData }));
+            }
         }).catch(error => {
             dispatch(uiActions.setError({error: error.message}));
             dispatch(uiActions.showAlert({
@@ -151,7 +163,7 @@ export const fetchPRsData = () => {
             if(!liftsResponse.ok || !movementsResponse.ok) {
                 throw new Error("Something wrong happened by getting PRs Data.");
             }
-            return Promise.all([liftsResponse.json(), movementsResponse.json()])
+            return Promise.all([liftsResponse.json(), movementsResponse.json()]);
         }).then((information) => {
             const [lifts, movements] = information;
             dispatch(historyActions.getPRs({ lifts: lifts, movements: movements }));

@@ -7,7 +7,6 @@ import { StyledBlock } from '../UI/Styling/General-styling';
 import Title  from '../UI/Title/Title';
 import HistoryItems from './HistoryItems/HistoryItems';
 import { fetchHistoryData } from '../../store/mov-actions';
-import { historyActions } from '../../store/history-slice';
 import Spinner from '../UI/Loader/Loader';
 import Alert from '../UI/Alert/Alert';
 import TableData from '../UI/TableData/TableData';
@@ -20,11 +19,11 @@ const History = (props) => {
     const history = useSelector((state) => state.history.data);
     const liftTable = useSelector((state) => state.ui.liftTable);
     const dataSize = history.length;
-    console.log(isLoading);
+    /*console.log(isLoading);
     console.log(alertMessage);
     console.log(history);
     console.log(liftTable);
-    console.log("-------------");
+    console.log("-------------");*/
 
     useEffect(() => {
         dispatch(fetchHistoryData());
@@ -43,7 +42,7 @@ const History = (props) => {
 
     const loader = isLoading && <Spinner size="lg"/>
     
-    const errorMessage = alertMessage && <Alert type={alertMessage.type} 
+    const message = alertMessage && <Alert type={alertMessage.type} 
         className={alertMessage.class}>
             {alertMessage.message}
         </Alert>;
@@ -74,7 +73,7 @@ const History = (props) => {
                         direction="row"
                         justifyContent="center"
                         alignItems="center">
-                    {errorMessage}
+                    {message}
                     {table}
                     {loader}
                 </Grid>

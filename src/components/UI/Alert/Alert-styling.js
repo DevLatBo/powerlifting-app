@@ -3,10 +3,10 @@ import styled from 'styled-components';
 
 export const StyledAlert = styled(Alert)`
     margin: 0 auto;
-    &.error {
+    &.error, &.warning {
         font-size: 1.75rem;
     }
-    &.error .MuiAlert-icon {
+    &.error .MuiAlert-icon, &.warning .MuiAlert-icon {
         font-size: 2.125rem;
     }
     &.form-alert {
