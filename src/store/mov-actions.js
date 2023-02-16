@@ -29,7 +29,7 @@ export const addLifting = (movement, lift) => {
             dispatch(uiActions.showAlert({
                 type: "success",
                 class: "form-alert",
-                message: "Levantamiento registrado con exito.",
+                message: "Levantamiento registrado con éxito.",
             }));
         });
     };
@@ -60,7 +60,7 @@ export const editLifting = (id, movement, lift) => {
             dispatch(uiActions.showAlert({
                 type: "success",
                 class: "form-alert",
-                message: "Levantamiento actualizado con exito.",
+                message: "Levantamiento actualizado con éxito.",
             }));
         });
     }
@@ -82,6 +82,12 @@ export const removeLifting = (id, movement) => {
                 type: "error",
                 class: "form-alert",
                 message: error.message
+            }));
+        }).finally( () => {
+            dispatch(uiActions.showAlert({
+                type: "success",
+                class: "form-alert",
+                message: "Item eliminado con éxito",
             }));
         });
         

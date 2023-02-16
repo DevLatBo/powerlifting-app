@@ -40,10 +40,17 @@ const History = (props) => {
         dispatch(uiActions.setPage({page: newPage}));
     }, [dispatch]);
 
+    const clearAlert = () => {
+        dispatch(uiActions.clearAlert());
+    }
+
     const loader = isLoading && <Spinner size="lg"/>
     
-    const message = alertMessage && <Alert type={alertMessage.type} 
-        className={alertMessage.class}>
+    const message = alertMessage && <Alert 
+            type={alertMessage.type} 
+            className={alertMessage.class}
+            onClose={clearAlert}
+        >
             {alertMessage.message}
         </Alert>;
 
