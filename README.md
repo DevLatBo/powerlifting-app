@@ -3,6 +3,7 @@
 ## Contenido
 
 - [Acerca del Proyecto](#acerca-del-proyecto) :information_source:
+- [Instrucciones](#instruccion) :page_with_curl:
 - [Tecnologias](#tecnologias) :keyboard:
 - [Dependencias](#dependencias) :desktop_computer:
 - [Instalacion](#instalacion) 💾
@@ -28,6 +29,16 @@ También tiene una sección en donde se da información de lo que se trata el Po
 
 **[⬆ Inicio](#contenido)**
 ***
+
+## Instrucciones
+Para poder usar este sistema de registro de levantamiento, sigue estos simples pasos:
+* Ve a la sección de Movimientos.
+* Eige una de las opciones de movimientos.
+* Llena los campos de Peso, Repeticiones y confiram si es valido o no el levantamiento con el checkbox.
+* Envia los datos y este te redirecciona a la página de Historial.
+
+La página de Historial muestra todos los levantamientos registrados, cada item puedes modificar o eliminar de la misma tabla presente ahí.
+Otra sección presente es el de PRs que es para mostrar los records personales del usuario, solo muestra en cada contenedor el levantamiento máximo por movimiento.
 
 ## Tecnologias
 Para este proyecto se tiene trabajado con Javascript bajo el estandar de ES6 con ReactJS.
