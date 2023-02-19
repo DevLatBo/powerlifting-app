@@ -3,7 +3,7 @@
 ## Contenido
 
 - [Acerca del Proyecto](#acerca-del-proyecto) :information_source:
-- [Instrucciones](#instruccion) :page_with_curl:
+- [Instrucciones](#instrucciones) :page_with_curl:
 - [Tecnologias](#tecnologias) :keyboard:
 - [Dependencias](#dependencias) :desktop_computer:
 - [Instalacion](#instalacion) 💾
