@@ -40,6 +40,9 @@ Para poder usar este sistema de registro de levantamiento, sigue estos simples p
 La página de Historial muestra todos los levantamientos registrados, cada item puedes modificar o eliminar de la misma tabla presente ahí.
 Otra sección presente es el de PRs que es para mostrar los records personales del usuario, solo muestra en cada contenedor el levantamiento máximo por movimiento.
 
+**[⬆ Inicio](#contenido)**
+***
+
 ## Tecnologias
 Para este proyecto se tiene trabajado con Javascript bajo el estandar de ES6 con ReactJS.
 ***
