@@ -3,6 +3,7 @@
 ## Contenido
 
 - [Acerca del Proyecto](#acerca-del-proyecto) :information_source:
+- [Instrucciones](#instrucciones) :page_with_curl:
 - [Tecnologias](#tecnologias) :keyboard:
 - [Dependencias](#dependencias) :desktop_computer:
 - [Instalacion](#instalacion) 💾
@@ -25,6 +26,19 @@ también sus levantamientos máximos en cada uno de los movimientos del Powelift
 Se toma en cuenta en el registro el número de repeticiones, el peso total de la barra, y la fecha y tiempo 
 del momento que se esta realizando la accion.
 También tiene una sección en donde se da información de lo que se trata el Powerlifting y una breve descripción de cada uno de los 3 movimientos.
+
+**[⬆ Inicio](#contenido)**
+***
+
+## Instrucciones
+Para poder usar este sistema de registro de levantamiento, sigue estos simples pasos:
+* Ve a la sección de Movimientos.
+* Eige una de las opciones de movimientos.
+* Llena los campos de Peso, Repeticiones y confiram si es valido o no el levantamiento con el checkbox.
+* Envia los datos y este te redirecciona a la página de Historial.
+
+La página de Historial muestra todos los levantamientos registrados, cada item puedes modificar o eliminar de la misma tabla presente ahí.
+Otra sección presente es el de PRs que es para mostrar los records personales del usuario, solo muestra en cada contenedor el levantamiento máximo por movimiento.
 
 **[⬆ Inicio](#contenido)**
 ***
