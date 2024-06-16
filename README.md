@@ -74,6 +74,7 @@ Para instalar en tu local el unico comando que necesitas para instalar el proyec
 
 ## API
 Para este proyecto al menos hasta la version 1.5.4 se ha usado firebase, la estructura para la API empezando por la definicion de los movimientos es de la siguiente forma:
+<pre>
 "movements" --> "bench-press"
                 --> body: "Pectorales"
                 --> description: "El powerlifter se situará tumbado sobre el banco, apoyando todo el tronco, así como la cabeza y los glúteos. Una vez bien colocado, bajará la barra hasta el pecho y la levantará con potencia hasta dejar los brazos completamente estirados. Es importante en este ejercicio no levantar la cabeza del banco. Con esta técnica se trabajará directamente con brazos, pecho y hombros, aunque también se ven involucrados otros músculos menores."
@@ -97,6 +98,7 @@ Para registro de cada levantamiento o ejecucion lo tenemos en nodo llamado "lift
                            repetition -> int (numero de repeticiones)
                            time -> "HH:mm" (la hora cuando se realizó el levantamiento)
                            weight --> double/float (Peso)
+</pre>
 
  Lo mismo se repite para nodos "deadlift" y "squat". Asi que para este proyecto es tomar en cuenta esa estructura para tener desde firebase los datos que se van agregando, editando o eliminando en https://console.firebase.google.com/.
                 
