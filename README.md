@@ -73,9 +73,33 @@ Para instalar en tu local el unico comando que necesitas para instalar el proyec
 ***
 
 ## API
-Los datos para esta web app son obtenidos directamente desde Firebase, para la api desde firebase dirijase a la url: https://console.firebase.google.com
-y una vez creado, se obtiene la base url para poder almacenar todos los datos que se guardan desde esta web app.
+Para este proyecto al menos hasta la version 1.5.4 se ha usado firebase, la estructura para la API empezando por la definicion de los movimientos es de la siguiente forma:
+"movements" --> "bench-press"
+                --> body: "Pectorales"
+                --> description: "El powerlifter se situará tumbado sobre el banco, apoyando todo el tronco, así como la cabeza y los glúteos. Una vez bien colocado, bajará la barra hasta el pecho y la levantará con potencia hasta dejar los brazos completamente estirados. Es importante en este ejercicio no levantar la cabeza del banco. Con esta técnica se trabajará directamente con brazos, pecho y hombros, aunque también se ven involucrados otros músculos menores."
+                --> image: "nombre de la imagen"
+                --> name: "Press de Banca"
+            --> "deadlift"
+                --> body: "Espalda/Lumbar"
+                --> description: "Se realiza colocándose el levantador con las piernas un poco separadas y ligeramente flexionadas frente a la barra que se sitúa en el suelo. Para hacer este movimiento deberá inclinarse con todo el tronco hacia adelante sin arquear la espalda. En este caso, el movimiento se realiza con todo el cuerpo, no con los brazos."
+                --> image: "nombre de la imagen"
+                --> name: "Peso Muerto"
+            --> "squat
+                --> body: "Piernas"
+                --> description: "Se inicia directamente de pie, con los pies separados a la altura de los hombros y la espalda recta. En este caso, la barra se sitúa tras los trapecios y se realiza una sentadilla que debe terminar con las rodillas en un ángulo de 90 grados, no debe sobrepasarse. Una vez realizada, se vuelve a la posición inicial. En este último, se trabajará con glúteos y piernas, especialmente abductores y aductores."
+                --> image: "nombre de la imagenm"
+                --> name: "Sentadilla"
 
+Para registro de cada levantamiento o ejecucion lo tenemos en nodo llamado "lifts" :
+"lifts" --> "bench-press"
+                --> id --> date --> "YYYY-mm-dd" (fecha del levantamiento)
+                           flag --> true/false (si levantamiento fue valido)
+                           repetition -> int (numero de repeticiones)
+                           time -> "HH:mm" (la hora cuando se realizó el levantamiento)
+                           weight --> double/float (Peso)
+
+ Lo mismo se repite para nodos "deadlift" y "squat". Asi que para este proyecto es tomar en cuenta esa estructura para tener desde firebase los datos que se van agregando, editando o eliminando en https://console.firebase.google.com/.
+                
 **[⬆ Inicio](#contenido)**
 ***
 
