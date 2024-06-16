@@ -90,8 +90,10 @@ Para este proyecto al menos hasta la version 1.5.4 se ha usado firebase, la estr
                 --> description: "Se inicia directamente de pie, con los pies separados a la altura de los hombros y la espalda recta. En este caso, la barra se sitúa tras los trapecios y se realiza una sentadilla que debe terminar con las rodillas en un ángulo de 90 grados, no debe sobrepasarse. Una vez realizada, se vuelve a la posición inicial. En este último, se trabajará con glúteos y piernas, especialmente abductores y aductores."
                 --> image: "nombre de la imagenm"
                 --> name: "Sentadilla"
+</pre>
 
 Para registro de cada levantamiento o ejecucion lo tenemos en nodo llamado "lifts" :
+<pre>
 "lifts" --> "bench-press"
                 --> id --> date --> "YYYY-mm-dd" (fecha del levantamiento)
                            flag --> true/false (si levantamiento fue valido)
